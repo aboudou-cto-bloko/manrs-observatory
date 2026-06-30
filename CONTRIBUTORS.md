@@ -1,11 +1,10 @@
 # Contributeurs
 
 ## Équipe
-- **François Mawutô Aboudou ZINSOU** — Développeur principal, architecture, mémoire
-- **TOUGAN Dodds** — Binôme
+- François Mawutô Aboudou ZINSOU
+- TOUGAN Dodds
 
-## Accompagnateur
-- [À remplir par l'accompagnateur]
+## Accompagnateur du projet
+- [À remplir]
 
-## Rôle
 Projet de fin d'études — Observatoire MANRS West Africa (Juin 2026).
