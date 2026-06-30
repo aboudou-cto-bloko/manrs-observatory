@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>TUTORIEL_COMPLET</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="-" />
+</head>
+<body>
+<h1 id="tutoriel-complet-manrs-observatory-de-zéro">Tutoriel complet —
+MANRS Observatory de zéro</h1>
+<blockquote>
+<p>Guide pédagogique : pourquoi chaque décision, flux de données, ordre
+de développement. Pour quelqu’un qui redémarre le projet ou veut
+comprendre l’architecture en profondeur.</p>
+</blockquote>
+<p><strong>Date</strong> : Juin 2026<br />
+<strong>Stack</strong> : Python/FastAPI/React/PostgreSQL<br />
+<strong>Objectif</strong> : Mesurer la conformité MANRS des 477
+opérateurs réseau d’Afrique de l’Ouest</p>
+<hr />
+<h2 id="chapitre-1-pourquoi-cette-architecture">Chapitre 1 — Pourquoi
+cette architecture ?</h2>
+<h3 id="le-problème">Le problème</h3>
+<p>Tu dois répondre à cette question :<br />
+<strong>Quel est l’état de la sécurité du routage Internet en Afrique de
+l’Ouest ?</strong></p>
+<p>Pour répondre, tu dois : 1. Collecter des données sur 477 opérateurs
+réseau (ASN) dans 16 pays 2. Évaluer ces opérateurs sur 4 critères MANRS
+(filtering, anti-spoofing, coordination, validation) 3. Afficher ça sur
+une carte interactive 4. Permettre de cliquer sur un pays → voir ses
+opérateurs → cliquer sur un opérateur → voir sa fiche détaillée</p>
+<h3 id="les-données-nexistent-pas-nulle-part">Les données n’existent pas
+nulle part</h3>
+<p>Le CDC te dit : “Utilise les APIs MANRS, c’est simple !”</p>
+<p>Problème : l’API MANRS v2 ne donne que 2 infos : - Liste des pays +
+ASN - Statut membre MANRS (oui/non)</p>
+<p>Mais elle <strong>ne donne pas</strong> les scores détaillés de
+chaque action (filtering, anti-spoofing, coordination, validation).
+Pourquoi ? Parce que MANRS réserve ces données aux opérateurs
+eux-mêmes.</p>
+<h3 id="la-solution-agrégation-multi-sources">La solution : agrégation
+multi-sources</h3>
+<p>Au lieu de demander à MANRS, tu vas croiser 5 sources publiques pour
+approximer les 4 actions :</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 32%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr>
+<th>Action</th>
+<th>Source</th>
+<th>Logique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Filtering</strong></td>
+<td>PeeringDB</td>
+<td>L’ASN a-t-il un <code>irr_as_set</code> renseigné ? → Si oui, il
+publie ses politiques de routage</td>
+</tr>
+<tr>
+<td><strong>Anti-spoofing</strong></td>
+<td>CAIDA Spoofer</td>
+<td>L’ASN bloque-t-il le spoofing d’adresses IP ? → Mesure réelle par
+tests</td>
+</tr>
+<tr>
+<td><strong>Coordination</strong></td>
+<td>PeeringDB</td>
+<td>L’ASN est-il sur PeeringDB ? → Si oui, il maintient des contacts
+publics</td>
+</tr>
+<tr>
+<td><strong>Validation RPKI</strong></td>
+<td>RIPE NCC Validator</td>
+<td>&gt;50% des préfixes de l’ASN ont-ils un ROA valide ? → Mesure
+directe</td>
+</tr>
+</tbody>
+</table>
+<p>C’est <strong>l’originalité</strong> de ton observatoire : tu es le
+<strong>premier</strong> à croiser ces 5 sources pour évaluer MANRS sans
+la coopération des opérateurs.</p>
+<h3 id="flux-de-données-complet">Flux de données complet</h3>
+<pre><code>┌────────────────────────────────────────────────────────────┐
+│ 5 SOURCES DE DONNÉES PUBLIQUES                              │
+├────────────────────────────────────────────────────────────┤
+│ 1. MANRS v2         → liste ASN + membres                  │
+│ 2. RIPE Stat        → préfixes annoncés                    │
+│ 3. RIPE RPKI        → statut ROA (valid/invalid)           │
+│ 4. PeeringDB        → coordination + filtering (IRR)       │
+│ 5. CAIDA Spoofer    → anti-spoofing (% blocking)           │
+└────────────────────────────────────────────────────────────┘
+                           ↓
+                    [COLLECTEUR PYTHON]
+        Interroge les 5 sources, rate limit 0.5s
+        Boucle : 16 pays → 477 ASN → 6810 préfixes
+        Calcule les 4 actions → Score 0-4
+                           ↓
+                    [POSTGRESQL]
+        4 tables : asn, prefixes, countries, ai_recommendations
+        Persistance des données brutes
+                           ↓
+                  [API REST FASTAPI]
+        5 endpoints : /stats, /countries, /countries/{code},
+                     /asn/{number}, /search
+                           ↓
+                  [FRONTEND REACT]
+        5 pages : Dashboard, Pays, Fiche ASN, Recherche, À propos
+        Carte interactive, graphiques, tableaux</code></pre>
+<hr />
+<h2 id="chapitre-2-module-1-la-base-de-données">Chapitre 2 — Module 1 :
+La base de données</h2>
+<h3 id="pourquoi-postgresql">Pourquoi PostgreSQL ?</h3>
+<ul>
+<li>✅ Relationnelle : tu as des relations (pays → ASN → préfixes)</li>
+<li>✅ JSON : pour les réponses API, tu retournes du JSON. PostgreSQL
+gère ça nativement</li>
+<li>✅ Indexes : tu vas faire des requêtes comme “tous les ASN du Bénin”
+→ faut indexer</li>
+<li>✅ LATERAL JOIN : tu dois calculer des stats par ASN à la volée (ROA
+coverage %) → LATERAL JOIN c’est pour ça</li>
+<li>✅ Gratuit + conteneurisé : Docker Compose lance une instance en 2
+secondes</li>
+</ul>
+<h3 id="les-4-tables-et-pourquoi">Les 4 tables et pourquoi</h3>
+<h4 id="table-asn">Table <code>asn</code></h4>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> asn (</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span> SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    asn_number <span class="dt">INTEGER</span> <span class="kw">UNIQUE</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    name <span class="dt">VARCHAR</span>(<span class="dv">255</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    country_code <span class="dt">CHAR</span>(<span class="dv">2</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    is_manrs_member <span class="dt">BOOLEAN</span> <span class="kw">DEFAULT</span> <span class="kw">FALSE</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    manrs_score <span class="dt">SMALLINT</span> <span class="kw">DEFAULT</span> <span class="dv">0</span> <span class="kw">CHECK</span> (manrs_score <span class="kw">BETWEEN</span> <span class="dv">0</span> <span class="kw">AND</span> <span class="dv">4</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    action_filtering <span class="dt">BOOLEAN</span> <span class="kw">DEFAULT</span> <span class="kw">FALSE</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    action_antispoofing <span class="dt">BOOLEAN</span> <span class="kw">DEFAULT</span> <span class="kw">FALSE</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    action_coordination <span class="dt">BOOLEAN</span> <span class="kw">DEFAULT</span> <span class="kw">FALSE</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    action_validation <span class="dt">BOOLEAN</span> <span class="kw">DEFAULT</span> <span class="kw">FALSE</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    last_updated <span class="dt">TIMESTAMP</span> <span class="kw">DEFAULT</span> NOW()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
+<p><strong>Pourquoi cette structure ?</strong></p>
+<ul>
+<li><code>asn_number</code> : c’est l’identifiant unique du monde réel
+(AS28683, AS37090, etc.)</li>
+<li><code>name</code> : le nom de l’opérateur (exemple : “SBIN Bénin”)
+pour afficher au lieu du numéro</li>
+<li><code>country_code</code> : pour le filtre “affiche les ASN du
+Bénin” dans la page pays</li>
+<li><code>is_manrs_member</code> : booléen simple, vient de l’API MANRS
+v2</li>
+<li><code>manrs_score</code> : somme des 4 actions (0 à 4). CHECK
+garantit que c’est entre 0 et 4, sinon INSERT échoue</li>
+<li>4 colonnes <code>action_*</code> : booléens. True si cette action
+MANRS est complétée</li>
+<li><code>last_updated</code> : timestamp pour savoir si les données
+sont fraîches (collectée le 24 juin à 4h41 ?)</li>
+</ul>
+<p><strong>Clé étrangère vers quoi ?</strong> Aucune. <code>asn</code>
+est au sommet de la hiérarchie. Les <code>prefixes</code> pointent vers
+lui.</p>
+<h4 id="table-prefixes">Table <code>prefixes</code></h4>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> prefixes (</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span> SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    asn_id <span class="dt">INTEGER</span> <span class="kw">REFERENCES</span> asn(<span class="kw">id</span>) <span class="kw">ON</span> <span class="kw">DELETE</span> <span class="kw">CASCADE</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    prefix <span class="dt">VARCHAR</span>(<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    roa_status <span class="dt">VARCHAR</span>(<span class="dv">20</span>) <span class="kw">CHECK</span> (roa_status <span class="kw">IN</span> (<span class="st">&#39;valid&#39;</span>,<span class="st">&#39;invalid&#39;</span>,<span class="st">&#39;not-found&#39;</span>)),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    roa_asn <span class="dt">INTEGER</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    last_checked <span class="dt">TIMESTAMP</span> <span class="kw">DEFAULT</span> NOW()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
+<p><strong>Pourquoi cette structure ?</strong></p>
+<ul>
+<li>Un ASN peut annoncer plusieurs préfixes (exemple : AS28683 en
+annonce 54)</li>
+<li>Chaque préfixe a un statut ROA indépendant</li>
+<li><code>roa_status</code> est un ENUM en pratique (CHECK le
+force)</li>
+<li><code>roa_asn</code> : si le ROA est valide, quel ASN le signe ?
+(Permet la détection de hijacking : si <code>roa_asn ≠ asn_number</code>
+et statut = invalid → hijacking probable)</li>
+<li>ON DELETE CASCADE : si tu supprimes un ASN, ses préfixes
+disparaissent aussi (pas de données orphelines)</li>
+</ul>
+<p><strong>Pourquoi ne pas garder juste le % de couverture ROA dans la
+table <code>asn</code> ?</strong></p>
+<p>Parce que le % change chaque collecte (des préfixes sont
+ajoutés/supprimés). Il faut recalculer à chaque fois. Si tu stockes le
+%, tu dois aussi stocker la liste complète des préfixes pour le
+recalculer. Donc tu stockes la liste complète dans <code>prefixes</code>
+et tu calcules le % à la volée avec une LATERAL JOIN.</p>
+<h4 id="table-countries">Table <code>countries</code></h4>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> countries (</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span> SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    country_code <span class="dt">CHAR</span>(<span class="dv">2</span>) <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    country_name <span class="dt">VARCHAR</span>(<span class="dv">100</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    total_asn <span class="dt">INTEGER</span> <span class="kw">DEFAULT</span> <span class="dv">0</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    manrs_members <span class="dt">INTEGER</span> <span class="kw">DEFAULT</span> <span class="dv">0</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    avg_manrs_score <span class="dt">DECIMAL</span>(<span class="dv">3</span>,<span class="dv">2</span>) <span class="kw">DEFAULT</span> <span class="dv">0</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    roa_coverage_pct <span class="dt">DECIMAL</span>(<span class="dv">5</span>,<span class="dv">2</span>) <span class="kw">DEFAULT</span> <span class="dv">0</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    last_updated <span class="dt">TIMESTAMP</span> <span class="kw">DEFAULT</span> NOW()</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
+<p><strong>Pourquoi cette table ?</strong></p>
+<ul>
+<li>Agrégats pré-calculés pour la page dashboard (les 16 pays avec leurs
+stats)</li>
+<li>Au lieu d’interroger les 477 ASN à chaque fois, tu fais une simple
+query sur 16 pays</li>
+<li>Ces stats sont <strong>recalculées à chaque collecte</strong> par
+une fonction SQL (UPDATE … SET … FROM (SELECT …))</li>
+</ul>
+<p><strong>Formule de <code>roa_coverage_pct</code> pour un pays
+:</strong></p>
+<pre><code>count(préfixes avec roa_status=&#39;valid&#39;) / count(tous les préfixes) * 100</code></pre>
+<p>Pour tous les ASN du pays.</p>
+<h4 id="table-ai_recommendations-réservée">Table
+<code>ai_recommendations</code> (réservée)</h4>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> ai_recommendations (</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span> SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    asn_id <span class="dt">INTEGER</span> <span class="kw">REFERENCES</span> asn(<span class="kw">id</span>) <span class="kw">ON</span> <span class="kw">DELETE</span> <span class="kw">CASCADE</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    language <span class="dt">VARCHAR</span>(<span class="dv">10</span>) <span class="kw">DEFAULT</span> <span class="st">&#39;fr&#39;</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    content TEXT,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    generated_at <span class="dt">TIMESTAMP</span> <span class="kw">DEFAULT</span> NOW()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
+<p><strong>Pourquoi ?</strong> Cette table n’est pas utilisée dans la v1
+(module IA exclu). Elle est là pour la v2 si tu décides d’intégrer un
+module IA qui génère automatiquement des recommandations personnalisées
+par ASN.</p>
+<h3 id="le-script-schema.sql-ordre-dexécution">Le script
+<code>schema.sql</code> — Ordre d’exécution</h3>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- 1. Créer les tables</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> asn (<span class="op">..</span>.);</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> prefixes (<span class="op">..</span>.);</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> countries (<span class="op">..</span>.);</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> ai_recommendations (<span class="op">..</span>.);</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- 2. Insérer les 16 pays de référence</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> countries (country_code, country_name) <span class="kw">VALUES</span> </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;BJ&#39;</span>, <span class="st">&#39;Bénin&#39;</span>),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;BF&#39;</span>, <span class="st">&#39;Burkina Faso&#39;</span>),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">..</span>.</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> CONFLICT DO <span class="kw">NOTHING</span>;  <span class="co">-- Si on relance le script, pas d&#39;erreur</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">-- 3. Créer les indexes pour accélérer les requêtes</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_asn_country <span class="kw">ON</span> asn(country_code);</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_prefixes_asn <span class="kw">ON</span> prefixes(asn_id);</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_asn_number <span class="kw">ON</span> asn(asn_number);</span></code></pre></div>
+<p><strong>Pourquoi les indexes ?</strong></p>
+<ul>
+<li>Query “affiche tous les ASN du Bénin” → cherche dans
+<code>asn</code> WHERE country_code=‘BJ’ → sans index, ça scan 477
+lignes. Avec index, ça va droit à la cible</li>
+<li>Query “affiche les préfixes d’un ASN” → cherche dans
+<code>prefixes</code> WHERE asn_id=123 → pareil</li>
+</ul>
+<h3 id="quest-ce-qui-se-passe-au-démarrage">Qu’est-ce qui se passe au
+démarrage ?</h3>
+<ol type="1">
+<li>Docker Compose lance PostgreSQL</li>
+<li>PostgreSQL crée une base vide</li>
+<li>PostgreSQL exécute
+<code>/docker-entrypoint-initdb.d/schema.sql</code> (monté depuis le
+host)</li>
+<li>Les 4 tables et les 16 pays existent</li>
+<li>Les collecteur et API peuvent se connecter</li>
+</ol>
+<p><strong>Une seule fois</strong> : Si tu relances
+<code>docker compose up</code> sans <code>docker compose down -v</code>
+(qui supprime les volumes), la base existe déjà, et le script ne
+s’exécute pas (ou refuse de recréer les tables).</p>
+<hr />
+<h2 id="chapitre-3-module-2-le-collecteur">Chapitre 3 — Module 2 : Le
+collecteur</h2>
+<h3 id="pourquoi-un-collecteur-python">Pourquoi un collecteur Python
+?</h3>
+<ul>
+<li>✅ Facile à orchestrer : boucle
+<code>for country in 16_countries: ...</code></li>
+<li>✅ Requêtes HTTP : librairie <code>requests</code> fait ça très
+simplement</li>
+<li>✅ Rate limiting : <code>time.sleep(0.5)</code> entre chaque
+appel</li>
+<li>✅ Try/except : si un ASN échoue, tu continues avec le suivant</li>
+<li>✅ Logs : tu sais ce qui s’est passé (277 ASN collectés, 3
+erreurs)</li>
+<li>✅ Docker-compatible : l’image de backend peut lancer le collecteur
+ou l’API selon la commande</li>
+</ul>
+<h3 id="architecture-du-collecteur">Architecture du collecteur</h3>
+<pre><code>backend/collector/
+├── __init__.py          (package vide)
+├── config.py            (16 pays, URLs des APIs, clé MANRS)
+├── apis.py              (fonctions d&#39;appel aux 5 sources)
+├── db.py                (fonctions de persistance PostgreSQL)
+└── main.py              (orchestration + scheduling)</code></pre>
+<h3 id="fichier-1-config.py">Fichier 1 : <code>config.py</code></h3>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>WEST_AFRICA_COUNTRIES <span class="op">=</span> {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;BJ&quot;</span>: <span class="st">&quot;Bénin&quot;</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;BF&quot;</span>: <span class="st">&quot;Burkina Faso&quot;</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>MANRS_API_BASE <span class="op">=</span> <span class="st">&quot;https://observatory.manrs.org/api/v2&quot;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>RIPE_STAT_BASE <span class="op">=</span> <span class="st">&quot;https://stat.ripe.net/data&quot;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>RPKI_VALIDATOR_BASE <span class="op">=</span> <span class="st">&quot;https://rpki-validator.ripe.net/api/v1&quot;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>API_DELAY_SECONDS <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>COLLECTION_INTERVAL_HOURS <span class="op">=</span> <span class="dv">6</span></span></code></pre></div>
+<p><strong>Centraliser les constantes</strong> : si une URL change, tu
+la modifies une fois. C’est un pattern dans tous les projets.</p>
+<h3 id="fichier-2-apis.py-les-5-fonctions">Fichier 2 :
+<code>apis.py</code> — Les 5 fonctions</h3>
+<h4 id="fonction-1-fetch_manrs_asns_for_countrycode">Fonction 1 :
+<code>fetch_manrs_asns_for_country(code)</code></h4>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_manrs_asns_for_country(country_code: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">dict</span>]:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">    MANRS v2 /ases?economies=XX</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Retourne : [{&quot;id&quot;: 28683, &quot;name&quot;: &quot;SBIN&quot;, ...}, ...]</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span></code></pre></div>
+<p><strong>Flux :</strong> 1. Interroge
+<code>https://observatory.manrs.org/api/v2/ases?economies=BJ</code> 2.
+MANRS retourne une page (pagination possible) 3. Si
+<code>nextPageToken</code> existe, refait une requête avec le token 4.
+Accumule tous les ASN de toutes les pages dans <code>results</code> 5.
+Retourne la liste</p>
+<p><strong>Exemple réel :</strong> - Bénin → 16 ASN - Nigeria → 224 ASN
+- Mali → 5 ASN</p>
+<p><strong>Pourquoi pagination ?</strong> MANRS retourne 100 ASN par
+page. Nigeria en a 224 → besoin de 3 pages.</p>
+<h4 id="fonction-2-fetch_manrs_participants">Fonction 2 :
+<code>fetch_manrs_participants()</code></h4>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_manrs_participants() <span class="op">-&gt;</span> <span class="bu">set</span>[<span class="bu">int</span>]:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">    MANRS v2 /participants (Auth: Bearer &lt;KEY&gt;)</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Retourne : {28683, 37282, 37424, ...}  (set de ASN)</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span></code></pre></div>
+<p><strong>Flux :</strong> 1. Header :
+<code>Authorization: Bearer &lt;MANRS_API_KEY&gt;</code> 2. Interroge
+<code>https://observatory.manrs.org/api/v2/participants</code> 3. Pour
+chaque participant, extrait les ASN qu’il gère 4. Accumule dans un
+<code>set</code> (pas de doublons) 5. Retourne le set</p>
+<p><strong>Résultat réel :</strong> 1813 membres MANRS dans le monde (au
+24 juin 2026)</p>
+<p><strong>Pourquoi un set ?</strong> Tu vas faire
+<code>if asn_number in manrs_members:</code> → le test d’appartenance
+dans un set est O(1), pas O(n).</p>
+<p><strong>Pourquoi une fois, pas par pays ?</strong> Parce que tu
+l’utilises pour tous les 16 pays. Tu l’appelles une fois au démarrage,
+tu le réutilises.</p>
+<h4 id="fonction-3-fetch_announced_prefixesasn_number">Fonction 3 :
+<code>fetch_announced_prefixes(asn_number)</code></h4>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_announced_prefixes(asn_number: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">str</span>]:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">    RIPE Stat announced-prefixes</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Retourne : [&quot;137.255.1.0/24&quot;, &quot;196.46.153.0/24&quot;, ...]</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span></code></pre></div>
+<p><strong>Flux :</strong> 1. Interroge RIPE Stat
+<code>/data/announced-prefixes/data.json?resource=AS28683</code> 2. RIPE
+retourne une liste de préfixes 3. Extrait les strings des préfixes 4.
+Retourne la liste</p>
+<p><strong>Exemple :</strong> AS28683 → 54 préfixes</p>
+<p><strong>Pourquoi RIPE Stat et pas MANRS ?</strong> MANRS ne fournit
+pas la liste des préfixes. RIPE Stat est la source de vérité pour le BGP
+global.</p>
+<h4 id="fonction-4-validate_roaasn_number-prefix">Fonction 4 :
+<code>validate_roa(asn_number, prefix)</code></h4>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> validate_roa(asn_number: <span class="bu">int</span>, prefix: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">    RIPE NCC RPKI Validator</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Retourne : {</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;prefix&quot;: &quot;137.255.1.0/24&quot;,</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;roa_status&quot;: &quot;valid&quot; | &quot;invalid&quot; | &quot;not-found&quot;,</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;roa_asn&quot;: 28683</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">    }</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span></code></pre></div>
+<p><strong>Flux :</strong> 1. Interroge RIPE Validator
+<code>/api/v1/validity/&lt;asn&gt;/&lt;prefix&gt;</code> - Exemple :
+<code>/api/v1/validity/28683/137.255.1.0%2F24</code> 2. RIPE retourne :
+<code>json    {      "validated_route": {        "validity": {          "state": "valid",          "VRPs": { "matched": [{"asn": "AS28683", ...}] }        }      }    }</code>
+3. Extrait <code>state</code> et <code>asn</code> signataire 4. Retourne
+le dict</p>
+<p><strong>Les 3 statuts :</strong> - <code>valid</code> : ROA existe et
+correspond (sûr) - <code>invalid</code> : ROA existe mais ne correspond
+pas (dangérogn, possible hijacking) - <code>not-found</code> : aucun ROA
+(non protégé, mais pas nécessairement compromis)</p>
+<p><strong>Pourquoi c’est lent ?</strong> Tu dois faire 1 appel par
+préfixe. 6810 préfixes × 0.5s rate limit = 55 minutes. C’est la cause de
+la durée totale de collecte (111 min).</p>
+<h4 id="fonction-5-fetch_peeringdb_infoasn_number">Fonction 5 :
+<code>fetch_peeringdb_info(asn_number)</code></h4>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_peeringdb_info(asn_number: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">    PeeringDB API</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Retourne : {</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;on_peeringdb&quot;: True,       # pour coordination</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;has_irr&quot;: True,            # pour filtering</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;has_policy&quot;: True          # bonus, non utilisé</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">    }</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span></code></pre></div>
+<p><strong>Flux :</strong> 1. Interroge
+<code>https://www.peeringdb.com/api/net?asn=28683</code> 2. PeeringDB
+retourne une liste de réseaux 3. Prend le premier (il y en a
+généralement 1) 4. Extrait <code>irr_as_set</code> (non-vide ?) et état
+membre PeeringDB 5. Retourne le dict</p>
+<p><strong>Logique :</strong> - <code>on_peeringdb = True</code> →
+l’opérateur est connu et maintient des contacts publics → bonne
+coordination - <code>has_irr = True</code> → l’opérateur publie son IRR
+as-set → capable de filtering</p>
+<p><strong>Bonus <code>check_antispoofing(asn)</code></strong> (scraping
+CAIDA) :</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _load_spoofer_data() <span class="op">-&gt;</span> <span class="bu">dict</span>[<span class="bu">int</span>, <span class="bu">float</span>]:</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Scrape https://spoofer.caida.org/as_stats.php</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Parse le HTML avec regex pour extraire ASN et % blocking</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Retourne : {28683: 0.0, 37282: 87.5, ...}</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span></code></pre></div>
+<p><strong>Pourquoi scraping ?</strong> CAIDA n’a pas d’API. Il faut
+parser la page HTML. <strong>Danger</strong> : si CAIDA change le
+format, ça casse.</p>
+<p><strong>Cache</strong> : <code>_spoofer_cache</code> global. Tu le
+charges une fois, tu le réutilises pour tous les ASN.</p>
+<h3 id="fichier-3-db.py-persistance">Fichier 3 : <code>db.py</code> —
+Persistance</h3>
+<h4 id="fonction-1-upsert_asnconn-asn_data">Fonction 1 :
+<code>upsert_asn(conn, asn_data)</code></h4>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>INSERT INTO asn (...) VALUES (...)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ON CONFLICT (asn_number) DO UPDATE SET ...</span></code></pre></div>
+<p><strong>Pourquoi UPSERT ?</strong> À chaque collecte, tu réinsères
+les mêmes ASN (477). Sans UPSERT, tu aurais des PRIMARY KEY violations.
+Avec UPSERT, tu mets à jour les valeurs existantes.</p>
+<p><strong>Effet :</strong> Ton collecteur peut tourner à l’infini. Si
+tu le relances, ça met à jour les données sans créer de doublons.</p>
+<h4 id="fonction-2-upsert_prefixesconn-asn_id-prefixes_list">Fonction 2
+: <code>upsert_prefixes(conn, asn_id, prefixes_list)</code></h4>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>DELETE FROM prefixes WHERE asn_id <span class="op">=</span> ?</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>INSERT INTO prefixes (...) VALUES (batch)</span></code></pre></div>
+<p><strong>Pourquoi DELETE puis INSERT ?</strong> Parce que les préfixes
+changent : - Un ASN qui avait 54 préfixes peut en avoir 53 la collecte
+suivante - Un préfixe peut passer de <code>valid</code> à
+<code>not-found</code> si le ROA expire</p>
+<p>Au lieu de tracker les changements, tu nettoies et réinsères. C’est
+plus simple et plus fiable.</p>
+<h4 id="fonction-3-update_country_statsconn-country_code">Fonction 3 :
+<code>update_country_stats(conn, country_code)</code></h4>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>UPDATE countries SET</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    total_asn <span class="op">=</span> (SELECT COUNT(<span class="op">*</span>) FROM asn WHERE country_code <span class="op">=</span> ?),</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    manrs_members <span class="op">=</span> (SELECT COUNT(<span class="op">*</span>) FILTER (WHERE is_manrs_member) FROM asn WHERE ...),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    avg_manrs_score <span class="op">=</span> (SELECT AVG(manrs_score) FROM asn WHERE ...),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    roa_coverage_pct <span class="op">=</span> (SELECT <span class="dv">100</span><span class="op">*</span>COUNT(<span class="op">*</span>) FILTER (WHERE roa_status<span class="op">=</span><span class="st">&#39;valid&#39;</span>) <span class="op">/</span> COUNT(<span class="op">*</span>) FROM prefixes JOIN asn ...),</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    last_updated <span class="op">=</span> NOW()</span></code></pre></div>
+<p><strong>Formule clé pour <code>roa_coverage_pct</code> :</strong></p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">COALESCE</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fl">100.0</span> <span class="op">*</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> p.roa_valid <span class="op">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">/</span> <span class="fu">NULLIF</span>(<span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> p.total_prefixes <span class="op">&gt;</span> <span class="dv">0</span>), <span class="dv">0</span>),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>) <span class="kw">AS</span> roa_pct</span></code></pre></div>
+<p>Traduction : - Compte les préfixes avec
+<code>roa_status = 'valid'</code> - Divise par le nombre total de
+préfixes - Multiplie par 100 pour avoir un pourcentage - Si aucun
+préfixe (edge case), retourne 0</p>
+<h3 id="fichier-4-main.py-orchestration">Fichier 4 :
+<code>main.py</code> — Orchestration</h3>
+<h4
+id="fonction-collect_asns_for_countrycountry_code-country_name-manrs_members">Fonction
+<code>collect_asns_for_country(country_code, country_name, manrs_members)</code></h4>
+<pre><code>Pour chaque ASN du pays :
+  1. fetch_announced_prefixes() → liste de préfixes
+  2. Pour chaque préfixe :
+     - validate_roa() → statut
+  3. fetch_peeringdb_info() → coordination + filtering
+  4. check_antispoofing() → anti-spoofing
+  5. Calculer les 4 booleans
+  6. upsert_asn() → sauvegarde en base
+  7. upsert_prefixes() → sauvegarde préfixes en base
+  8. update_country_stats() → recalcule les agrégats pays
+  Log : AS28683 — SBIN — membre:False — 54 préfixes — ROA:92.59%</code></pre>
+<h4 id="fonction-run_full_collection">Fonction
+<code>run_full_collection()</code></h4>
+<pre><code>1. fetch_manrs_participants() → charge les 1813 membres
+2. Pour chaque pays (16) :
+   - collect_asns_for_country() → traite tous les ASN
+3. Log final : Collecte terminée en 111.4 minutes</code></pre>
+<h4 id="fonction-main">Fonction <code>main()</code></h4>
+<pre><code>1. run_full_collection() → une fois au démarrage
+2. schedule.every(6).hours.do(run_full_collection) → relance toutes les 6h
+3. Boucle infinie : schedule.run_pending() + sleep(60)</code></pre>
+<p><strong>Pourquoi scheduling ?</strong> Tu veux que les données se
+mettent à jour automatiquement. Sans scheduling, le collecteur s’arrête
+après une collecte.</p>
+<h3 id="points-sensibles-du-collecteur">Points sensibles du
+collecteur</h3>
+<p><strong>1. Rate limiting (0.5s entre les requêtes)</strong></p>
+<p>Si tu envoies 6810 requêtes sans délai, les APIs te bloquent (429 Too
+Many Requests). La fonction <code>_get()</code> inclut
+<code>time.sleep(0.5)</code> à chaque appel.</p>
+<p><strong>2. try/except par ASN</strong></p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> asn <span class="kw">in</span> asn_list:</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>        <span class="co"># traitement</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span>:</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        logger.exception(<span class="st">&quot;Erreur sur AS</span><span class="sc">%d</span><span class="st">&quot;</span>, asn_number)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span>  <span class="co"># → continue avec l&#39;ASN suivant</span></span></code></pre></div>
+<p>Si AS12345 timeout, tu ne veux pas que ça casse toute la
+collecte.</p>
+<p><strong>3. CAIDA Spoofer = cache global</strong></p>
+<p>Première fois que tu appelles <code>check_antispoofing(asn)</code>,
+il scrape la page HTML complète et charge 1442 ASN en mémoire. Ensuite,
+tu cherches dans le dict. Sans le cache, tu scrapais 477 fois.</p>
+<p><strong>4. Logs à chaque étape</strong></p>
+<pre><code>2026-06-24 04:41:16 [INFO] === Début de la collecte complète ===
+2026-06-24 04:41:19 [INFO]   1813 ASN membres MANRS chargés
+2026-06-24 04:41:20 [INFO] Collecte Bénin (BJ)…
+2026-06-24 04:41:21 [INFO]   16 ASN trouvés pour BJ
+2026-06-24 04:41:50 [INFO]   AS28683 (SBIN) — membre:False — 54 préfixes — ROA:92.59%
+...
+2026-06-24 06:29:19 [INFO] === Collecte terminée en 111.4 minutes ===</code></pre>
+<p>Ces logs te permettent de déboguer si quelque chose échoue.</p>
+<hr />
+<h2 id="chapitre-4-module-3-api-backend">Chapitre 4 — Module 3 : API
+Backend</h2>
+<h3 id="pourquoi-fastapi">Pourquoi FastAPI ?</h3>
+<ul>
+<li>✅ Async : mieux que Flask pour I/O (requêtes DB)</li>
+<li>✅ Validation automatique : FastAPI valide les paramètres et
+retourne des erreurs claires</li>
+<li>✅ Docs auto : <code>/docs</code> génère une doc Swagger
+interactive</li>
+<li>✅ Performance : pour 477 ASN × 5 pages = 2385 requêtes/jour,
+FastAPI c’est du chiffre léger</li>
+</ul>
+<h3 id="les-5-endpoints">Les 5 endpoints</h3>
+<h4 id="get-apistats">GET <code>/api/stats</code></h4>
+<p><strong>Que retourne ?</strong></p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;total_asn&quot;</span><span class="fu">:</span> <span class="dv">477</span><span class="fu">,</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;manrs_members&quot;</span><span class="fu">:</span> <span class="dv">11</span><span class="fu">,</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;avg_manrs_score&quot;</span><span class="fu">:</span> <span class="fl">0.87</span><span class="fu">,</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;roa_coverage_pct&quot;</span><span class="fu">:</span> <span class="fl">51.38</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p><strong>SQL :</strong></p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> total_asn,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> is_manrs_member) <span class="kw">AS</span> manrs_members,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ROUND</span>(<span class="fu">AVG</span>(manrs_score):<span class="ch">:numeric</span>, <span class="dv">2</span>) <span class="kw">AS</span> avg_manrs_score,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COALESCE</span>(<span class="fu">ROUND</span>(</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="fl">100.0</span> <span class="op">*</span> <span class="fu">SUM</span>(p.valid) <span class="op">/</span> <span class="fu">NULLIF</span>(<span class="fu">SUM</span>(p.total), <span class="dv">0</span>), <span class="dv">2</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  ), <span class="dv">0</span>) <span class="kw">AS</span> roa_coverage_pct</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> asn a</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> LATERAL (</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> total,</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> roa_status <span class="op">=</span> <span class="st">&#39;valid&#39;</span>) <span class="kw">AS</span> valid</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> prefixes <span class="kw">WHERE</span> asn_id <span class="op">=</span> a.<span class="kw">id</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>) p <span class="kw">ON</span> <span class="kw">TRUE</span></span></code></pre></div>
+<p><strong>Ce que ça fait :</strong> - Pour chaque ASN, calcule ses
+stats ROA (via LATERAL JOIN) - Agrège tout à niveau global</p>
+<p><strong>Utilisation :</strong> Page d’accueil : affiche les 4 stat
+cards (477 ASN, 11 MANRS, etc.)</p>
+<h4 id="get-apicountries">GET <code>/api/countries</code></h4>
+<p><strong>Que retourne ?</strong></p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;country_code&quot;</span><span class="fu">:</span> <span class="st">&quot;BJ&quot;</span><span class="fu">,</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;country_name&quot;</span><span class="fu">:</span> <span class="st">&quot;Bénin&quot;</span><span class="fu">,</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;total_asn&quot;</span><span class="fu">:</span> <span class="dv">16</span><span class="fu">,</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;manrs_members&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;avg_manrs_score&quot;</span><span class="fu">:</span> <span class="fl">0.69</span><span class="fu">,</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;roa_coverage_pct&quot;</span><span class="fu">:</span> <span class="fl">12.5</span><span class="fu">,</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;last_updated&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-06-24T04:41:16&quot;</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>  <span class="er">...</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+<p><strong>SQL :</strong> Simple, c’est la table <code>countries</code>
+pré-calculée.</p>
+<p><strong>Utilisation :</strong> Tableau du dashboard : classement des
+16 pays.</p>
+<h4 id="get-apicountriescode">GET
+<code>/api/countries/{code}</code></h4>
+<p><strong>Que retourne ?</strong></p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;country_code&quot;</span><span class="fu">:</span> <span class="st">&quot;BJ&quot;</span><span class="fu">,</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;country_name&quot;</span><span class="fu">:</span> <span class="st">&quot;Bénin&quot;</span><span class="fu">,</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;total_asn&quot;</span><span class="fu">:</span> <span class="dv">16</span><span class="fu">,</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;manrs_members&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;avg_manrs_score&quot;</span><span class="fu">:</span> <span class="fl">0.69</span><span class="fu">,</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;roa_coverage_pct&quot;</span><span class="fu">:</span> <span class="fl">12.5</span><span class="fu">,</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;last_updated&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-06-24T04:41:16&quot;</span><span class="fu">,</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;asns&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;asn_number&quot;</span><span class="fu">:</span> <span class="dv">28683</span><span class="fu">,</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;SBIN&quot;</span><span class="fu">,</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;is_manrs_member&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;manrs_score&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;action_filtering&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;action_antispoofing&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;action_coordination&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;action_validation&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;roa_coverage_pct&quot;</span><span class="fu">:</span> <span class="fl">92.59</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>    <span class="er">...</span></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p><strong>SQL :</strong> Stats du pays + liste de ses ASN avec
+couverture ROA calculée.</p>
+<p><strong>Utilisation :</strong> Page pays (ex :
+<code>/country/BJ</code>).</p>
+<h4 id="get-apiasnnumber">GET <code>/api/asn/{number}</code></h4>
+<p><strong>Que retourne ?</strong></p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;asn_number&quot;</span><span class="fu">:</span> <span class="dv">28683</span><span class="fu">,</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;SBIN&quot;</span><span class="fu">,</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;country_code&quot;</span><span class="fu">:</span> <span class="st">&quot;BJ&quot;</span><span class="fu">,</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;is_manrs_member&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;manrs_score&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;actions&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;filtering&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;anti_spoofing&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;coordination&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;validation&quot;</span><span class="fu">:</span> <span class="kw">true</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;prefixes&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;prefix&quot;</span><span class="fu">:</span> <span class="st">&quot;137.255.1.0/24&quot;</span><span class="fu">,</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;roa_status&quot;</span><span class="fu">:</span> <span class="st">&quot;valid&quot;</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;prefix&quot;</span><span class="fu">:</span> <span class="st">&quot;196.46.153.0/24&quot;</span><span class="fu">,</span></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;roa_status&quot;</span><span class="fu">:</span> <span class="st">&quot;not-found&quot;</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;roa_coverage_pct&quot;</span><span class="fu">:</span> <span class="fl">92.59</span><span class="fu">,</span></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;last_updated&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-06-24T04:41:16&quot;</span></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p><strong>SQL :</strong> Fiche complète ASN + ses préfixes.</p>
+<p><strong>Utilisation :</strong> Fiche ASN détaillée (ex :
+<code>/asn/28683</code>).</p>
+<h4 id="get-apisearchqquery">GET <code>/api/search?q=query</code></h4>
+<p><strong>Que retourne ?</strong></p>
+<p>Depend du query : - Si numeric (ex : <code>?q=28683</code>) → exact
+match ASN - Sinon (ex : <code>?q=MTN</code>) → LIKE search sur le nom
+(20 résultats max)</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;asn_number&quot;</span><span class="fu">:</span> <span class="dv">37282</span><span class="fu">,</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Main One Cable Company Nigeria Limited&quot;</span><span class="fu">,</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;country_code&quot;</span><span class="fu">:</span> <span class="st">&quot;NG&quot;</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="er">...</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+<p><strong>Utilisation :</strong> Barre de recherche du header.</p>
+<h3 id="point-sensible-cors">Point sensible : CORS</h3>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>app.add_middleware(</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    CORSMiddleware,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    allow_origins<span class="op">=</span>[<span class="st">&quot;*&quot;</span>],</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    allow_methods<span class="op">=</span>[<span class="st">&quot;*&quot;</span>],</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    allow_headers<span class="op">=</span>[<span class="st">&quot;*&quot;</span>],</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><strong>Pourquoi ?</strong> Le frontend tourne sur
+<code>http://localhost:3000</code>, l’API sur
+<code>http://localhost:8000</code>. Sans CORS, le navigateur refuse les
+requêtes cross-origin.</p>
+<p><strong>En production ?</strong> Restreins à l’URL du frontend :</p>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>allow_origins<span class="op">=</span>[<span class="st">&quot;https://observatoire.manrs.org&quot;</span>],</span></code></pre></div>
+<h3 id="point-sensible-realdictcursor">Point sensible :
+RealDictCursor</h3>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> conn.cursor(cursor_factory<span class="op">=</span>psycopg2.extras.RealDictCursor) <span class="im">as</span> cur:</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    cur.execute(sql)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [<span class="bu">dict</span>(row) <span class="cf">for</span> row <span class="kw">in</span> cur.fetchall()]</span></code></pre></div>
+<p><strong>Pourquoi ?</strong> <code>RealDictCursor</code> retourne les
+lignes comme des dicts <code>{"column": value}</code> au lieu de tuples.
+Ça permet à FastAPI de sérialiser directement en JSON.</p>
+<hr />
+<h2 id="chapitre-5-module-4-frontend-react">Chapitre 5 — Module 4 :
+Frontend React</h2>
+<h3 id="pourquoi-react-typescript">Pourquoi React + TypeScript ?</h3>
+<ul>
+<li>✅ Composants réutilisables : une stat card, une table, une ligne de
+tableau</li>
+<li>✅ État réactif : quand les données changent, l’interface se met à
+jour</li>
+<li>✅ TypeScript : tu sais que <code>asn.name</code> est une string,
+pas un number. Les erreurs apparaissent à la compilation, pas en
+production</li>
+<li>✅ Écosystème : Recharts pour graphiques, Leaflet pour carte,
+shadcn/ui pour composants</li>
+</ul>
+<h3 id="architecture-atomic-design">Architecture Atomic Design</h3>
+<pre><code>Pages (5)
+  ↓
+Organisms (5 composants complexes)
+  ↓
+Molecules (5 combinaisons)
+  ↓
+Atoms (4 unités)
+  ↓
+UI (16 composants shadcn)</code></pre>
+<p><strong>Exemple : page pays</strong></p>
+<pre><code>&lt;CountryPage&gt;
+  └─ &lt;StatValue&gt; (stat card)       ← Atom
+  └─ &lt;CountriesChart&gt;              ← Organism
+       └─ &lt;Recharts BarChart&gt;       ← Librairie externe
+  └─ &lt;AsnTable&gt;                     ← Organism
+       └─ &lt;Badge&gt; (shadcn)          ← UI</code></pre>
+<p><strong>Avantage :</strong> Si tu veux changer le style des stat
+cards, tu modifies le fichier <code>atoms/stat-value.tsx</code>, c’est
+automatiquement appliqué partout.</p>
+<h3 id="hook-use-fetch.ts">Hook <code>use-fetch.ts</code></h3>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> { data<span class="op">,</span> loading<span class="op">,</span> error } <span class="op">=</span> <span class="fu">useFetch</span>(() <span class="kw">=&gt;</span> api<span class="op">.</span><span class="fu">getCountry</span>(<span class="st">&quot;BJ&quot;</span>))</span></code></pre></div>
+<p><strong>Flux :</strong> 1. Appel <code>api.getCountry("BJ")</code> au
+montage du composant 2. <code>loading = true</code> 3. Await la réponse
+4. <code>loading = false</code>, <code>data = {...}</code> 5. Composant
+se rerender avec <code>data</code></p>
+<p><strong>Avantage :</strong> Réutilisable par toutes les pages. Pas
+besoin de dupliquer la logique fetch 5 fois.</p>
+<h3 id="client-api-libapi.ts">Client API (<code>lib/api.ts</code>)</h3>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> API_BASE_URL <span class="op">=</span> import<span class="op">.</span><span class="at">meta</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">VITE_API_URL</span> <span class="op">||</span> <span class="st">&#39;http://localhost:8000&#39;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">const</span> api <span class="op">=</span> {</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  getStats<span class="op">:</span> () <span class="kw">=&gt;</span> <span class="fu">fetch</span>(<span class="vs">`</span><span class="sc">${</span>API_BASE_URL<span class="sc">}</span><span class="vs">/api/stats`</span>)<span class="op">.</span><span class="fu">then</span>(r <span class="kw">=&gt;</span> r<span class="op">.</span><span class="fu">json</span>())<span class="op">,</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  getCountries<span class="op">:</span> () <span class="kw">=&gt;</span> <span class="fu">fetch</span>(<span class="vs">`</span><span class="sc">${</span>API_BASE_URL<span class="sc">}</span><span class="vs">/api/countries`</span>)<span class="op">.</span><span class="fu">then</span>(r <span class="kw">=&gt;</span> r<span class="op">.</span><span class="fu">json</span>())<span class="op">,</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>Variable d’environnement :</strong> <code>VITE_API_URL</code>
+est remplacée à la compilation. En dev, c’est
+<code>localhost:8000</code>. En prod, c’est l’URL publique.</p>
+<h3 id="couleurs-roa-libcountries.ts">Couleurs ROA
+(<code>lib/countries.ts</code>)</h3>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">roaColorHex</span>(pct<span class="op">:</span> <span class="dt">number</span>)<span class="op">:</span> <span class="dt">string</span> {</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (pct <span class="op">&gt;</span> <span class="dv">60</span>) <span class="cf">return</span> <span class="st">&quot;#22c55e&quot;</span>   <span class="co">// Vert</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (pct <span class="op">&gt;</span> <span class="dv">25</span>) <span class="cf">return</span> <span class="st">&quot;#f59e0b&quot;</span>   <span class="co">// Orange</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="st">&quot;#ef4444&quot;</span>                  <span class="co">// Rouge</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Utilisé par la carte (couleur des cercles) et les graphiques (couleur
+des barres).</p>
+<h3 id="les-5-pages">Les 5 pages</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 36%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr>
+<th>Page</th>
+<th>Route</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HomePage</td>
+<td><code>/</code></td>
+<td>Dashboard : stats + carte + chart + tableau</td>
+</tr>
+<tr>
+<td>CountryPage</td>
+<td><code>/country/:code</code></td>
+<td>Détail pays : stats + chart ASN + tableau ASN</td>
+</tr>
+<tr>
+<td>AsnDetailPage</td>
+<td><code>/asn/:number</code></td>
+<td>Fiche ASN : scorecard + pie ROA + tableau préfixes</td>
+</tr>
+<tr>
+<td>SearchPage</td>
+<td><code>/search?q=...</code></td>
+<td>Résultats de recherche</td>
+</tr>
+<tr>
+<td>AboutPage</td>
+<td><code>/about</code></td>
+<td>Explication MANRS/RPKI + sources</td>
+</tr>
+</tbody>
+</table>
+<h3 id="point-sensible-z-index-leaflet">Point sensible : z-index
+Leaflet</h3>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.leaflet-container</span> {</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">z-index</span><span class="ch">:</span> <span class="dv">0</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Sans ça, la carte passe au-dessus du header sticky au scroll. Avec
+ça, elle reste derrière.</p>
+<h3 id="point-sensible-dark-theme-leaflet">Point sensible : Dark theme
+Leaflet</h3>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.leaflet-tile-pane</span> {</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">filter</span><span class="ch">:</span> <span class="fu">brightness(</span><span class="dv">0.6</span><span class="fu">)</span> <span class="fu">invert(</span><span class="dv">1</span><span class="fu">)</span> <span class="fu">contrast(</span><span class="dv">3</span><span class="fu">)</span> <span class="fu">hue-rotate(</span><span class="dv">200</span><span class="dt">deg</span><span class="fu">)</span> <span class="fu">saturate(</span><span class="dv">0.3</span><span class="fu">)</span> <span class="fu">brightness(</span><span class="dv">0.7</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>OpenStreetMap (les tuiles par défaut) est en mode clair. Ce filtre
+inverse les couleurs pour un rendu dark.</p>
+<hr />
+<h2 id="chapitre-6-module-5-déploiement">Chapitre 6 — Module 5 :
+Déploiement</h2>
+<h3 id="docker-compose.yml-services">docker-compose.yml — Services</h3>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 25%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>Service</th>
+<th>Image</th>
+<th>Port</th>
+<th>Init</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>db</code></td>
+<td><code>postgres:15</code></td>
+<td>5432</td>
+<td><code>schema.sql</code></td>
+</tr>
+<tr>
+<td><code>api</code></td>
+<td><code>Dockerfile</code> (backend)</td>
+<td>8000</td>
+<td>DATABASE_URL</td>
+</tr>
+<tr>
+<td><code>collector</code></td>
+<td><code>Dockerfile</code> (backend, commande différente)</td>
+<td>—</td>
+<td>DATABASE_URL</td>
+</tr>
+<tr>
+<td><code>frontend</code></td>
+<td><code>Dockerfile</code> (frontend)</td>
+<td>3000</td>
+<td>VITE_API_URL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dockerfile-backend-backenddockerfile">Dockerfile backend
+(<code>backend/Dockerfile</code>)</h3>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode dockerfile"><code class="sourceCode dockerfile"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> python:3.12-slim</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WORKDIR</span> /app</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> requirements.txt .</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> . .</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="kw">CMD</span> [<span class="st">&quot;uvicorn&quot;</span>, <span class="st">&quot;api.main:app&quot;</span>, <span class="st">&quot;--host&quot;</span>, <span class="st">&quot;0.0.0.0&quot;</span>, <span class="st">&quot;--port&quot;</span>, <span class="st">&quot;8000&quot;</span>]</span></code></pre></div>
+<p>Le <code>CMD</code> par défaut lance l’API. Pour le collecteur, le
+<code>docker-compose.yml</code> override avec :</p>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collector</span><span class="kw">:</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">command</span><span class="kw">:</span><span class="at"> python -m collector.main</span></span></code></pre></div>
+<h3 id="dockerfile-frontend-à-créer">Dockerfile frontend (à créer)</h3>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode dockerfile"><code class="sourceCode dockerfile"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 1 : Build</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> node:18-alpine <span class="kw">AS</span> builder</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WORKDIR</span> /app</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> package.json package-lock.json .</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">npm</span> install</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> . .</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">npm</span> run build</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 2 : Serve</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> nginx:alpine</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> <span class="op">--from=builder</span> /app/dist /usr/share/nginx/html</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> nginx.conf /etc/nginx/conf.d/default.conf</span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a><span class="kw">EXPOSE</span> 3000</span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a><span class="kw">CMD</span> [<span class="st">&quot;nginx&quot;</span>, <span class="st">&quot;-g&quot;</span>, <span class="st">&quot;daemon off;&quot;</span>]</span></code></pre></div>
+<p><strong>Stage 1 :</strong> Build Vite → génère
+<code>/dist</code><br />
+<strong>Stage 2 :</strong> Copie <code>/dist</code> dans nginx → sert du
+HTML/CSS/JS statique</p>
+<h3 id="variables-denvironnement">Variables d’environnement</h3>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 21%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Où</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DATABASE_URL</code></td>
+<td>collecteur + API</td>
+<td><code>postgresql://manrs:changeme@db:5432/manrs_observatory</code></td>
+</tr>
+<tr>
+<td><code>MANRS_API_KEY</code></td>
+<td>collecteur</td>
+<td>Clé obtenue sur MANRS Observatory</td>
+</tr>
+<tr>
+<td><code>VITE_API_URL</code></td>
+<td>frontend (build)</td>
+<td><code>http://localhost:8000</code> (dev),
+<code>https://api.observatoire.manrs.org</code> (prod)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="healthcheck">Healthcheck</h3>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">db</span><span class="kw">:</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">healthcheck</span><span class="kw">:</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">test</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;CMD-SHELL&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;pg_isready -U manrs&quot;</span><span class="kw">]</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">interval</span><span class="kw">:</span><span class="at"> 5s</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">timeout</span><span class="kw">:</span><span class="at"> 3s</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">retries</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span></code></pre></div>
+<p>Les services <code>api</code> et <code>collector</code> attendent que
+<code>db</code> soit healthy avant de démarrer. Sinon : -
+<code>api</code> tente de se connecter à PostgreSQL qui ne répond pas →
+crash - <code>collector</code> même chose → crash</p>
+<p>Avec le healthcheck, Docker Compose attend jusqu’à 50 secondes que
+PostgreSQL soit prêt.</p>
+<hr />
+<h2 id="chapitre-7-flux-complet-de-données">Chapitre 7 — Flux complet de
+données</h2>
+<pre><code>[Utilisateur ouvre http://localhost:3000]
+    ↓
+[Frontend React charge (build Vite)]
+    ↓
+[HomePage monte]
+    ├─ useFetch(() =&gt; api.getStats())
+    │   └─ GET http://localhost:8000/api/stats
+    │       └─ PostgreSQL query (1 ms)
+    │           ← {total_asn: 477, ...}
+    │
+    ├─ useFetch(() =&gt; api.getCountries())
+    │   └─ GET http://localhost:8000/api/countries
+    │       └─ SELECT * FROM countries (16 rows)
+    │           ← [{country_code: &quot;BJ&quot;, ...}, ...]
+    │
+    └─ Rendu des 4 stat cards + tableau 16 pays + carte
+        └─ Utilisateur clique sur &quot;Bénin&quot;
+            └─ Navigate to /country/BJ
+                └─ CountryPage monte
+                    └─ useFetch(() =&gt; api.getCountry(&quot;BJ&quot;))
+                        └─ GET http://localhost:8000/api/countries/BJ
+                            └─ SELECT * FROM countries + liste des ASN
+                                ← {country_code: &quot;BJ&quot;, asns: [{...}, ...]}
+                        └─ Affiche stats Bénin + graphique top 15 opérateurs + tableau 16 opérateurs
+                            └─ Utilisateur clique sur AS28683
+                                └─ Navigate to /asn/28683
+                                    └─ AsnDetailPage monte
+                                        └─ useFetch(() =&gt; api.getAsn(28683))
+                                            └─ GET http://localhost:8000/api/asn/28683
+                                                └─ SELECT asn + prefixes WHERE asn_id=...
+                                                    ← {asn_number: 28683, actions: {...}, prefixes: [{...}, ...]}
+                                            └─ Affiche scorecard 2/4 + pie ROA 92.59% + tableau 54 préfixes</code></pre>
+<p>Chaque appel API retourne de la donnée JSON, React la reçoit, la
+stocke dans l’état, et se rerender.</p>
+<hr />
+<h2 id="chapitre-8-pièges-courants-et-comment-les-éviter">Chapitre 8 —
+Pièges courants et comment les éviter</h2>
+<h3 id="piège-1-cors-bloquer-tout">Piège 1 : CORS bloquer tout</h3>
+<p><strong>Symptôme :</strong> Frontend envoie une requête, le
+navigateur log “CORS error”, la requête ne part pas.</p>
+<p><strong>Cause :</strong> Le frontend (port 3000) appelle l’API (port
+8000), navigateur demande permission (CORS). Sans
+<code>CORSMiddleware</code>, FastAPI refuse.</p>
+<p><strong>Solution :</strong> Ajouter le middleware CORS.</p>
+<h3 id="piège-2-clé-api-manrs-expire">Piège 2 : Clé API MANRS
+expire</h3>
+<p><strong>Symptôme :</strong> Le collecteur log “Pas de clé API MANRS —
+statut membre non disponible”. Tous les <code>is_manrs_member</code>
+sont False.</p>
+<p><strong>Cause :</strong> La clé a expiré (toutes les 3 jours par
+défaut).</p>
+<p><strong>Solution :</strong> Voir la procédure de renouvellement dans
+le GUIDE_MODULES.md.</p>
+<h3 id="piège-3-base-de-données-vide">Piège 3 : Base de données
+vide</h3>
+<p><strong>Symptôme :</strong> Frontend charge, mais le tableau est
+vide.</p>
+<p><strong>Cause :</strong> Tu as lancé <code>docker compose up</code>
+mais le collecteur n’a pas tourné. La base a les tables mais pas de
+données.</p>
+<p><strong>Solution :</strong> Lancer le collecteur manuellement, ou
+attendre qu’il tourne automatiquement (c’est en background dans le
+conteneur).</p>
+<h3 id="piège-4-frontend-ne-peut-pas-communiquer-avec-lapi">Piège 4 :
+Frontend ne peut pas communiquer avec l’API</h3>
+<p><strong>Symptôme :</strong> “Failed to fetch /api/stats” dans la
+console du navigateur.</p>
+<p><strong>Cause 1 :</strong> L’API n’est pas lancée (conteneur a
+crashé).<br />
+<strong>Cause 2 :</strong> <code>VITE_API_URL</code> n’est pas définie
+(frontend cherche sur un port inexistant).</p>
+<p><strong>Solution :</strong> <code>docker compose logs api</code>
+(vérifier qu’il tourne), ou
+<code>export VITE_API_URL=http://localhost:8000</code> avant
+<code>npm run dev</code>.</p>
+<h3 id="piège-5-rate-limiting-tue-la-collecte">Piège 5 : Rate limiting
+tue la collecte</h3>
+<p><strong>Symptôme :</strong> Collecteur tourne mais l’API log “429 Too
+Many Requests”.</p>
+<p><strong>Cause :</strong> <code>API_DELAY_SECONDS = 0</code> (pas de
+délai). Les APIs bloquer après 50 requêtes/seconde.</p>
+<p><strong>Solution :</strong> Garder
+<code>API_DELAY_SECONDS = 0.5</code> (il est dans
+<code>config.py</code>).</p>
+<h3 id="piège-6-statut-roa-mélangé-avec-roa">Piège 6 : Statut ROA
+mélangé avec % ROA</h3>
+<p><strong>Symptôme :</strong> Frontend affiche “Valid” comme un nombre
+(ex : “42%”) au lieu d’un statut.</p>
+<p><strong>Cause :</strong> Confusion entre
+<code>prefixes[].roa_status</code> (“valid”/“invalid”/“not-found”) et
+<code>asn.roa_coverage_pct</code> (51.4).</p>
+<p><strong>Solution :</strong> Lire l’API response attentivement. Dans
+<code>/api/asn/{number}</code>, <code>prefixes</code> contient les
+statuts, <code>roa_coverage_pct</code> est un nombre.</p>
+<hr />
+<h2 id="chapitre-9-mesure-de-succès">Chapitre 9 — Mesure de succès</h2>
+<h3 id="objectif-principal-réussi">Objectif principal réussi ?</h3>
+<p>Tu dois pouvoir répondre à la question :<br />
+<strong>Quel est l’état de la sécurité du routage Internet en Afrique de
+l’Ouest ?</strong></p>
+<p>Avec des chiffres à l’appui : - 477 ASN surveillés - 11 membres MANRS
+(2.3%) - 51.4% de couverture ROA - 0% d’anti-spoofing (aucun ASN testé
+bloque le spoofing) - Classement par pays (Mali 60%, Nigeria 28.6%,
+Mauritanie 0%)</p>
+<h3 id="test-simple-end-to-end">Test simple end-to-end</h3>
+<ol type="1">
+<li><code>docker compose up</code></li>
+<li>Attendre que PostgreSQL soit healthy (50s max)</li>
+<li>Attendre que le collecteur finisse une collecte (111 min)</li>
+<li>Ouvrir http://localhost:3000</li>
+<li>Cliquer sur Bénin → voir les 16 ASN</li>
+<li>Cliquer sur AS28683 → voir 54 préfixes</li>
+<li>Chercher “MTN” → voir les résultats</li>
+</ol>
+<p>Si tout ça fonctionne, tu as réussi.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>L’architecture est pensée pour être <strong>modulaire</strong> et
+<strong>résiliente</strong> :</p>
+<ul>
+<li><strong>Modulaire :</strong> Chaque module (DB, collecteur, API,
+frontend) peut être développé indépendamment et testé isolément.</li>
+<li><strong>Résiliente :</strong> Si un ASN échoue, le collecteur
+continue. Si l’API crash, tes données sont sauvegardées. Si tu relances
+le collecteur, il remet à jour sans doublon (UPSERT).</li>
+</ul>
+<p>Le “pourquoi” derrière chaque fichier, fonction et décision, c’est
+:</p>
+<p><strong>Répondre à la question centrale avec des données agrégées de
+5 sources publiques, sans coopération des opérateurs, de manière
+automatisée et visualisable.</strong></p>
+<p>C’est ça, l’observatoire MANRS.</p>
+</body>
+</html>

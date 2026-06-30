@@ -1,0 +1,915 @@
+2026-06-24 02:55:59,885 [INFO] collector.main — === Début de la collecte complète ===
+2026-06-24 02:55:59,885 [INFO] collector.apis — Pas de clé API MANRS — statut membre non disponible
+2026-06-24 02:55:59,885 [INFO] collector.main — Collecte Bénin (BJ)…
+2026-06-24 02:56:01,560 [INFO] collector.main —   16 ASN trouvés pour BJ
+2026-06-24 02:56:46,674 [INFO] collector.main —   AS28683 (SOCIETE BENINOISE D'INFRASTRUCTURES NUMERIQUES) — membre:False — 54 préfixes — ROA:93%
+2026-06-24 02:56:56,549 [INFO] collector.main —   AS37090 (ISOCEL SA) — membre:False — 13 préfixes — ROA:0%
+2026-06-24 02:57:05,123 [INFO] collector.main —   AS37136 (ETISALAT BENIN) — membre:False — 11 préfixes — ROA:0%
+2026-06-24 02:57:17,312 [INFO] collector.main —   AS37292 (Omnium des Telecom et de l'Internet (OTI Telecom)) — membre:False — 16 préfixes — ROA:0%
+2026-06-24 02:57:34,929 [INFO] collector.main —   AS37424 (SPACETEL BENIN SA) — membre:False — 21 préfixes — ROA:0%
+2026-06-24 02:57:36,477 [INFO] collector.main —   AS327818 (ISOCEL SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 02:57:38,731 [INFO] collector.main —   AS328092 (SUD TELECOM SOLUTIONS) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 02:57:43,748 [INFO] collector.main —   AS328098 (JENY SAS) — membre:False — 6 préfixes — ROA:0%
+2026-06-24 02:57:46,004 [INFO] collector.main —   AS328133 (ABC Corporation SARL) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 02:58:29,252 [INFO] collector.main —   AS328228 (SOCIETE BENINOISE D'INFRASTRUCTURES NUMERIQUES) — membre:False — 58 préfixes — ROA:97%
+2026-06-24 02:58:34,242 [INFO] collector.main —   AS328702 (Agence pour le Developpement du Numérique) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 02:58:36,395 [INFO] collector.main —   AS329086 (FIRSTNET SA) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 02:58:37,930 [INFO] collector.main —   AS329107 (TECHNODATA SOLUTIONS) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 02:58:39,292 [INFO] collector.main —   AS329156 (DEGNON-GROUP) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 02:58:41,007 [INFO] collector.main —   AS329512 (AD Solutions) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 02:58:42,741 [INFO] collector.main —   AS329544 (CHAPITRE BENINOIS DE L'INTERNET SOCIETY) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 02:58:42,745 [INFO] collector.main — Collecte BJ terminée.
+2026-06-24 02:58:43,746 [INFO] collector.main — Collecte Burkina Faso (BF)…
+2026-06-24 02:58:45,108 [INFO] collector.main —   26 ASN trouvés pour BF
+2026-06-24 02:59:58,637 [INFO] collector.main —   AS25543 (ONATEL (Office National des Telecommunications, PTT)) — membre:False — 100 préfixes — ROA:2%
+2026-06-24 03:00:07,099 [INFO] collector.main —   AS37008 (Sancfis Faso SA) — membre:False — 9 préfixes — ROA:100%
+2026-06-24 03:00:37,715 [INFO] collector.main —   AS37073 (Internet Puissance Plus Burkina SA) — membre:False — 17 préfixes — ROA:100%
+2026-06-24 03:00:48,457 [INFO] collector.main —   AS37163 (IPSYSTEM S.A) — membre:False — 14 préfixes — ROA:100%
+2026-06-24 03:00:57,983 [INFO] collector.main —   AS37526 (TELECEL FASO) — membre:False — 12 préfixes — ROA:0%
+2026-06-24 03:05:32,662 [INFO] collector.main —   AS37577 (Orange Burkina Faso) — membre:False — 359 préfixes — ROA:100%
+2026-06-24 03:05:38,768 [INFO] collector.main —   AS37648 (Union Economique et Monetaire Ouest Africaine (UEMOA)) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:07:43,609 [INFO] collector.main —   AS37721 (Virtual Technologies & Solutions) — membre:False — 159 préfixes — ROA:100%
+2026-06-24 03:07:45,387 [INFO] collector.main —   AS37734 (Virtual Technologies & Solutions) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 03:07:49,576 [INFO] collector.main —   AS327871 (Agence Nationale de Promotion des TIC (ANPTIC)) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 03:07:52,366 [INFO] collector.main —   AS328010 (Burkina Faso Internet EXchange Point ( BFIX)) — membre:False — 3 préfixes — ROA:100%
+2026-06-24 03:07:54,663 [INFO] collector.main —   AS328245 (Autorite de Regulation des Communications Electroniques et des Postes) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:07:59,166 [INFO] collector.main —   AS328316 (Point d'Atterissement Virtuel) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 03:08:01,280 [INFO] collector.main —   AS328424 (IT PROJET) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:08:02,930 [INFO] collector.main —   AS328448 (La Direction générale des impôts) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:08:04,487 [INFO] collector.main —   AS328534 (AFREENET SA) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 03:08:05,920 [INFO] collector.main —   AS328627 (Agence des technologies de communication et de sécurite (A.T.C.S)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:08:08,724 [INFO] collector.main —   AS328716 (VIPNET BURKINA FASO) — membre:False — 3 préfixes — ROA:67%
+2026-06-24 03:08:16,261 [INFO] collector.main —   AS328721 (Groupe Netforce) — membre:False — 6 préfixes — ROA:100%
+2026-06-24 03:08:20,872 [INFO] collector.main —   AS328898 (Association Burkinabe des Domaines Internet (ABDI)) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 03:08:24,561 [INFO] collector.main —   AS329041 (Association Nationale D'Education Et De Recherche Du Burkina Faso) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:08:26,300 [INFO] collector.main —   AS329306 (Société Nationale d'Electricité du Burkina (SONABEL)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:08:27,736 [INFO] collector.main —   AS329440 (OFFICE NATIONAL DE L'EAU ET DE L'ASSAINISSEMENT) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:08:31,834 [INFO] collector.main —   AS329485 (Bridge Fiber Solutions) — membre:False — 4 préfixes — ROA:100%
+2026-06-24 03:08:33,262 [INFO] collector.main —   AS329651 (integris) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 03:08:36,887 [INFO] collector.main —   AS329744 (IKA SOLUTION LIMTED) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:08:37,153 [INFO] collector.main — Collecte BF terminée.
+2026-06-24 03:08:38,154 [INFO] collector.main — Collecte Cap-Vert (CV)…
+2026-06-24 03:08:39,612 [INFO] collector.main —   7 ASN trouvés pour CV
+2026-06-24 03:09:10,034 [INFO] collector.main —   AS37517 (CABO VERDE TELECOM, S.A) — membre:False — 43 préfixes — ROA:26%
+2026-06-24 03:09:21,807 [INFO] collector.main —   AS37575 (UNITEL T+ Telecomunicacoes, Sociedade Unipessoal, S.A.) — membre:False — 15 préfixes — ROA:87%
+2026-06-24 03:09:24,775 [INFO] collector.main —   AS327862 (NOSi EPE) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:09:26,208 [INFO] collector.main —   AS328440 (Banco BAI Cabo Verde, SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:09:29,588 [INFO] collector.main —   AS328941 (CABO VERDE TELECOM, S.A) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:09:31,120 [INFO] collector.main —   AS329138 (BCN) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:09:32,657 [INFO] collector.main —   AS329173 (Associação Cabo Verde Internet Exchange Point) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:09:32,663 [INFO] collector.main — Collecte CV terminée.
+2026-06-24 03:09:33,663 [INFO] collector.main — Collecte Côte d'Ivoire (CI)…
+2026-06-24 03:09:34,495 [INFO] collector.main —   17 ASN trouvés pour CI
+2026-06-24 03:23:36,670 [INFO] collector.main —   AS29571 (Orange Côte d'Ivoire) — membre:False — 1134 préfixes — ROA:100%
+2026-06-24 03:24:19,678 [INFO] collector.main —   AS36924 (GVA Cote d'Ivoire SAS) — membre:False — 55 préfixes — ROA:100%
+2026-06-24 03:26:15,225 [INFO] collector.main —   AS36974 (MTN COTE D'IVOIRE S.A) — membre:False — 159 préfixes — ROA:100%
+2026-06-24 03:26:55,580 [INFO] collector.main —   AS37190 (Atlantique Telecom (Cote d'Ivoire)) — membre:False — 52 préfixes — ROA:0%
+2026-06-24 03:27:23,841 [INFO] collector.main —   AS37381 (Afrique Technologies & Services (VipNet)) — membre:False — 38 préfixes — ROA:97%
+2026-06-24 03:27:31,521 [INFO] collector.main —   AS327746 (DATACONNECT COTE D'IVOIRE) — membre:False — 9 préfixes — ROA:100%
+2026-06-24 03:27:36,540 [INFO] collector.main —   AS327773 (Guichet Unique du Commerce Extérieur De Côte d'Ivoire) — membre:False — 6 préfixes — ROA:100%
+2026-06-24 03:27:39,401 [INFO] collector.main —   AS327974 (Authorite de Regulation des Telecommunications/TIC de Cote d'Ivoire-ARTCI) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:27:44,525 [INFO] collector.main —   AS328025 (VEONE) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 03:27:47,318 [INFO] collector.main —   AS328193 (SOCIETE NATIONALE DE DEVELOPPEMENT INFORMATIQUE) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:27:51,624 [INFO] collector.main —   AS328290 (INQ Cote d'Ivoire) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:27:53,435 [INFO] collector.main —   AS328355 (DIRECTION GENERALE DES IMPOTS) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:27:55,684 [INFO] collector.main —   AS328729 (GROUPEMENT DES SERVICES EAU ET ELECTRICITE) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:27:57,050 [INFO] collector.main —   AS328809 (EDIATTAH Conseils & Solutions) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:27:58,655 [INFO] collector.main —   AS329037 (BRIDGE BANK GROUP COTE D'IVOIRE) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:28:00,803 [INFO] collector.main —   AS329586 (Port Autonome D'Abidjan) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:28:02,241 [INFO] collector.main —   AS329666 (Cote d'Ivoire Internet Exchange Point) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 03:28:02,246 [INFO] collector.main — Collecte CI terminée.
+2026-06-24 03:28:03,246 [INFO] collector.main — Collecte Gambie (GM)…
+2026-06-24 03:28:04,694 [INFO] collector.main —   9 ASN trouvés pour GM
+2026-06-24 03:28:23,438 [INFO] collector.main —   AS25250 (Gamtel Co.) — membre:False — 25 préfixes — ROA:0%
+2026-06-24 03:28:43,714 [INFO] collector.main —   AS37309 (QCell Limited) — membre:False — 27 préfixes — ROA:100%
+2026-06-24 03:29:00,004 [INFO] collector.main —   AS37323 (Netpage Company Limited) — membre:False — 22 préfixes — ROA:91%
+2026-06-24 03:29:02,257 [INFO] collector.main —   AS37503 (Unique Solutions Company Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:29:09,426 [INFO] collector.main —   AS37524 (Africell Gambia) — membre:False — 9 préfixes — ROA:0%
+2026-06-24 03:29:21,617 [INFO] collector.main —   AS37552 (Comium Gambia Ltd.) — membre:False — 16 préfixes — ROA:0%
+2026-06-24 03:29:28,890 [INFO] collector.main —   AS328140 (INSIST NET Limited) — membre:False — 9 préfixes — ROA:100%
+2026-06-24 03:29:36,062 [INFO] collector.main —   AS328488 (DK Telecom Ltd) — membre:False — 9 préfixes — ROA:0%
+2026-06-24 03:29:37,495 [INFO] collector.main —   AS329179 (Sky Telecom Company Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:29:37,499 [INFO] collector.main — Collecte GM terminée.
+2026-06-24 03:29:38,500 [INFO] collector.main — Collecte Ghana (GH)…
+2026-06-24 03:29:39,951 [INFO] collector.main —   92 ASN trouvés pour GH
+2026-06-24 03:29:41,364 [INFO] collector.main —   AS15825 (Ghana Dot Com Ltd) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:30:13,281 [INFO] collector.main —   AS29340 (SP ECHO GHANA LIMITED) — membre:False — 32 préfixes — ROA:0%
+2026-06-24 03:31:36,513 [INFO] collector.main —   AS29614 (Ghana Telecommunications Company Limited) — membre:False — 103 préfixes — ROA:50%
+2026-06-24 03:31:41,627 [INFO] collector.main —   AS29674 (Vodacom Business (Ghana) Limited) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 03:35:56,538 [INFO] collector.main —   AS30986 (Scancom Limited) — membre:False — 338 préfixes — ROA:99%
+2026-06-24 03:35:59,154 [INFO] collector.main —   AS30997 (Ghana Internet Exchange Association) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:36:20,895 [INFO] collector.main —   AS33786 (K-Net) — membre:False — 28 préfixes — ROA:100%
+2026-06-24 03:36:50,696 [INFO] collector.main —   AS37012 (Comsys (GH) Limited) — membre:False — 35 préfixes — ROA:100%
+2026-06-24 03:37:12,302 [INFO] collector.main —   AS37030 (Airtel Ghana Limited) — membre:False — 27 préfixes — ROA:63%
+2026-06-24 03:37:15,979 [INFO] collector.main —   AS37032 (Alink Telecom Ghana) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:37:24,588 [INFO] collector.main —   AS37074 (University of Ghana) — membre:False — 11 préfixes — ROA:0%
+2026-06-24 03:37:32,398 [INFO] collector.main —   AS37087 (Super Tech STL Limited) — membre:False — 9 préfixes — ROA:100%
+2026-06-24 03:37:40,662 [INFO] collector.main —   AS37140 (Airtel Ghana Limited) — membre:False — 10 préfixes — ROA:30%
+2026-06-24 03:37:44,554 [INFO] collector.main —   AS37212 (Zenith Bank Ghana Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:37:48,237 [INFO] collector.main —   AS37232 (Certified Technology Services Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:37:49,775 [INFO] collector.main —   AS37263 (University of Education, Winneba) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:37:53,459 [INFO] collector.main —   AS37304 (Tullow Ghana Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:38:10,043 [INFO] collector.main —   AS37313 (Ghana Government (Ministry of Communications)) — membre:False — 22 préfixes — ROA:0%
+2026-06-24 03:38:31,038 [INFO] collector.main —   AS37350 (Dimension Data Ltd) — membre:False — 27 préfixes — ROA:0%
+2026-06-24 03:38:36,161 [INFO] collector.main —   AS37373 (Ashesi University College) — membre:False — 6 préfixes — ROA:0%
+2026-06-24 03:38:37,998 [INFO] collector.main —   AS37392 (Social Security And National Insurance Trust) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:38:40,251 [INFO] collector.main —   AS37534 (Guaranty Trust Bank (Ghana) Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:38:43,931 [INFO] collector.main —   AS37570 (Fidelity Bank Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:38:51,309 [INFO] collector.main —   AS37613 (DOLPHIN TELECOMMUNICATION LIMITED) — membre:False — 9 préfixes — ROA:100%
+2026-06-24 03:38:54,280 [INFO] collector.main —   AS37647 (Blue Cloud Networks Limited) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:39:14,275 [INFO] collector.main —   AS37727 (iNET Communications Limited) — membre:False — 25 préfixes — ROA:100%
+2026-06-24 03:39:15,985 [INFO] collector.main —   AS327695 (Ghana-India Kofi Annan Centre of Excellence in ICT) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:39:34,138 [INFO] collector.main —   AS327814 (Ecoband Ltd) — membre:False — 21 préfixes — ROA:100%
+2026-06-24 03:39:35,748 [INFO] collector.main —   AS327845 (Sage petroleum- Ghana) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:39:38,098 [INFO] collector.main —   AS327848 (Republic Bank (Ghana) Ltd) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:39:39,650 [INFO] collector.main —   AS327853 (China Europe International Business School(AFRICA Campus)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:39:43,016 [INFO] collector.main —   AS327886 (Central University College) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:39:44,551 [INFO] collector.main —   AS327928 (Consolidated Bank Ghana Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:39:47,111 [INFO] collector.main —   AS327944 (African Institute for Mathematical Sciences Ghana) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:40:07,388 [INFO] collector.main —   AS327947 (Kwame Nkrumah University of Science and Technology) — membre:False — 26 préfixes — ROA:0%
+2026-06-24 03:40:09,637 [INFO] collector.main —   AS327965 (ARB APEX BANK LIMITED) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:40:15,577 [INFO] collector.main —   AS327992 (Ghanaian Academic and Research Network) — membre:False — 7 préfixes — ROA:100%
+2026-06-24 03:40:17,113 [INFO] collector.main —   AS328054 (University for Development Studies) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:40:21,515 [INFO] collector.main —   AS328076 (University of Mines and Technology) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 03:40:23,155 [INFO] collector.main —   AS328141 (Ostec limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:40:26,092 [INFO] collector.main —   AS328182 (Digital Arena Limited) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:40:30,630 [INFO] collector.main —   AS328184 (UNIVERSITY OF HEALTH AND ALLIED SCIENCES) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 03:40:32,163 [INFO] collector.main —   AS328185 (Consolidated Bank Ghana Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:40:33,699 [INFO] collector.main —   AS328212 (THE UNIVERSITY OF CAPE COAST) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:40:35,954 [INFO] collector.main —   AS328213 (IT Consortium Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:40:39,129 [INFO] collector.main —   AS328224 (University of Energy and Natural Resources) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:40:42,674 [INFO] collector.main —   AS328252 (eProcess International SA (Ecobank Group)) — membre:False — 4 préfixes — ROA:100%
+2026-06-24 03:40:46,397 [INFO] collector.main —   AS328261 (E-Connecta Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:40:48,470 [INFO] collector.main —   AS328264 (University of Professional Studies, Accra (UPSA)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:40:49,922 [INFO] collector.main —   AS328353 (Methodist University College Ghana) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:40:51,349 [INFO] collector.main —   AS328367 (US Embassy, Ghana) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:40:52,950 [INFO] collector.main —   AS328372 (Etranzact Ghana Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:40:54,588 [INFO] collector.main —   AS328439 (GHANA INSTITUTE OF MANAGEMENT AND PUBLIC ADMINISTRATION) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:40:57,140 [INFO] collector.main —   AS328454 (Bank of Ghana) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:41:00,835 [INFO] collector.main —   AS328494 (3D WIRELESS PLUS LIMITED) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:41:03,087 [INFO] collector.main —   AS328530 (Garden City University College) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:41:04,931 [INFO] collector.main —   AS328574 (National Communications Authority) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:41:06,363 [INFO] collector.main —   AS328639 (Ghana National Petroleum Corporation) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:41:08,103 [INFO] collector.main —   AS328647 (Koforidua Technical University) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:41:09,751 [INFO] collector.main —   AS328648 (KUMASI TECHNICAL UNIVERSITY) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:41:18,140 [INFO] collector.main —   AS328659 (Vobiss Solutions Limited) — membre:False — 9 préfixes — ROA:0%
+2026-06-24 03:41:19,776 [INFO] collector.main —   AS328662 (Presbyterian University College, Ghana) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:41:21,414 [INFO] collector.main —   AS328663 (Catholic University of Ghana (Fiapre) (CUG)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:41:25,408 [INFO] collector.main —   AS328717 (Tizeti Network Ghana Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:41:26,944 [INFO] collector.main —   AS328752 (Christian Service University College) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:41:28,377 [INFO] collector.main —   AS328769 (ARROW NETWORK SYSTEMS LIMITED) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 03:41:30,015 [INFO] collector.main —   AS328770 (SIMBA MEDIA GHANA LIMITED) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:41:35,034 [INFO] collector.main —   AS328797 (Broadspectrum Limited) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 03:41:39,744 [INFO] collector.main —   AS328842 (ProData Africa Limited) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 03:41:43,160 [INFO] collector.main —   AS328890 (Calbank PLC) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:41:45,477 [INFO] collector.main —   AS328896 (UNIVERSITY OF ENVIRONMENT AND SUSTAINABLE DEVELOPMENT) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:41:47,043 [INFO] collector.main —   AS328957 (CoLi Link Ghana Limited) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 03:41:48,652 [INFO] collector.main —   AS328983 (Comsys (GH) Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:41:53,056 [INFO] collector.main —   AS328984 (Revabit Limited) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 03:41:56,946 [INFO] collector.main —   AS329009 (Spectrum Internet Service Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:41:58,479 [INFO] collector.main —   AS329066 (Datacom Telecommunication Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:42:03,124 [INFO] collector.main —   AS329154 (First Atlantic Bank Limited) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 03:42:04,726 [INFO] collector.main —   AS329169 (Maxinet Broadband) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:42:08,824 [INFO] collector.main —   AS329176 (Future Technology Solutions Today Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:42:10,462 [INFO] collector.main —   AS329309 (West Africa Data Centres Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:42:12,102 [INFO] collector.main —   AS329326 (Accra Technical University) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:42:17,322 [INFO] collector.main —   AS329389 (BigPay Ghana Limited) — membre:False — 6 préfixes — ROA:0%
+2026-06-24 03:42:18,858 [INFO] collector.main —   AS329410 (Sunyani Technical University) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:42:20,395 [INFO] collector.main —   AS329436 (Association of African Universities) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:42:23,569 [INFO] collector.main —   AS329449 (Regional Maritime University) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:42:25,822 [INFO] collector.main —   AS329482 (OPIN TECHNOLOGIES GHANA LIMITED) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:42:27,460 [INFO] collector.main —   AS329486 (GCB BANK PLC) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:42:34,731 [INFO] collector.main —   AS329580 (The Cloud Network Limited) — membre:False — 4 préfixes — ROA:100%
+2026-06-24 03:42:38,314 [INFO] collector.main —   AS329588 (Winners Co-operative Credit Union Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:42:39,850 [INFO] collector.main —   AS329601 (University of Media, Arts and Communications) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:42:41,689 [INFO] collector.main —   AS329624 (MONINET) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:42:44,048 [INFO] collector.main —   AS329649 (Carl-Tech IT Solutions LTD) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 03:42:44,053 [INFO] collector.main — Collecte GH terminée.
+2026-06-24 03:42:45,054 [INFO] collector.main — Collecte Guinée (GN)…
+2026-06-24 03:42:46,502 [INFO] collector.main —   14 ASN trouvés pour GN
+2026-06-24 03:42:48,693 [INFO] collector.main —   AS37141 (ETI SA) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:42:53,109 [INFO] collector.main —   AS37427 (Cellcom Guinea) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 03:42:56,847 [INFO] collector.main —   AS37430 (VDC Telecom) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:43:30,539 [INFO] collector.main —   AS37461 (ORANGE GUINEE) — membre:False — 46 préfixes — ROA:0%
+2026-06-24 03:43:39,241 [INFO] collector.main —   AS37612 (AREEBA GUINEE SA) — membre:False — 11 préfixes — ROA:0%
+2026-06-24 03:43:40,674 [INFO] collector.main —   AS37665 (MOUNA Group Technology Sa.) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:43:43,746 [INFO] collector.main —   AS328107 (GUILAB SA) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:43:45,280 [INFO] collector.main —   AS328244 (Skyvision Guinee SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:43:46,751 [INFO] collector.main —   AS328899 (Afribone) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:43:49,545 [INFO] collector.main —   AS328923 (KAGNY TECHNOLOGIE SARL U) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:43:52,394 [INFO] collector.main —   AS328965 (Leader Net Services Sarl) — membre:False — 3 préfixes — ROA:67%
+2026-06-24 03:43:55,242 [INFO] collector.main —   AS329399 (Societe Cajutel Guinee) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 03:43:56,852 [INFO] collector.main —   AS329509 (WEBB FONTAINE GUINEE SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:43:58,389 [INFO] collector.main —   AS329594 (AVISTA GROUPE SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:43:58,395 [INFO] collector.main — Collecte GN terminée.
+2026-06-24 03:43:59,395 [INFO] collector.main — Collecte Guinée-Bissau (GW)…
+2026-06-24 03:44:00,228 [INFO] collector.main —   2 ASN trouvés pour GW
+2026-06-24 03:44:07,540 [INFO] collector.main —   AS37559 (Orange Bissau) — membre:False — 9 préfixes — ROA:0%
+2026-06-24 03:44:12,247 [INFO] collector.main —   AS327769 (Spacetel) — membre:False — 6 préfixes — ROA:0%
+2026-06-24 03:44:12,253 [INFO] collector.main — Collecte GW terminée.
+2026-06-24 03:44:13,253 [INFO] collector.main — Collecte Liberia (LR)…
+2026-06-24 03:44:14,030 [INFO] collector.main —   14 ASN trouvés pour LR
+2026-06-24 03:44:21,023 [INFO] collector.main —   AS37094 (Orange Liberia, INC) — membre:False — 9 préfixes — ROA:0%
+2026-06-24 03:44:22,554 [INFO] collector.main —   AS37203 (Liberia Telecommunications Corporation (libtelco)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:44:41,699 [INFO] collector.main —   AS37410 (Lonestar Communications Corporation) — membre:False — 23 préfixes — ROA:74%
+2026-06-24 03:44:46,207 [INFO] collector.main —   AS37580 (ELECTRO SHACK INC.) — membre:False — 5 préfixes — ROA:60%
+2026-06-24 03:44:47,739 [INFO] collector.main —   AS37715 (Liberia Internet Exchange Point Association) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:44:50,713 [INFO] collector.main —   AS207269 (AngelicoussisGroup MARAN TANKERS MANAGEMENT INC) — membre:False — 3 préfixes — ROA:100%
+2026-06-24 03:44:52,250 [INFO] collector.main —   AS215964 (SAMOS SAMOS STEAMSHIP COMPANY) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:45:08,122 [INFO] collector.main —   AS328136 (Telecel Liberia Limited) — membre:False — 18 préfixes — ROA:0%
+2026-06-24 03:45:17,741 [INFO] collector.main —   AS328196 (POWERNET) — membre:False — 12 préfixes — ROA:0%
+2026-06-24 03:45:20,130 [INFO] collector.main —   AS328549 (SAHEL TELECOM LIBERIA) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 03:45:28,397 [INFO] collector.main —   AS328595 (Winners Incorporated) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 03:45:34,336 [INFO] collector.main —   AS329082 (Connect Services Liberia, LLC) — membre:False — 7 préfixes — ROA:71%
+2026-06-24 03:45:35,868 [INFO] collector.main —   AS329496 (GOWIFI Liberia LLC) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 03:45:40,377 [INFO] collector.main —   AS329525 (Gonetwork Inc) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 03:45:40,381 [INFO] collector.main — Collecte LR terminée.
+2026-06-24 03:45:41,382 [INFO] collector.main — Collecte Mali (ML)…
+2026-06-24 03:45:43,035 [INFO] collector.main —   5 ASN trouvés pour ML
+2026-06-24 03:45:59,428 [INFO] collector.main —   AS21271 (Society of Mali's Telecommunications (SOTELMA)) — membre:False — 22 préfixes — ROA:0%
+2026-06-24 03:47:35,472 [INFO] collector.main —   AS30985 (Orange Mali SA) — membre:False — 130 préfixes — ROA:98%
+2026-06-24 03:47:47,889 [INFO] collector.main —   AS36864 (AFRIBONE MALI SA) — membre:False — 15 préfixes — ROA:87%
+2026-06-24 03:47:53,290 [INFO] collector.main —   AS328253 (ALPHA TELECOMMUNICATION MALI-ATEL-S.A) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 03:47:57,688 [INFO] collector.main —   AS328284 (Société Malienne de Transmission et de Diffusion) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 03:47:57,693 [INFO] collector.main — Collecte ML terminée.
+2026-06-24 03:47:58,694 [INFO] collector.main — Collecte Mauritanie (MR)…
+2026-06-24 03:48:00,144 [INFO] collector.main —   7 ASN trouvés pour MR
+2026-06-24 03:48:25,140 [INFO] collector.main —   AS29544 (Mauritanian Telecommunication Company) — membre:False — 34 préfixes — ROA:0%
+2026-06-24 03:48:44,179 [INFO] collector.main —   AS37508 (MATTEL) — membre:False — 25 préfixes — ROA:0%
+2026-06-24 03:49:21,869 [INFO] collector.main —   AS37541 (Chinguitel S.A) — membre:False — 51 préfixes — ROA:0%
+2026-06-24 03:49:23,299 [INFO] collector.main —   AS328850 (Computer Sales & Services (C.S.S-SA)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:49:35,485 [INFO] collector.main —   AS328997 (RIMATEL-SA) — membre:False — 15 préfixes — ROA:0%
+2026-06-24 03:49:39,064 [INFO] collector.main —   AS329048 (NETCOM sa) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:49:40,602 [INFO] collector.main —   AS329119 (PATRIE NETWORK- PATRIE-NET- SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 03:49:40,609 [INFO] collector.main — Collecte MR terminée.
+2026-06-24 03:49:41,609 [INFO] collector.main — Collecte Niger (NE)…
+2026-06-24 03:49:43,059 [INFO] collector.main —   7 ASN trouvés pour NE
+2026-06-24 03:49:53,761 [INFO] collector.main —   AS26130 (LIPTINFOR NIGER SA) — membre:False — 14 préfixes — ROA:100%
+2026-06-24 03:50:01,291 [INFO] collector.main —   AS37205 (Atlantique Telecom Niger) — membre:False — 9 préfixes — ROA:0%
+2026-06-24 03:50:34,982 [INFO] collector.main —   AS37233 (Zamani Telecom Niger SA) — membre:False — 45 préfixes — ROA:0%
+2026-06-24 03:50:43,890 [INFO] collector.main —   AS37385 (Societe Nigerienne des Telecommunications (SONITEL)) — membre:False — 11 préfixes — ROA:0%
+2026-06-24 03:51:06,519 [INFO] collector.main —   AS37531 (Airtel Niger) — membre:False — 30 préfixes — ROA:0%
+2026-06-24 03:51:10,103 [INFO] collector.main —   AS329103 (NINETEC SARL) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 03:51:13,074 [INFO] collector.main —   AS329224 (Global Data Services) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 03:51:13,079 [INFO] collector.main — Collecte NE terminée.
+2026-06-24 03:51:14,079 [INFO] collector.main — Collecte Nigeria (NG)…
+2026-06-24 03:51:15,423 [INFO] collector.main —   224 ASN trouvés pour NG
+2026-06-24 03:52:42,069 [INFO] collector.main —   AS16284 (Inq. Digital Nigeria) — membre:False — 108 préfixes — ROA:0%
+2026-06-24 03:52:56,168 [INFO] collector.main —   AS25163 (21st Century Technologies Limited) — membre:False — 18 préfixes — ROA:0%
+2026-06-24 03:54:04,593 [INFO] collector.main —   AS29091 (ipNX Nigeria Limited) — membre:False — 89 préfixes — ROA:99%
+2026-06-24 04:01:46,949 [INFO] collector.main —   AS29465 (VCG-AS MTN NIGERIA Communication limited) — membre:False — 608 préfixes — ROA:99%
+2026-06-24 04:02:39,988 [INFO] collector.main — === Début de la collecte complète ===
+2026-06-24 04:02:40,410 [INFO] collector.main —   AS30988 (IS InternetSolutions Limited) — membre:False — 70 préfixes — ROA:100%
+2026-06-24 04:02:42,637 [INFO] collector.apis —   1813 ASN membres MANRS chargés
+2026-06-24 04:02:42,638 [INFO] collector.main — Collecte Bénin (BJ)…
+2026-06-24 04:02:43,491 [INFO] collector.main —   16 ASN trouvés pour BJ
+2026-06-24 04:03:24,922 [INFO] collector.main —   AS28683 (SOCIETE BENINOISE D'INFRASTRUCTURES NUMERIQUES) — membre:False — 54 préfixes — ROA:93%
+2026-06-24 04:03:35,051 [INFO] collector.main —   AS37090 (ISOCEL SA) — membre:False — 13 préfixes — ROA:0%
+2026-06-24 04:03:44,363 [INFO] collector.main —   AS37136 (ETISALAT BENIN) — membre:False — 11 préfixes — ROA:0%
+2026-06-24 04:03:56,581 [INFO] collector.main —   AS37292 (Omnium des Telecom et de l'Internet (OTI Telecom)) — membre:False — 16 préfixes — ROA:0%
+2026-06-24 04:04:12,424 [INFO] collector.main —   AS37424 (SPACETEL BENIN SA) — membre:False — 21 préfixes — ROA:0%
+2026-06-24 04:04:13,963 [INFO] collector.main —   AS327818 (ISOCEL SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:04:16,319 [INFO] collector.main —   AS328092 (SUD TELECOM SOLUTIONS) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:04:21,757 [INFO] collector.main —   AS328098 (JENY SAS) — membre:False — 6 préfixes — ROA:0%
+2026-06-24 04:04:24,127 [INFO] collector.main —   AS328133 (ABC Corporation SARL) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:05:07,618 [INFO] collector.main —   AS328228 (SOCIETE BENINOISE D'INFRASTRUCTURES NUMERIQUES) — membre:False — 58 préfixes — ROA:97%
+2026-06-24 04:05:11,204 [INFO] collector.main —   AS328702 (Agence pour le Developpement du Numérique) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 04:05:13,451 [INFO] collector.main —   AS329086 (FIRSTNET SA) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:05:14,909 [INFO] collector.main —   AS329107 (TECHNODATA SOLUTIONS) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:05:16,365 [INFO] collector.main —   AS329156 (DEGNON-GROUP) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:05:17,916 [INFO] collector.main —   AS329512 (AD Solutions) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:05:19,395 [INFO] collector.main —   AS329544 (CHAPITRE BENINOIS DE L'INTERNET SOCIETY) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:05:19,399 [INFO] collector.main — Collecte BJ terminée.
+2026-06-24 04:05:20,400 [INFO] collector.main — Collecte Burkina Faso (BF)…
+2026-06-24 04:05:21,267 [INFO] collector.main —   AS30998 (Netcom Africa Limited) — membre:False — 218 préfixes — ROA:0%
+2026-06-24 04:05:22,225 [INFO] collector.main —   26 ASN trouvés pour BF
+2026-06-24 04:05:24,427 [INFO] collector.main —   AS35074 (AS-COBRANETNG Cobranet Limited) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 04:05:26,658 [INFO] collector.main —   AS36872 (Intercom Data Network Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:06:42,448 [INFO] collector.main —   AS25543 (ONATEL (Office National des Telecommunications, PTT)) — membre:False — 100 préfixes — ROA:2%
+2026-06-24 04:06:50,123 [INFO] collector.main —   AS37008 (Sancfis Faso SA) — membre:False — 9 préfixes — ROA:100%
+2026-06-24 04:07:03,020 [INFO] collector.main —   AS37073 (Internet Puissance Plus Burkina SA) — membre:False — 17 préfixes — ROA:100%
+2026-06-24 04:07:14,080 [INFO] collector.main —   AS37163 (IPSYSTEM S.A) — membre:False — 14 préfixes — ROA:100%
+2026-06-24 04:07:23,503 [INFO] collector.main —   AS37526 (TELECEL FASO) — membre:False — 12 préfixes — ROA:0%
+2026-06-24 04:11:16,934 [INFO] collector.main —   AS36873 (Airtel Networks Limited) — membre:False — 454 préfixes — ROA:0%
+2026-06-24 04:11:58,136 [INFO] collector.main —   AS36920 (KKON Technologies Ltd) — membre:False — 52 préfixes — ROA:0%
+2026-06-24 04:12:01,002 [INFO] collector.main —   AS36922 (United Bank for Africa) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 04:12:01,161 [INFO] collector.main —   AS37577 (Orange Burkina Faso) — membre:True — 359 préfixes — ROA:100%
+2026-06-24 04:12:05,305 [INFO] collector.main —   AS37648 (Union Economique et Monetaire Ouest Africaine (UEMOA)) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 04:13:52,832 [INFO] collector.main —   AS36923 (SWIFT NETWORKS LIMITED) — membre:False — 144 préfixes — ROA:0%
+2026-06-24 04:13:56,201 [INFO] collector.main —   AS36938 (Nigeria Internet Registration Association) — membre:False — 3 préfixes — ROA:100%
+2026-06-24 04:14:00,501 [INFO] collector.main —   AS36940 (Internet Exchange Point of Nigeria) — membre:False — 5 préfixes — ROA:60%
+2026-06-24 04:14:02,653 [INFO] collector.main —   AS36957 (MICROACCESS LTD) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:14:02,870 [INFO] collector.main —   AS37721 (Virtual Technologies & Solutions) — membre:True — 159 préfixes — ROA:100%
+2026-06-24 04:14:04,704 [INFO] collector.main —   AS37734 (Virtual Technologies & Solutions) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 04:14:04,732 [INFO] collector.main —   AS36970 (IPARTNERS LIMITED) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:14:07,058 [INFO] collector.main —   AS36979 (First Bank of NG PLC) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:14:09,108 [INFO] collector.main —   AS327871 (Agence Nationale de Promotion des TIC (ANPTIC)) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 04:14:09,852 [INFO] collector.main —   AS36993 (First City Monument Bank, PLC) — membre:False — 3 préfixes — ROA:33%
+2026-06-24 04:14:12,078 [INFO] collector.main —   AS328010 (Burkina Faso Internet EXchange Point ( BFIX)) — membre:True — 3 préfixes — ROA:100%
+2026-06-24 04:14:13,506 [INFO] collector.main —   AS37001 (Guaranty Trust Bank Plc) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 04:14:15,047 [INFO] collector.main —   AS328245 (Autorite de Regulation des Communications Electroniques et des Postes) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:14:19,348 [INFO] collector.main —   AS328316 (Point d'Atterissement Virtuel) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 04:14:21,801 [INFO] collector.main —   AS328424 (IT PROJET) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:14:23,340 [INFO] collector.main —   AS328448 (La Direction générale des impôts) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:14:24,720 [INFO] collector.main —   AS328534 (AFREENET SA) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 04:14:26,208 [INFO] collector.main —   AS328627 (Agence des technologies de communication et de sécurite (A.T.C.S)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:14:29,071 [INFO] collector.main —   AS328716 (VIPNET BURKINA FASO) — membre:False — 3 préfixes — ROA:67%
+2026-06-24 04:14:34,229 [INFO] collector.main —   AS328721 (Groupe Netforce) — membre:False — 6 préfixes — ROA:100%
+2026-06-24 04:14:35,207 [INFO] collector.main —   AS37004 (Suburban Broadband Ltd) — membre:False — 29 préfixes — ROA:0%
+2026-06-24 04:14:36,551 [INFO] collector.main —   AS328898 (Association Burkinabe des Domaines Internet (ABDI)) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 04:14:37,291 [INFO] collector.main —   AS37005 (ACCESS BANK PLC) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:14:39,969 [INFO] collector.main —   AS329041 (Association Nationale D'Education Et De Recherche Du Burkina Faso) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 04:14:41,564 [INFO] collector.main —   AS329306 (Société Nationale d'Electricité du Burkina (SONABEL)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:14:42,998 [INFO] collector.main —   AS329440 (OFFICE NATIONAL DE L'EAU ET DE L'ASSAINISSEMENT) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:14:46,518 [INFO] collector.main —   AS329485 (Bridge Fiber Solutions) — membre:False — 4 préfixes — ROA:100%
+2026-06-24 04:14:47,947 [INFO] collector.main —   AS329651 (integris) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 04:14:50,170 [INFO] collector.main —   AS329744 (IKA SOLUTION LIMTED) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:14:50,176 [INFO] collector.main — Collecte BF terminée.
+2026-06-24 04:14:51,176 [INFO] collector.main — Collecte Cap-Vert (CV)…
+2026-06-24 04:14:52,620 [INFO] collector.main —   7 ASN trouvés pour CV
+2026-06-24 04:15:02,868 [INFO] collector.main —   AS37018 (Galaxy Backbone PLC) — membre:False — 34 préfixes — ROA:0%
+2026-06-24 04:15:08,908 [INFO] collector.main —   AS37025 (BANKPHB PLC) — membre:False — 5 préfixes — ROA:60%
+2026-06-24 04:15:11,801 [INFO] collector.main —   AS37056 (Zenith Bank PLC) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 04:15:24,991 [INFO] collector.main —   AS37517 (CABO VERDE TELECOM, S.A) — membre:False — 43 préfixes — ROA:26%
+2026-06-24 04:15:26,930 [INFO] collector.main —   AS37058 (SKYE BANK PLC) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:15:36,968 [INFO] collector.main —   AS37575 (UNITEL T+ Telecomunicacoes, Sociedade Unipessoal, S.A.) — membre:False — 15 préfixes — ROA:87%
+2026-06-24 04:15:39,015 [INFO] collector.main —   AS37076 (Emerging Markets Telecommunication Services (EMTS) Limited) — membre:False — 15 préfixes — ROA:0%
+2026-06-24 04:15:39,830 [INFO] collector.main —   AS327862 (NOSi EPE) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 04:15:41,366 [INFO] collector.main —   AS328440 (Banco BAI Cabo Verde, SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:15:42,519 [INFO] collector.main —   AS37077 (American University of Nigeria) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 04:15:44,156 [INFO] collector.main —   AS328941 (CABO VERDE TELECOM, S.A) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 04:15:45,669 [INFO] collector.main —   AS329138 (BCN) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:15:47,030 [INFO] collector.main —   AS329173 (Associação Cabo Verde Internet Exchange Point) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:15:47,035 [INFO] collector.main — Collecte CV terminée.
+2026-06-24 04:15:48,036 [INFO] collector.main — Collecte Côte d'Ivoire (CI)…
+2026-06-24 04:15:48,940 [INFO] collector.main —   17 ASN trouvés pour CI
+2026-06-24 04:16:23,459 [INFO] collector.main —   AS37088 (VDT COMMUNICATIONS LIMITED) — membre:False — 55 préfixes — ROA:100%
+2026-06-24 04:16:25,607 [INFO] collector.main —   AS37104 (STANBIC IBTC BANK PLC) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:16:37,485 [INFO] collector.main —   AS37125 (Layer3 Limited) — membre:False — 13 préfixes — ROA:100%
+2026-06-24 04:16:39,022 [INFO] collector.main —   AS37144 (Unified Payment Services Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:18:24,298 [INFO] collector.main —   AS37148 (Globacom Limited) — membre:False — 140 préfixes — ROA:64%
+2026-06-24 04:18:28,623 [INFO] collector.main —   AS37170 (University of Lagos) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 04:18:30,150 [INFO] collector.main —   AS37192 (Electronic Connections Limitied) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:18:31,763 [INFO] collector.main —   AS37194 (Voix Networks Ltd) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:18:43,540 [INFO] collector.main —   AS37200 (SimbaNET Nigeria Limited) — membre:False — 15 préfixes — ROA:0%
+2026-06-24 04:18:44,971 [INFO] collector.main —   AS37207 (Nigeria National Petroleum Corporation) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:18:57,142 [INFO] collector.main —   AS37209 (Hyperia Limited) — membre:False — 16 préfixes — ROA:0%
+2026-06-24 04:19:00,664 [INFO] collector.main —   AS37222 (Interconnect Clearinghouse Nigeria Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 04:19:13,031 [INFO] collector.main —   AS37230 (Swifttalk Limited) — membre:False — 16 préfixes — ROA:0%
+2026-06-24 04:19:19,535 [INFO] collector.main —   AS37248 (Phase3 Telecom Limited) — membre:False — 8 préfixes — ROA:100%
+2026-06-24 04:19:24,395 [INFO] collector.main —   AS37249 (Computer Warehouse group) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 04:19:39,749 [INFO] collector.main —   AS37269 (Information Connectivity Solutions Limited) — membre:False — 19 préfixes — ROA:0%
+2026-06-24 04:19:46,447 [INFO] collector.main —   AS37280 (Broad Based Communications Limited) — membre:False — 8 préfixes — ROA:100%
+2026-06-24 04:19:55,635 [INFO] collector.main —   AS37282 (Main one Cable Company Nigeria Limited) — membre:False — 10 préfixes — ROA:90%
+2026-06-24 04:20:01,364 [INFO] collector.main —   AS37286 (Nigeria ICT Forum of Partnership Institutions) — membre:False — 7 préfixes — ROA:0%
+2026-06-24 04:20:03,104 [INFO] collector.main —   AS37296 (Afcom Satellite Networks Nigeria Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:20:04,566 [INFO] collector.main —   AS37297 (Obafemi Awolowo University, Ife) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:20:27,374 [INFO] collector.main —   AS37308 (Steam Broadcasting and Communications Limited) — membre:False — 31 préfixes — ROA:94%
+2026-06-24 04:20:28,801 [INFO] collector.main —   AS37328 (Wema Bank Plc) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 04:22:30,258 [INFO] collector.main —   AS37340 (SPECTRANET LIMITED) — membre:False — 165 préfixes — ROA:0%
+2026-06-24 04:22:32,398 [INFO] collector.main —   AS37345 (Medallion Communications) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:22:57,144 [INFO] collector.main —   AS37347 (NGCOM) — membre:False — 33 préfixes — ROA:0%
+2026-06-24 04:23:01,548 [INFO] collector.main —   AS37398 (Juniper solutions Limited) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 04:23:03,015 [INFO] collector.main —   AS37404 (University of Ibadan) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:23:05,577 [INFO] collector.main —   AS37405 (University of Nigeria) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:23:08,691 [INFO] collector.main —   AS37420 (University of JOS) — membre:False — 3 préfixes — ROA:100%
+2026-06-24 04:23:10,320 [INFO] collector.main —   AS37426 (ASSET MANAGEMENT CORPORATION OF NIGERIA) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 04:23:13,910 [INFO] collector.main —   AS37433 (KKON Technologies Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 04:23:16,066 [INFO] collector.main —   AS37443 (Usmanu Danfodiyo University) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:23:18,092 [INFO] collector.main —   AS37445 (Etranzact Int'l Plc) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:23:21,762 [INFO] collector.main —   AS37452 (Central Bank of Nigeria) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 04:23:27,593 [INFO] collector.main —   AS37472 (Nigerian Communications Satellite Ltd) — membre:False — 7 préfixes — ROA:0%
+2026-06-24 04:37:56,351 [INFO] collector.main — === Début de la collecte complète ===
+2026-06-24 04:37:59,643 [INFO] collector.apis —   1813 ASN membres MANRS chargés
+2026-06-24 04:37:59,643 [INFO] collector.main — Collecte Bénin (BJ)…
+2026-06-24 04:38:00,458 [INFO] collector.main —   16 ASN trouvés pour BJ
+2026-06-24 04:38:45,616 [INFO] collector.apis — Chargement des données CAIDA Spoofer…
+2026-06-24 04:38:48,421 [INFO] collector.apis —   1509 ASN dans Spoofer
+2026-06-24 04:38:48,427 [INFO] collector.main —   AS28683 (SOCIETE BENINOISE D'INFRASTRUCTURES NUMERIQUES) — membre:False — 54 préfixes — ROA:93%
+2026-06-24 04:39:00,776 [INFO] collector.main —   AS37090 (ISOCEL SA) — membre:False — 13 préfixes — ROA:0%
+2026-06-24 04:39:12,036 [INFO] collector.main —   AS37136 (ETISALAT BENIN) — membre:False — 11 préfixes — ROA:0%
+2026-06-24 04:39:26,679 [INFO] collector.main —   AS37292 (Omnium des Telecom et de l'Internet (OTI Telecom)) — membre:False — 16 préfixes — ROA:0%
+2026-06-24 04:39:45,833 [INFO] collector.main —   AS37424 (SPACETEL BENIN SA) — membre:False — 21 préfixes — ROA:0%
+2026-06-24 04:39:49,516 [INFO] collector.main —   AS327818 (ISOCEL SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:39:53,642 [INFO] collector.main —   AS328092 (SUD TELECOM SOLUTIONS) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:40:00,986 [INFO] collector.main —   AS328098 (JENY SAS) — membre:False — 6 préfixes — ROA:0%
+2026-06-24 04:40:06,004 [INFO] collector.main —   AS328133 (ABC Corporation SARL) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:40:51,582 [INFO] collector.main —   AS328228 (SOCIETE BENINOISE D'INFRASTRUCTURES NUMERIQUES) — membre:False — 58 préfixes — ROA:97%
+2026-06-24 04:40:57,513 [INFO] collector.main —   AS328702 (Agence pour le Developpement du Numérique) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 04:41:01,815 [INFO] collector.main —   AS329086 (FIRSTNET SA) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:41:05,631 [INFO] collector.main —   AS329107 (TECHNODATA SOLUTIONS) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:41:09,488 [INFO] collector.main —   AS329156 (DEGNON-GROUP) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:41:12,765 [INFO] collector.main —   AS329512 (AD Solutions) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:41:16,355 [INFO] collector.main —   AS329544 (CHAPITRE BENINOIS DE L'INTERNET SOCIETY) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:41:16,488 [INFO] collector.main — Collecte BJ terminée.
+2026-06-24 04:41:17,488 [INFO] collector.main — Collecte Burkina Faso (BF)…
+2026-06-24 04:41:19,013 [INFO] collector.main —   26 ASN trouvés pour BF
+2026-06-24 04:42:35,312 [INFO] collector.main —   AS25543 (ONATEL (Office National des Telecommunications, PTT)) — membre:False — 100 préfixes — ROA:2%
+2026-06-24 04:42:44,041 [INFO] collector.main —   AS37008 (Sancfis Faso SA) — membre:False — 9 préfixes — ROA:100%
+2026-06-24 04:42:59,678 [INFO] collector.main —   AS37073 (Internet Puissance Plus Burkina SA) — membre:False — 17 préfixes — ROA:100%
+2026-06-24 04:43:13,192 [INFO] collector.main —   AS37163 (IPSYSTEM S.A) — membre:False — 14 préfixes — ROA:100%
+2026-06-24 04:43:24,968 [INFO] collector.main —   AS37526 (TELECEL FASO) — membre:False — 12 préfixes — ROA:0%
+2026-06-24 04:47:53,278 [INFO] collector.main —   AS37577 (Orange Burkina Faso) — membre:True — 359 préfixes — ROA:100%
+2026-06-24 04:47:59,636 [INFO] collector.main —   AS37648 (Union Economique et Monetaire Ouest Africaine (UEMOA)) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 04:50:01,584 [INFO] collector.main —   AS37721 (Virtual Technologies & Solutions) — membre:True — 159 préfixes — ROA:100%
+2026-06-24 04:50:05,559 [INFO] collector.main —   AS37734 (Virtual Technologies & Solutions) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 04:50:12,317 [INFO] collector.main —   AS327871 (Agence Nationale de Promotion des TIC (ANPTIC)) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 04:50:17,140 [INFO] collector.main —   AS328010 (Burkina Faso Internet EXchange Point ( BFIX)) — membre:True — 3 préfixes — ROA:100%
+2026-06-24 04:50:21,328 [INFO] collector.main —   AS328245 (Autorite de Regulation des Communications Electroniques et des Postes) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:50:28,089 [INFO] collector.main —   AS328316 (Point d'Atterissement Virtuel) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 04:50:32,826 [INFO] collector.main —   AS328424 (IT PROJET) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:50:36,412 [INFO] collector.main —   AS328448 (La Direction générale des impôts) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:50:39,740 [INFO] collector.main —   AS328534 (AFREENET SA) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 04:50:43,647 [INFO] collector.main —   AS328627 (Agence des technologies de communication et de sécurite (A.T.C.S)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:50:48,773 [INFO] collector.main —   AS328716 (VIPNET BURKINA FASO) — membre:False — 3 préfixes — ROA:67%
+2026-06-24 04:50:56,278 [INFO] collector.main —   AS328721 (Groupe Netforce) — membre:False — 6 préfixes — ROA:100%
+2026-06-24 04:51:00,681 [INFO] collector.main —   AS328898 (Association Burkinabe des Domaines Internet (ABDI)) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 04:51:06,694 [INFO] collector.main —   AS329041 (Association Nationale D'Education Et De Recherche Du Burkina Faso) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 04:51:10,175 [INFO] collector.main —   AS329306 (Société Nationale d'Electricité du Burkina (SONABEL)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:51:14,065 [INFO] collector.main —   AS329440 (OFFICE NATIONAL DE L'EAU ET DE L'ASSAINISSEMENT) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:51:20,107 [INFO] collector.main —   AS329485 (Bridge Fiber Solutions) — membre:False — 4 préfixes — ROA:100%
+2026-06-24 04:51:23,485 [INFO] collector.main —   AS329651 (integris) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 04:51:27,374 [INFO] collector.main —   AS329744 (IKA SOLUTION LIMTED) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:51:27,379 [INFO] collector.main — Collecte BF terminée.
+2026-06-24 04:51:28,379 [INFO] collector.main — Collecte Cap-Vert (CV)…
+2026-06-24 04:51:29,829 [INFO] collector.main —   7 ASN trouvés pour CV
+2026-06-24 04:52:04,247 [INFO] collector.main —   AS37517 (CABO VERDE TELECOM, S.A) — membre:False — 43 préfixes — ROA:26%
+2026-06-24 04:52:18,476 [INFO] collector.main —   AS37575 (UNITEL T+ Telecomunicacoes, Sociedade Unipessoal, S.A.) — membre:False — 15 préfixes — ROA:87%
+2026-06-24 04:52:25,644 [INFO] collector.main —   AS327862 (NOSi EPE) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 04:52:29,431 [INFO] collector.main —   AS328440 (Banco BAI Cabo Verde, SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:52:34,347 [INFO] collector.main —   AS328941 (CABO VERDE TELECOM, S.A) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 04:52:38,034 [INFO] collector.main —   AS329138 (BCN) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:52:41,515 [INFO] collector.main —   AS329173 (Associação Cabo Verde Internet Exchange Point) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:52:41,520 [INFO] collector.main — Collecte CV terminée.
+2026-06-24 04:52:42,520 [INFO] collector.main — Collecte Côte d'Ivoire (CI)…
+2026-06-24 04:52:43,355 [INFO] collector.main —   17 ASN trouvés pour CI
+2026-06-24 04:53:13,898 [WARNING] collector.apis — Requête échouée https://stat.ripe.net/data/announced-prefixes/data.json?resource=AS29571 : HTTPSConnectionPool(host='stat.ripe.net', port=443): Read timed out. (read timeout=30)
+2026-06-24 04:53:16,640 [INFO] collector.main —   AS29571 (Orange Côte d'Ivoire) — membre:False — 0 préfixes — ROA:0%
+2026-06-24 04:53:59,145 [INFO] collector.main —   AS36924 (GVA Cote d'Ivoire SAS) — membre:False — 55 préfixes — ROA:100%
+2026-06-24 04:55:58,678 [INFO] collector.main —   AS36974 (MTN COTE D'IVOIRE S.A) — membre:False — 159 préfixes — ROA:100%
+2026-06-24 04:56:39,189 [INFO] collector.main —   AS37190 (Atlantique Telecom (Cote d'Ivoire)) — membre:False — 52 préfixes — ROA:0%
+2026-06-24 04:57:10,449 [INFO] collector.main —   AS37381 (Afrique Technologies & Services (VipNet)) — membre:False — 38 préfixes — ROA:97%
+2026-06-24 04:57:20,861 [INFO] collector.main —   AS327746 (DATACONNECT COTE D'IVOIRE) — membre:False — 9 préfixes — ROA:100%
+2026-06-24 04:57:28,670 [INFO] collector.main —   AS327773 (Guichet Unique du Commerce Extérieur De Côte d'Ivoire) — membre:False — 6 préfixes — ROA:100%
+2026-06-24 04:57:33,459 [INFO] collector.main —   AS327974 (Authorite de Regulation des Telecommunications/TIC de Cote d'Ivoire-ARTCI) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 04:57:40,115 [INFO] collector.main —   AS328025 (VEONE) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 04:57:45,338 [INFO] collector.main —   AS328193 (SOCIETE NATIONALE DE DEVELOPPEMENT INFORMATIQUE) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 04:57:51,278 [INFO] collector.main —   AS328290 (INQ Cote d'Ivoire) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 04:57:55,066 [INFO] collector.main —   AS328355 (DIRECTION GENERALE DES IMPOTS) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:57:59,568 [INFO] collector.main —   AS328729 (GROUPEMENT DES SERVICES EAU ET ELECTRICITE) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:58:03,360 [INFO] collector.main —   AS328809 (EDIATTAH Conseils & Solutions) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:58:07,354 [INFO] collector.main —   AS329037 (BRIDGE BANK GROUP COTE D'IVOIRE) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 04:58:18,511 [WARNING] collector.apis — Requête échouée https://stat.ripe.net/data/abuse-contact-finder/data.json?resource=AS329586 : 502 Server Error: Bad Gateway for url: https://stat.ripe.net/data/abuse-contact-finder/data.json?resource=AS329586
+2026-06-24 04:58:18,516 [INFO] collector.main —   AS329586 (Port Autonome D'Abidjan) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:58:23,665 [INFO] collector.main —   AS329666 (Cote d'Ivoire Internet Exchange Point) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 04:58:23,669 [INFO] collector.main — Collecte CI terminée.
+2026-06-24 04:58:24,670 [INFO] collector.main — Collecte Gambie (GM)…
+2026-06-24 04:58:26,295 [INFO] collector.main —   9 ASN trouvés pour GM
+2026-06-24 04:58:47,320 [INFO] collector.main —   AS25250 (Gamtel Co.) — membre:False — 25 préfixes — ROA:0%
+2026-06-24 04:59:10,124 [INFO] collector.main —   AS37309 (QCell Limited) — membre:False — 27 préfixes — ROA:100%
+2026-06-24 04:59:30,703 [INFO] collector.main —   AS37323 (Netpage Company Limited) — membre:False — 22 préfixes — ROA:91%
+2026-06-24 04:59:36,572 [INFO] collector.main —   AS37503 (Unique Solutions Company Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 04:59:46,067 [INFO] collector.main —   AS37524 (Africell Gambia) — membre:False — 9 préfixes — ROA:0%
+2026-06-24 05:00:00,607 [INFO] collector.main —   AS37552 (Comium Gambia Ltd.) — membre:False — 16 préfixes — ROA:0%
+2026-06-24 05:00:14,053 [INFO] collector.main —   AS328140 (INSIST NET Limited) — membre:False — 9 préfixes — ROA:100%
+2026-06-24 05:00:23,665 [INFO] collector.main —   AS328488 (DK Telecom Ltd) — membre:False — 9 préfixes — ROA:0%
+2026-06-24 05:00:47,917 [INFO] collector.main —   AS329179 (Sky Telecom Company Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:00:47,923 [INFO] collector.main — Collecte GM terminée.
+2026-06-24 05:00:48,923 [INFO] collector.main — Collecte Ghana (GH)…
+2026-06-24 05:00:50,368 [INFO] collector.main —   92 ASN trouvés pour GH
+2026-06-24 05:00:54,166 [INFO] collector.main —   AS15825 (Ghana Dot Com Ltd) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:01:21,402 [INFO] collector.main —   AS29340 (SP ECHO GHANA LIMITED) — membre:False — 32 préfixes — ROA:0%
+2026-06-24 05:02:41,003 [INFO] collector.main —   AS29614 (Ghana Telecommunications Company Limited) — membre:False — 103 préfixes — ROA:50%
+2026-06-24 05:02:48,473 [INFO] collector.main —   AS29674 (Vodacom Business (Ghana) Limited) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 05:07:04,207 [INFO] collector.main —   AS30986 (Scancom Limited) — membre:False — 338 préfixes — ROA:99%
+2026-06-24 05:07:08,259 [INFO] collector.main —   AS30997 (Ghana Internet Exchange Association) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:07:31,844 [INFO] collector.main —   AS33786 (K-Net) — membre:False — 28 préfixes — ROA:100%
+2026-06-24 05:07:59,874 [INFO] collector.main —   AS37012 (Comsys (GH) Limited) — membre:False — 35 préfixes — ROA:100%
+2026-06-24 05:08:22,609 [INFO] collector.main —   AS37030 (Airtel Ghana Limited) — membre:False — 27 préfixes — ROA:63%
+2026-06-24 05:08:27,318 [INFO] collector.main —   AS37032 (Alink Telecom Ghana) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 05:08:39,156 [INFO] collector.main —   AS37074 (University of Ghana) — membre:False — 11 préfixes — ROA:0%
+2026-06-24 05:08:48,210 [INFO] collector.main —   AS37087 (Super Tech STL Limited) — membre:False — 9 préfixes — ROA:100%
+2026-06-24 05:08:57,836 [INFO] collector.main —   AS37140 (Airtel Ghana Limited) — membre:False — 10 préfixes — ROA:30%
+2026-06-24 05:09:02,955 [INFO] collector.main —   AS37212 (Zenith Bank Ghana Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:09:08,284 [INFO] collector.main —   AS37232 (Certified Technology Services Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:09:12,171 [INFO] collector.main —   AS37263 (University of Education, Winneba) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:09:18,142 [INFO] collector.main —   AS37304 (Tullow Ghana Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:09:37,804 [INFO] collector.main —   AS37313 (Ghana Government (Ministry of Communications)) — membre:False — 22 préfixes — ROA:0%
+2026-06-24 05:10:00,845 [INFO] collector.main —   AS37350 (Dimension Data Ltd) — membre:False — 27 préfixes — ROA:0%
+2026-06-24 05:10:08,931 [INFO] collector.main —   AS37373 (Ashesi University College) — membre:False — 6 préfixes — ROA:0%
+2026-06-24 05:10:13,718 [INFO] collector.main —   AS37392 (Social Security And National Insurance Trust) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:10:18,732 [INFO] collector.main —   AS37534 (Guaranty Trust Bank (Ghana) Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:10:24,787 [INFO] collector.main —   AS37570 (Fidelity Bank Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:10:34,609 [INFO] collector.main —   AS37613 (DOLPHIN TELECOMMUNICATION LIMITED) — membre:False — 9 préfixes — ROA:100%
+2026-06-24 05:10:39,833 [INFO] collector.main —   AS37647 (Blue Cloud Networks Limited) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 05:11:02,801 [INFO] collector.main —   AS37727 (iNET Communications Limited) — membre:False — 25 préfixes — ROA:100%
+2026-06-24 05:11:06,590 [INFO] collector.main —   AS327695 (Ghana-India Kofi Annan Centre of Excellence in ICT) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:11:24,687 [INFO] collector.main —   AS327814 (Ecoband Ltd) — membre:False — 21 préfixes — ROA:100%
+2026-06-24 05:11:28,679 [INFO] collector.main —   AS327845 (Sage petroleum- Ghana) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:11:33,289 [INFO] collector.main —   AS327848 (Republic Bank (Ghana) Ltd) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:11:37,076 [INFO] collector.main —   AS327853 (China Europe International Business School(AFRICA Campus)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:11:42,301 [INFO] collector.main —   AS327886 (Central University College) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 05:11:46,221 [INFO] collector.main —   AS327928 (Consolidated Bank Ghana Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:11:49,703 [INFO] collector.main —   AS327944 (African Institute for Mathematical Sciences Ghana) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:12:11,485 [INFO] collector.main —   AS327947 (Kwame Nkrumah University of Science and Technology) — membre:False — 26 préfixes — ROA:0%
+2026-06-24 05:12:15,684 [INFO] collector.main —   AS327965 (ARB APEX BANK LIMITED) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:12:24,082 [INFO] collector.main —   AS327992 (Ghanaian Academic and Research Network) — membre:False — 7 préfixes — ROA:100%
+2026-06-24 05:12:27,563 [INFO] collector.main —   AS328054 (University for Development Studies) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:12:34,250 [INFO] collector.main —   AS328076 (University of Mines and Technology) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 05:12:38,037 [INFO] collector.main —   AS328141 (Ostec limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:12:43,260 [INFO] collector.main —   AS328182 (Digital Arena Limited) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 05:12:49,986 [INFO] collector.main —   AS328184 (UNIVERSITY OF HEALTH AND ALLIED SCIENCES) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 05:12:53,500 [INFO] collector.main —   AS328185 (Consolidated Bank Ghana Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:12:57,146 [INFO] collector.main —   AS328212 (THE UNIVERSITY OF CAPE COAST) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:13:01,561 [INFO] collector.main —   AS328213 (IT Consortium Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:13:06,476 [INFO] collector.main —   AS328224 (University of Energy and Natural Resources) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 05:13:12,520 [INFO] collector.main —   AS328252 (eProcess International SA (Ecobank Group)) — membre:False — 4 préfixes — ROA:100%
+2026-06-24 05:13:18,458 [INFO] collector.main —   AS328261 (E-Connecta Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:13:21,836 [INFO] collector.main —   AS328264 (University of Professional Studies, Accra (UPSA)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:13:25,216 [INFO] collector.main —   AS328353 (Methodist University College Ghana) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:13:29,035 [INFO] collector.main —   AS328367 (US Embassy, Ghana) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:13:32,686 [INFO] collector.main —   AS328372 (Etranzact Ghana Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:13:36,583 [INFO] collector.main —   AS328439 (GHANA INSTITUTE OF MANAGEMENT AND PUBLIC ADMINISTRATION) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:13:40,679 [INFO] collector.main —   AS328454 (Bank of Ghana) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:13:47,124 [INFO] collector.main —   AS328494 (3D WIRELESS PLUS LIMITED) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:13:52,455 [INFO] collector.main —   AS328530 (Garden City University College) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:13:56,348 [INFO] collector.main —   AS328574 (National Communications Authority) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:13:59,727 [INFO] collector.main —   AS328639 (Ghana National Petroleum Corporation) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:14:03,823 [INFO] collector.main —   AS328647 (Koforidua Technical University) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:14:08,127 [INFO] collector.main —   AS328648 (KUMASI TECHNICAL UNIVERSITY) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:14:17,752 [INFO] collector.main —   AS328659 (Vobiss Solutions Limited) — membre:False — 9 préfixes — ROA:0%
+2026-06-24 05:14:21,260 [INFO] collector.main —   AS328662 (Presbyterian University College, Ghana) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:14:24,845 [INFO] collector.main —   AS328663 (Catholic University of Ghana (Fiapre) (CUG)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:14:30,682 [INFO] collector.main —   AS328717 (Tizeti Network Ghana Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:14:34,442 [INFO] collector.main —   AS328752 (Christian Service University College) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:14:37,924 [INFO] collector.main —   AS328769 (ARROW NETWORK SYSTEMS LIMITED) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 05:14:41,200 [INFO] collector.main —   AS328770 (SIMBA MEDIA GHANA LIMITED) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:14:47,779 [INFO] collector.main —   AS328797 (Broadspectrum Limited) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 05:14:51,470 [INFO] collector.main —   AS328842 (ProData Africa Limited) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 05:14:56,664 [INFO] collector.main —   AS328890 (Calbank PLC) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 05:15:00,891 [INFO] collector.main —   AS328896 (UNIVERSITY OF ENVIRONMENT AND SUSTAINABLE DEVELOPMENT) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:15:05,395 [INFO] collector.main —   AS328957 (CoLi Link Ghana Limited) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 05:15:08,857 [INFO] collector.main —   AS328983 (Comsys (GH) Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:15:15,711 [INFO] collector.main —   AS328984 (Revabit Limited) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 05:15:21,647 [INFO] collector.main —   AS329009 (Spectrum Internet Service Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:15:25,541 [INFO] collector.main —   AS329066 (Datacom Telecommunication Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:15:32,404 [INFO] collector.main —   AS329154 (First Atlantic Bank Limited) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 05:15:37,011 [INFO] collector.main —   AS329169 (Maxinet Broadband) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:15:42,848 [INFO] collector.main —   AS329176 (Future Technology Solutions Today Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:15:46,330 [INFO] collector.main —   AS329309 (West Africa Data Centres Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:15:49,706 [INFO] collector.main —   AS329326 (Accra Technical University) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:15:57,314 [INFO] collector.main —   AS329389 (BigPay Ghana Limited) — membre:False — 6 préfixes — ROA:0%
+2026-06-24 05:16:02,026 [INFO] collector.main —   AS329410 (Sunyani Technical University) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:16:05,685 [INFO] collector.main —   AS329436 (Association of African Universities) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:16:11,959 [INFO] collector.main —   AS329449 (Regional Maritime University) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 05:16:16,567 [INFO] collector.main —   AS329482 (OPIN TECHNOLOGIES GHANA LIMITED) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:16:20,020 [INFO] collector.main —   AS329486 (GCB BANK PLC) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:16:26,677 [INFO] collector.main —   AS329580 (The Cloud Network Limited) — membre:False — 4 préfixes — ROA:100%
+2026-06-24 05:16:30,467 [INFO] collector.main —   AS329588 (Winners Co-operative Credit Union Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:16:34,181 [INFO] collector.main —   AS329601 (University of Media, Arts and Communications) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:16:37,636 [INFO] collector.main —   AS329624 (MONINET) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:16:42,036 [INFO] collector.main —   AS329649 (Carl-Tech IT Solutions LTD) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 05:16:42,040 [INFO] collector.main — Collecte GH terminée.
+2026-06-24 05:16:43,041 [INFO] collector.main — Collecte Guinée (GN)…
+2026-06-24 05:16:44,491 [INFO] collector.main —   14 ASN trouvés pour GN
+2026-06-24 05:16:48,693 [INFO] collector.main —   AS37141 (ETI SA) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:16:55,350 [INFO] collector.main —   AS37427 (Cellcom Guinea) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 05:17:01,217 [INFO] collector.main —   AS37430 (VDC Telecom) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:17:37,744 [INFO] collector.main —   AS37461 (ORANGE GUINEE) — membre:False — 46 préfixes — ROA:0%
+2026-06-24 05:17:49,041 [INFO] collector.main —   AS37612 (AREEBA GUINEE SA) — membre:False — 11 préfixes — ROA:0%
+2026-06-24 05:17:52,419 [INFO] collector.main —   AS37665 (MOUNA Group Technology Sa.) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:17:57,407 [INFO] collector.main —   AS328107 (GUILAB SA) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 05:18:00,787 [INFO] collector.main —   AS328244 (Skyvision Guinee SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:18:04,267 [INFO] collector.main —   AS328899 (Afribone) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:18:09,491 [INFO] collector.main —   AS328923 (KAGNY TECHNOLOGIE SARL U) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 05:18:14,818 [INFO] collector.main —   AS328965 (Leader Net Services Sarl) — membre:False — 3 préfixes — ROA:67%
+2026-06-24 05:18:18,911 [INFO] collector.main —   AS329399 (Societe Cajutel Guinee) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 05:18:22,599 [INFO] collector.main —   AS329509 (WEBB FONTAINE GUINEE SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:18:26,490 [INFO] collector.main —   AS329594 (AVISTA GROUPE SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:18:26,499 [INFO] collector.main — Collecte GN terminée.
+2026-06-24 05:18:27,500 [INFO] collector.main — Collecte Guinée-Bissau (GW)…
+2026-06-24 05:18:28,944 [INFO] collector.main —   2 ASN trouvés pour GW
+2026-06-24 05:18:39,289 [INFO] collector.main —   AS37559 (Orange Bissau) — membre:False — 9 préfixes — ROA:0%
+2026-06-24 05:18:46,766 [INFO] collector.main —   AS327769 (Spacetel) — membre:False — 6 préfixes — ROA:0%
+2026-06-24 05:18:46,770 [INFO] collector.main — Collecte GW terminée.
+2026-06-24 05:18:47,771 [INFO] collector.main — Collecte Liberia (LR)…
+2026-06-24 05:18:48,635 [INFO] collector.main —   14 ASN trouvés pour LR
+2026-06-24 05:18:57,725 [INFO] collector.main —   AS37094 (Orange Liberia, INC) — membre:False — 9 préfixes — ROA:0%
+2026-06-24 05:19:00,897 [INFO] collector.main —   AS37203 (Liberia Telecommunications Corporation (libtelco)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:19:20,969 [INFO] collector.main —   AS37410 (Lonestar Communications Corporation) — membre:False — 23 préfixes — ROA:74%
+2026-06-24 05:19:27,929 [INFO] collector.main —   AS37580 (ELECTRO SHACK INC.) — membre:False — 5 préfixes — ROA:60%
+2026-06-24 05:19:31,823 [INFO] collector.main —   AS37715 (Liberia Internet Exchange Point Association) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:19:36,738 [INFO] collector.main —   AS207269 (AngelicoussisGroup MARAN TANKERS MANAGEMENT INC) — membre:False — 3 préfixes — ROA:100%
+2026-06-24 05:19:40,015 [INFO] collector.main —   AS215964 (SAMOS SAMOS STEAMSHIP COMPANY) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:19:56,298 [INFO] collector.main —   AS328136 (Telecel Liberia Limited) — membre:False — 18 préfixes — ROA:0%
+2026-06-24 05:20:08,486 [INFO] collector.main —   AS328196 (POWERNET) — membre:False — 12 préfixes — ROA:0%
+2026-06-24 05:20:12,580 [INFO] collector.main —   AS328549 (SAHEL TELECOM LIBERIA) — membre:True — 2 préfixes — ROA:100%
+2026-06-24 05:20:16,982 [INFO] collector.main —   AS328595 (Winners Incorporated) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:20:25,584 [INFO] collector.main —   AS329082 (Connect Services Liberia, LLC) — membre:False — 7 préfixes — ROA:71%
+2026-06-24 05:20:29,272 [INFO] collector.main —   AS329496 (GOWIFI Liberia LLC) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 05:20:36,029 [INFO] collector.main —   AS329525 (Gonetwork Inc) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 05:20:36,033 [INFO] collector.main — Collecte LR terminée.
+2026-06-24 05:20:37,034 [INFO] collector.main — Collecte Mali (ML)…
+2026-06-24 05:20:38,689 [INFO] collector.main —   5 ASN trouvés pour ML
+2026-06-24 05:20:58,047 [INFO] collector.main —   AS21271 (Society of Mali's Telecommunications (SOTELMA)) — membre:False — 22 préfixes — ROA:0%
+2026-06-24 05:22:42,123 [INFO] collector.main —   AS30985 (Orange Mali SA) — membre:True — 130 préfixes — ROA:98%
+2026-06-24 05:22:56,024 [INFO] collector.main —   AS36864 (AFRIBONE MALI SA) — membre:False — 15 préfixes — ROA:87%
+2026-06-24 05:23:02,774 [INFO] collector.main —   AS328253 (ALPHA TELECOMMUNICATION MALI-ATEL-S.A) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 05:23:09,324 [INFO] collector.main —   AS328284 (Société Malienne de Transmission et de Diffusion) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 05:23:09,333 [INFO] collector.main — Collecte ML terminée.
+2026-06-24 05:23:10,333 [INFO] collector.main — Collecte Mauritanie (MR)…
+2026-06-24 05:23:11,810 [INFO] collector.main —   7 ASN trouvés pour MR
+2026-06-24 05:23:39,641 [INFO] collector.main —   AS29544 (Mauritanian Telecommunication Company) — membre:False — 34 préfixes — ROA:0%
+2026-06-24 05:24:00,835 [INFO] collector.main —   AS37508 (MATTEL) — membre:False — 25 préfixes — ROA:0%
+2026-06-24 05:24:41,392 [INFO] collector.main —   AS37541 (Chinguitel S.A) — membre:False — 51 préfixes — ROA:0%
+2026-06-24 05:24:45,176 [INFO] collector.main —   AS328850 (Computer Sales & Services (C.S.S-SA)) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:24:59,003 [INFO] collector.main —   AS328997 (RIMATEL-SA) — membre:False — 15 préfixes — ROA:0%
+2026-06-24 05:25:05,042 [INFO] collector.main —   AS329048 (NETCOM sa) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:25:08,553 [INFO] collector.main —   AS329119 (PATRIE NETWORK- PATRIE-NET- SA) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:25:08,558 [INFO] collector.main — Collecte MR terminée.
+2026-06-24 05:25:09,558 [INFO] collector.main — Collecte Niger (NE)…
+2026-06-24 05:25:11,080 [INFO] collector.main —   7 ASN trouvés pour NE
+2026-06-24 05:25:24,605 [INFO] collector.main —   AS26130 (LIPTINFOR NIGER SA) — membre:False — 14 préfixes — ROA:100%
+2026-06-24 05:25:33,813 [INFO] collector.main —   AS37205 (Atlantique Telecom Niger) — membre:False — 9 préfixes — ROA:0%
+2026-06-24 05:26:08,740 [INFO] collector.main —   AS37233 (Zamani Telecom Niger SA) — membre:False — 45 préfixes — ROA:0%
+2026-06-24 05:26:19,125 [INFO] collector.main —   AS37385 (Societe Nigerienne des Telecommunications (SONITEL)) — membre:False — 11 préfixes — ROA:0%
+2026-06-24 05:26:44,270 [INFO] collector.main —   AS37531 (Airtel Niger) — membre:False — 30 préfixes — ROA:0%
+2026-06-24 05:26:51,331 [INFO] collector.main —   AS329103 (NINETEC SARL) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:26:56,074 [INFO] collector.main —   AS329224 (Global Data Services) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 05:26:56,078 [INFO] collector.main — Collecte NE terminée.
+2026-06-24 05:26:57,079 [INFO] collector.main — Collecte Nigeria (NG)…
+2026-06-24 05:26:58,603 [INFO] collector.main —   224 ASN trouvés pour NG
+2026-06-24 05:28:25,864 [INFO] collector.main —   AS16284 (Inq. Digital Nigeria) — membre:False — 108 préfixes — ROA:0%
+2026-06-24 05:28:42,442 [INFO] collector.main —   AS25163 (21st Century Technologies Limited) — membre:False — 18 préfixes — ROA:0%
+2026-06-24 05:29:51,678 [INFO] collector.main —   AS29091 (ipNX Nigeria Limited) — membre:False — 89 préfixes — ROA:99%
+2026-06-24 05:34:36,049 [WARNING] collector.apis — Requête échouée https://rpki-validator.ripe.net/api/v1/validity/29465/102.91.65.0/24 : HTTPSConnectionPool(host='rpki-validator.ripe.net', port=443): Read timed out. (read timeout=30)
+2026-06-24 05:37:56,559 [INFO] collector.main —   AS29465 (VCG-AS MTN NIGERIA Communication limited) — membre:True — 608 préfixes — ROA:99%
+2026-06-24 05:38:51,720 [INFO] collector.main —   AS30988 (IS InternetSolutions Limited) — membre:False — 70 préfixes — ROA:100%
+2026-06-24 05:41:40,903 [INFO] collector.main —   AS30998 (Netcom Africa Limited) — membre:False — 218 préfixes — ROA:0%
+2026-06-24 05:41:44,241 [INFO] collector.main —   AS35074 (AS-COBRANETNG Cobranet Limited) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 05:41:48,538 [INFO] collector.main —   AS36872 (Intercom Data Network Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:47:55,853 [INFO] collector.main —   AS36873 (Airtel Networks Limited) — membre:False — 454 préfixes — ROA:0%
+2026-06-24 05:48:40,373 [INFO] collector.main —   AS36920 (KKON Technologies Ltd) — membre:False — 52 préfixes — ROA:0%
+2026-06-24 05:48:45,184 [INFO] collector.main —   AS36922 (United Bank for Africa) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 05:50:33,221 [INFO] collector.main —   AS36923 (SWIFT NETWORKS LIMITED) — membre:False — 144 préfixes — ROA:0%
+2026-06-24 05:50:38,124 [INFO] collector.main —   AS36938 (Nigeria Internet Registration Association) — membre:False — 3 préfixes — ROA:100%
+2026-06-24 05:50:45,424 [INFO] collector.main —   AS36940 (Internet Exchange Point of Nigeria) — membre:False — 5 préfixes — ROA:60%
+2026-06-24 05:50:50,029 [INFO] collector.main —   AS36957 (MICROACCESS LTD) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:50:54,231 [INFO] collector.main —   AS36970 (IPARTNERS LIMITED) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:50:58,809 [INFO] collector.main —   AS36979 (First Bank of NG PLC) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:51:04,117 [INFO] collector.main —   AS36993 (First City Monument Bank, PLC) — membre:False — 3 préfixes — ROA:33%
+2026-06-24 05:51:10,074 [INFO] collector.main —   AS37001 (Guaranty Trust Bank Plc) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:51:34,956 [INFO] collector.main —   AS37004 (Suburban Broadband Ltd) — membre:False — 29 préfixes — ROA:0%
+2026-06-24 05:51:39,154 [INFO] collector.main —   AS37005 (ACCESS BANK PLC) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:52:07,213 [INFO] collector.main —   AS37018 (Galaxy Backbone PLC) — membre:False — 34 préfixes — ROA:0%
+2026-06-24 05:52:14,277 [INFO] collector.main —   AS37025 (BANKPHB PLC) — membre:False — 5 préfixes — ROA:60%
+2026-06-24 05:52:28,332 [INFO] collector.main —   AS37056 (Zenith Bank PLC) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 05:52:32,428 [INFO] collector.main —   AS37058 (SKYE BANK PLC) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:52:55,743 [INFO] collector.main —   AS37076 (Emerging Markets Telecommunication Services (EMTS) Limited) — membre:False — 15 préfixes — ROA:0%
+2026-06-24 05:53:01,994 [INFO] collector.main —   AS37077 (American University of Nigeria) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:53:48,411 [INFO] collector.main —   AS37088 (VDT COMMUNICATIONS LIMITED) — membre:False — 55 préfixes — ROA:100%
+2026-06-24 05:53:52,685 [INFO] collector.main —   AS37104 (STANBIC IBTC BANK PLC) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 05:54:05,480 [INFO] collector.main —   AS37125 (Layer3 Limited) — membre:True — 13 préfixes — ROA:100%
+2026-06-24 05:54:09,371 [INFO] collector.main —   AS37144 (Unified Payment Services Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:55:56,158 [INFO] collector.main —   AS37148 (Globacom Limited) — membre:False — 140 préfixes — ROA:64%
+2026-06-24 05:56:02,106 [INFO] collector.main —   AS37170 (University of Lagos) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:56:05,311 [INFO] collector.main —   AS37192 (Electronic Connections Limitied) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:56:08,460 [INFO] collector.main —   AS37194 (Voix Networks Ltd) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:56:21,976 [INFO] collector.main —   AS37200 (SimbaNET Nigeria Limited) — membre:False — 15 préfixes — ROA:0%
+2026-06-24 05:56:25,557 [INFO] collector.main —   AS37207 (Nigeria National Petroleum Corporation) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:56:41,021 [INFO] collector.main —   AS37209 (Hyperia Limited) — membre:False — 16 préfixes — ROA:0%
+2026-06-24 05:56:46,346 [INFO] collector.main —   AS37222 (Interconnect Clearinghouse Nigeria Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 05:57:00,889 [INFO] collector.main —   AS37230 (Swifttalk Limited) — membre:False — 16 préfixes — ROA:0%
+2026-06-24 05:57:09,077 [INFO] collector.main —   AS37248 (Phase3 Telecom Limited) — membre:False — 8 préfixes — ROA:100%
+2026-06-24 05:57:15,222 [INFO] collector.main —   AS37249 (Computer Warehouse group) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 05:57:31,504 [INFO] collector.main —   AS37269 (Information Connectivity Solutions Limited) — membre:False — 19 préfixes — ROA:0%
+2026-06-24 05:57:39,797 [INFO] collector.main —   AS37280 (Broad Based Communications Limited) — membre:False — 8 préfixes — ROA:100%
+2026-06-24 05:57:50,546 [INFO] collector.main —   AS37282 (Main one Cable Company Nigeria Limited) — membre:True — 10 préfixes — ROA:90%
+2026-06-24 05:57:58,331 [INFO] collector.main —   AS37286 (Nigeria ICT Forum of Partnership Institutions) — membre:False — 7 préfixes — ROA:0%
+2026-06-24 05:58:01,505 [INFO] collector.main —   AS37296 (Afcom Satellite Networks Nigeria Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:58:04,781 [INFO] collector.main —   AS37297 (Obafemi Awolowo University, Ife) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 05:58:30,485 [INFO] collector.main —   AS37308 (Steam Broadcasting and Communications Limited) — membre:False — 31 préfixes — ROA:94%
+2026-06-24 05:58:33,558 [INFO] collector.main —   AS37328 (Wema Bank Plc) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:00:39,206 [INFO] collector.main —   AS37340 (SPECTRANET LIMITED) — membre:False — 165 préfixes — ROA:0%
+2026-06-24 06:00:42,577 [INFO] collector.main —   AS37345 (Medallion Communications) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:01:09,676 [INFO] collector.main —   AS37347 (NGCOM) — membre:False — 33 préfixes — ROA:0%
+2026-06-24 06:01:15,548 [INFO] collector.main —   AS37398 (Juniper solutions Limited) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 06:01:19,136 [INFO] collector.main —   AS37404 (University of Ibadan) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:01:22,956 [INFO] collector.main —   AS37405 (University of Nigeria) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:01:27,632 [INFO] collector.main —   AS37420 (University of JOS) — membre:True — 3 préfixes — ROA:100%
+2026-06-24 06:01:30,803 [INFO] collector.main —   AS37426 (ASSET MANAGEMENT CORPORATION OF NIGERIA) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:01:36,235 [INFO] collector.main —   AS37433 (KKON Technologies Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:01:40,152 [INFO] collector.main —   AS37443 (Usmanu Danfodiyo University) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:01:44,454 [INFO] collector.main —   AS37445 (Etranzact Int'l Plc) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:01:50,265 [INFO] collector.main —   AS37452 (Central Bank of Nigeria) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:01:57,739 [INFO] collector.main —   AS37472 (Nigerian Communications Satellite Ltd) — membre:False — 7 préfixes — ROA:0%
+2026-06-24 06:03:56,020 [INFO] collector.main —   AS37480 (Cobranet Limited) — membre:False — 152 préfixes — ROA:100%
+2026-06-24 06:03:59,908 [INFO] collector.main —   AS37495 (Eko-Konnect Research and Education Initiative) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:04:09,933 [INFO] collector.main —   AS37506 (Zinox Telecommunications Limited) — membre:False — 10 préfixes — ROA:100%
+2026-06-24 06:04:19,966 [INFO] collector.main —   AS37521 (Internet Solutions Nigeria Limited) — membre:False — 10 préfixes — ROA:20%
+2026-06-24 06:04:23,144 [INFO] collector.main —   AS37522 (FLOURMILLS OF NIGERIA PLC) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:04:26,318 [INFO] collector.main —   AS37528 (American International School Abuja) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:04:36,966 [INFO] collector.main —   AS37540 (Winrock Nigeria Limited) — membre:False — 11 préfixes — ROA:0%
+2026-06-24 06:04:42,292 [INFO] collector.main —   AS37565 (Nigerian Exchange Group PLC) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:04:46,387 [INFO] collector.main —   AS37567 (Nigeria Inter-Bank Settlement System Plc) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 06:04:53,967 [INFO] collector.main —   AS37587 (UNION BANK OF NIGERIA PLC) — membre:False — 7 préfixes — ROA:0%
+2026-06-24 06:05:00,007 [INFO] collector.main —   AS37588 (ORLEAN INVEST AFRICA LIMITED) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 06:05:14,856 [INFO] collector.main —   AS37605 (General Telecommunication Networks (NIG) Limited) — membre:False — 16 préfixes — ROA:0%
+2026-06-24 06:05:28,884 [INFO] collector.main —   AS37629 (eStream Networks) — membre:False — 16 préfixes — ROA:100%
+2026-06-24 06:05:59,518 [INFO] collector.main —   AS37637 (Smile Communications Nigeria) — membre:False — 36 préfixes — ROA:0%
+2026-06-24 06:06:04,313 [INFO] collector.main —   AS37657 (Lagos State Government) — membre:False — 3 préfixes — ROA:33%
+2026-06-24 06:06:08,328 [INFO] collector.main —   AS37659 (BillyRonks Global Ltd) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:06:11,380 [INFO] collector.main —   AS37660 (Premier Lotto Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:06:20,295 [INFO] collector.main —   AS37661 (Nigerian Research and Education Network Limited by Guarantee) — membre:False — 9 préfixes — ROA:11%
+2026-06-24 06:06:54,284 [INFO] collector.main —   AS37682 (Tizeti Network Limited) — membre:False — 42 préfixes — ROA:57%
+2026-06-24 06:06:57,558 [INFO] collector.main —   AS37686 (Ahmadu Bello University Zaria Nigeria) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:07:00,735 [INFO] collector.main —   AS37687 (Pan-Atlantic University) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:07:15,278 [INFO] collector.main —   AS37688 (BACKBONE CONNECTIVITY NETWORK (NIGERIA) LIMITED) — membre:False — 17 préfixes — ROA:0%
+2026-06-24 06:07:49,785 [INFO] collector.main —   AS37714 (BITFLUX COMMUNICATIONS LIMITED) — membre:False — 42 préfixes — ROA:0%
+2026-06-24 06:08:08,628 [INFO] collector.main —   AS214354 (AS_SITEHUB SiteHUB Agency Ltd) — membre:False — 20 préfixes — ROA:95%
+2026-06-24 06:08:11,695 [INFO] collector.main —   AS215340 (MySim-Nigeria Huize Telecom Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:08:15,997 [INFO] collector.main —   AS327705 (Federal University of Technology, Akure(FUTA)) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:08:23,606 [INFO] collector.main —   AS327721 (Interswitch Limited) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 06:08:27,774 [INFO] collector.main —   AS327729 (Babcock University) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:08:31,591 [INFO] collector.main —   AS327763 (BOWEN UNIVERSITY) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:08:35,789 [INFO] collector.main —   AS327784 (Fidelity Bank PLC) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:08:39,273 [INFO] collector.main —   AS327803 (Coscharis Technologies) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:08:46,030 [INFO] collector.main —   AS327891 (Nanocom International Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:08:50,945 [INFO] collector.main —   AS327895 (Megafast Networks LTD) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 06:08:54,322 [INFO] collector.main —   AS327898 (CBC EMEA LTD) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:09:00,777 [INFO] collector.main —   AS327924 (EXCELSIMO NETWORKS LIMITED) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:09:04,950 [INFO] collector.main —   AS327942 (LANDMARK UNIVERSITY OMU-ARAN) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:09:08,836 [INFO] collector.main —   AS327953 (ABUJA ELECTRICITY DISTRIBUTION PLC) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:09:15,492 [INFO] collector.main —   AS327981 (Ekovolt Telco Limited) — membre:False — 5 préfixes — ROA:100%
+2026-06-24 06:09:19,792 [INFO] collector.main —   AS327985 (IDS Africa Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:09:24,609 [INFO] collector.main —   AS327986 (GUTTI GLOBAL NETWORKS) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 06:09:27,882 [INFO] collector.main —   AS328027 (Sahara Group Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:09:34,437 [INFO] collector.main —   AS328035 (Zeta-web Nigeria Limited) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 06:09:37,711 [INFO] collector.main —   AS328053 (Sterling Bank Plc) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:09:42,132 [INFO] collector.main —   AS328081 (HollaTags Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:09:45,701 [INFO] collector.main —   AS328128 (Tehilah Base Digital LTD) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:09:57,784 [INFO] collector.main —   AS328160 (Dotmac Technologies Limited) — membre:False — 12 préfixes — ROA:100%
+2026-06-24 06:10:02,084 [INFO] collector.main —   AS328171 (TREFOIL NETWORKS LTD) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:10:05,768 [INFO] collector.main —   AS328175 (Xpress Payment Solutions Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:10:09,355 [INFO] collector.main —   AS328183 (Nigerian Ports Authority) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:10:13,448 [INFO] collector.main —   AS328188 (Covenant University) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:10:18,263 [INFO] collector.main —   AS328189 (ECOBANK NIGERIA LIMITED) — membre:False — 3 préfixes — ROA:100%
+2026-06-24 06:10:36,314 [INFO] collector.main —   AS328203 (Platinum Index Data Communications Ltd) — membre:False — 20 préfixes — ROA:0%
+2026-06-24 06:10:40,073 [INFO] collector.main —   AS328221 (CORALPAY TECHNOLOGY (NIGERIA) LIMITED) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:10:45,092 [INFO] collector.main —   AS328240 (DANGOTE INDUSTRIES LIMITED) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:10:50,929 [INFO] collector.main —   AS328256 (Skymax Integrated Network Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:10:54,541 [INFO] collector.main —   AS328305 (Yappingo Nigeria Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:10:58,164 [INFO] collector.main —   AS328324 (Federal University of Agriculture) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:11:01,887 [INFO] collector.main —   AS328332 (First Exploration and Petroleum Development Company Limited) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:11:05,264 [INFO] collector.main —   AS328357 (Castlenet Consulting Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:11:08,850 [INFO] collector.main —   AS328376 (ALFA O AND O VENTURES LTD) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:11:14,686 [INFO] collector.main —   AS328387 (COZ Internet Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:11:18,886 [INFO] collector.main —   AS328401 (Soft Alliance and Resources Limited) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 06:11:22,162 [INFO] collector.main —   AS328419 (Bayero University) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:11:25,540 [INFO] collector.main —   AS328447 (EKO Electricity Distribution PLC) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:11:33,733 [INFO] collector.main —   AS328451 (IP Express Ltd) — membre:False — 7 préfixes — ROA:0%
+2026-06-24 06:11:39,497 [INFO] collector.main —   AS328457 (Brainshare Technologies and Services Nigeria Limited) — membre:False — 4 préfixes — ROA:100%
+2026-06-24 06:11:43,161 [INFO] collector.main —   AS328496 (CyberSOC Africa Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:11:47,690 [INFO] collector.main —   AS328497 (Ibadan Electricity Distribution Company Plc) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 06:12:02,027 [INFO] collector.main —   AS328503 (Living Faith Church WorldWide) — membre:False — 15 préfixes — ROA:100%
+2026-06-24 06:12:05,815 [INFO] collector.main —   AS328516 (Premium Pension Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:12:12,957 [INFO] collector.main —   AS328527 (PDS Networks Nigeria Limited) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 06:12:16,642 [INFO] collector.main —   AS328528 (NetIT Solutions LTD) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:12:25,661 [INFO] collector.main —   AS328555 (Timeless Network Services Ltd) — membre:False — 8 préfixes — ROA:100%
+2026-06-24 06:12:29,062 [INFO] collector.main —   AS328556 (SYSCODES COMMUNICATIONS LIMITED) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:12:33,669 [INFO] collector.main —   AS328580 (O'Play Digital Services Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:12:46,770 [INFO] collector.main —   AS328585 (MegaMore Wireless Broadband Limited) — membre:False — 14 préfixes — ROA:100%
+2026-06-24 06:12:51,153 [INFO] collector.main —   AS328609 (Axa Mansard Insurance PLC) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:12:55,175 [INFO] collector.main —   AS328613 (Trakatel Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:12:58,936 [INFO] collector.main —   AS328617 (Skystar Global Solutions Limited) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:13:02,961 [INFO] collector.main —   AS328630 (Tizeti Network Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:13:10,228 [INFO] collector.main —   AS328658 (De Choicetech Integrated Ltd) — membre:False — 6 préfixes — ROA:17%
+2026-06-24 06:13:21,876 [INFO] collector.main —   AS328668 (Nkponani Limited) — membre:False — 10 préfixes — ROA:0%
+2026-06-24 06:13:27,740 [INFO] collector.main —   AS328696 (Tecpoint Global Solution limited) — membre:False — 4 préfixes — ROA:100%
+2026-06-24 06:13:39,824 [INFO] collector.main —   AS328722 (Ciudad Infrastructure Limited) — membre:False — 11 préfixes — ROA:27%
+2026-06-24 06:13:43,203 [INFO] collector.main —   AS328746 (Globus Bank Limited) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:13:49,142 [INFO] collector.main —   AS328779 (Proline Technologies Limited) — membre:False — 4 préfixes — ROA:100%
+2026-06-24 06:13:58,768 [INFO] collector.main —   AS328780 (IMBIL TELECOM SOLUTIONS NIG. LTD) — membre:False — 9 préfixes — ROA:89%
+2026-06-24 06:14:02,631 [INFO] collector.main —   AS328789 (MAFAB Communications Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:14:07,063 [INFO] collector.main —   AS328823 (JAIZ BANK PLC) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:14:13,075 [INFO] collector.main —   AS328825 (Access and Content Ltd) — membre:True — 4 préfixes — ROA:0%
+2026-06-24 06:14:17,278 [INFO] collector.main —   AS328854 (CEFLIX-SCEPTER LIMITED) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:14:21,069 [INFO] collector.main —   AS328861 (National Identity Management Commission) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:14:26,929 [INFO] collector.main —   AS328875 (Upperlink Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:14:30,411 [INFO] collector.main —   AS328881 (Petroleum Equalisation Fund (Management) Board) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:14:37,683 [INFO] collector.main —   AS328905 (Nigerian Communications Commission (NCC)) — membre:False — 6 préfixes — ROA:0%
+2026-06-24 06:14:41,471 [INFO] collector.main —   AS328918 (Fibrehub Internetworking Services Ltd) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:14:45,362 [INFO] collector.main —   AS328938 (TELKO MANAGED SERVICES LIMITED) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:14:51,382 [INFO] collector.main —   AS328940 (Vovida Communications Ltd) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:14:56,627 [INFO] collector.main —   AS328945 (Netaccess Systems Limited) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 06:15:01,308 [INFO] collector.main —   AS328951 (Parallex Bank Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:15:11,652 [INFO] collector.main —   AS328999 (BrowsePoint Telecom Nigeria Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:15:31,107 [INFO] collector.main —   AS329001 (Kasi Cloud Limited) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 06:15:36,029 [WARNING] collector.apis — Requête échouée https://stat.ripe.net/data/abuse-contact-finder/data.json?resource=AS329019 : ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-24 06:15:36,031 [INFO] collector.main —   AS329019 (Tangerine Life Insurance Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:15:40,934 [INFO] collector.main —   AS329022 (Gifra Wireless Network Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:15:44,414 [INFO] collector.main —   AS329023 (Treten Networks Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:15:53,125 [INFO] collector.main —   AS329024 (LULI FIBRA CABLE SOLUTION LIMITED) — membre:False — 8 préfixes — ROA:0%
+2026-06-24 06:15:56,912 [INFO] collector.main —   AS329050 (Julius Berger Nigeria PLC) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:16:01,215 [INFO] collector.main —   AS329054 (9 Payment Service Bank Limited) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 06:16:08,516 [INFO] collector.main —   AS329057 (Smart City Technology Company Ltd) — membre:False — 6 préfixes — ROA:100%
+2026-06-24 06:16:12,991 [INFO] collector.main —   AS329083 (Watch Tower Society of Jehovah's Witnesses (LTD/GTE)) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 06:16:16,673 [INFO] collector.main —   AS329099 (MANGONET INTEGRATED TECHNOLOGIES LIMITED) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:16:20,392 [INFO] collector.main —   AS329123 (RATEL PLUS NIGERIA LIMITED) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:16:23,874 [INFO] collector.main —   AS329127 (Coquina Software Company Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:16:30,809 [INFO] collector.main —   AS329148 (Fibreworld Telecommunications Networks Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:16:34,627 [INFO] collector.main —   AS329171 (WOW Networks Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:16:40,119 [INFO] collector.main —   AS329182 (AMICS TECHNOLOGIES LIMITED) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 06:16:44,253 [INFO] collector.main —   AS329191 (Nilmage Two4Seven Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:16:47,837 [INFO] collector.main —   AS329199 (STL FIBERCO LTD) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:16:53,746 [INFO] collector.main —   AS329215 (LiFi.net Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:16:59,716 [INFO] collector.main —   AS329230 (Pronto Broadband Solutions Limited) — membre:False — 4 préfixes — ROA:100%
+2026-06-24 06:17:03,709 [INFO] collector.main —   AS329233 (SABI NETWORKS LIMITED) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:17:07,366 [INFO] collector.main —   AS329235 (REXIFI TECHNOLOGIES LIMITED) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:17:14,052 [INFO] collector.main —   AS329236 (Teltwine Networks Limited) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 06:17:17,431 [INFO] collector.main —   AS329244 (Connect, Surf and Smile Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:17:22,010 [INFO] collector.main —   AS329258 (Nextgen Telcoms LTD) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 06:17:30,000 [INFO] collector.main —   AS329267 (FIBERONE BROADBAND LTD) — membre:False — 7 préfixes — ROA:0%
+2026-06-24 06:17:33,277 [INFO] collector.main —   AS329273 (Fastfeet Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:17:38,628 [INFO] collector.main —   AS329275 (FBNQuest Capital Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:17:42,901 [INFO] collector.main —   AS329299 (NOVA Commercial Bank LTD) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:17:46,999 [INFO] collector.main —   AS329307 (ITC Global Communication Technologies Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:17:50,917 [INFO] collector.main —   AS329308 (Verse Telecom Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:17:56,856 [INFO] collector.main —   AS329315 (TDS Hitech Solutions Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:18:00,618 [INFO] collector.main —   AS329347 (FREEPASS LTD) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:18:03,998 [INFO] collector.main —   AS329349 (Optimus Bank Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:18:07,712 [INFO] collector.main —   AS329365 (E-Lapariah Technologies Ltd) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:18:11,467 [INFO] collector.main —   AS329404 (Providusbank PLC) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:18:14,768 [INFO] collector.main —   AS329441 (FZX Media Consulting Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:18:18,565 [INFO] collector.main —   AS329454 (Vitel Wireless Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:18:23,481 [INFO] collector.main —   AS329458 (FieldBase Services Limited) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 06:18:28,703 [INFO] collector.main —   AS329460 (Linkorg Networks LTD) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 06:18:33,107 [INFO] collector.main —   AS329476 (TRADE MODERNISATION PROJECT LIMITED) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:18:37,378 [INFO] collector.main —   AS329487 (Fibernet Broadband Ltd) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:18:41,063 [INFO] collector.main —   AS329490 (Promethean Consulting Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:18:46,901 [INFO] collector.main —   AS329503 (NGCOM LASTMILE SOLUTION LTD) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:18:52,018 [INFO] collector.main —   AS329511 (TeleWyz LTD) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 06:18:55,625 [INFO] collector.main —   AS329534 (FBNQuest Merchant Bank Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:19:00,758 [INFO] collector.main —   AS329547 (Alpha Morgan Bank Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:19:06,559 [INFO] collector.main —   AS329550 (Voisip Telecommunications Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:19:10,281 [INFO] collector.main —   AS329568 (Robert & John Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:19:15,706 [INFO] collector.main —   AS329577 (Olla Systems Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:19:21,826 [INFO] collector.main —   AS329579 (Nationwaves Telcom Nigeria Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:19:26,643 [INFO] collector.main —   AS329592 (Sitehub Agency Ltd) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 06:19:30,723 [INFO] collector.main —   AS329613 (Iris Smart Technologies Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:19:34,109 [INFO] collector.main —   AS329614 (CORONA MANAGEMENT SYSTEMS LIMITED) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:19:37,486 [INFO] collector.main —   AS329623 (NETWORK INTERNATIONAL PAYMENTS SERVICES NIGERIA LIMITED) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:19:40,795 [INFO] collector.main —   AS329653 (Premium Trust Bank Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:19:44,123 [INFO] collector.main —   AS329655 (FSDH Merchant Bank Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:19:47,830 [INFO] collector.main —   AS329685 (MONIEPOINT MICROFINANCE BANK LIMITED) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:19:51,447 [INFO] collector.main —   AS329706 (VAS2NETS TECHNOLOGIES LIMITED) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:19:56,250 [INFO] collector.main —   AS329739 (3 Way Protocol Limited) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:20:00,094 [INFO] collector.main —   AS329740 (TRYANNET SOLUTIONS LIMITED) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:20:00,121 [INFO] collector.main — Collecte NG terminée.
+2026-06-24 06:20:01,122 [INFO] collector.main — Collecte Sénégal (SN)…
+2026-06-24 06:20:02,592 [INFO] collector.main —   14 ASN trouvés pour SN
+2026-06-24 06:22:56,675 [INFO] collector.main —   AS8346 (SONATEL) — membre:False — 229 préfixes — ROA:98%
+2026-06-24 06:23:20,838 [INFO] collector.main —   AS37196 (Sudatel Senegal) — membre:False — 29 préfixes — ROA:0%
+2026-06-24 06:23:25,740 [INFO] collector.main —   AS37288 (West and Central African Research Network) — membre:False — 2 préfixes — ROA:0%
+2026-06-24 06:24:20,636 [INFO] collector.main —   AS37649 (SAGA AFRICA HOLDINGS LIMITED) — membre:False — 70 préfixes — ROA:99%
+2026-06-24 06:24:25,793 [INFO] collector.main —   AS327809 (ARC Informatique) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 06:24:42,649 [INFO] collector.main —   AS328148 (Agence De l'Informatique de l'Etat) — membre:False — 18 préfixes — ROA:0%
+2026-06-24 06:24:46,537 [INFO] collector.main —   AS328159 (ARC Informatique) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:24:52,892 [INFO] collector.main —   AS328259 (WAW SAS) — membre:True — 5 préfixes — ROA:100%
+2026-06-24 06:25:00,153 [INFO] collector.main —   AS328558 (Senelec SA) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:25:06,299 [INFO] collector.main —   AS328650 (Universite numerique Cheikh Hamidou KANE (UN-CHK)) — membre:False — 4 préfixes — ROA:100%
+2026-06-24 06:25:09,578 [INFO] collector.main —   AS329161 (Accel Technologies) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:25:19,642 [INFO] collector.main —   AS329407 (Universite Cheikh Anta DIOP de DAKAR) — membre:False — 10 préfixes — ROA:0%
+2026-06-24 06:25:23,533 [INFO] collector.main —   AS329507 (HUBSIX SASU) — membre:False — 1 préfixes — ROA:100%
+2026-06-24 06:25:27,330 [INFO] collector.main —   AS329726 (Comitè d'Organisation des Jeux Olympiques de la Jeunesse Dakar 2026) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:25:27,355 [INFO] collector.main — Collecte SN terminée.
+2026-06-24 06:25:28,357 [INFO] collector.main — Collecte Sierra Leone (SL)…
+2026-06-24 06:25:29,952 [INFO] collector.main —   15 ASN trouvés pour SL
+2026-06-24 06:25:39,772 [INFO] collector.main —   AS36988 (Africell Sierra Leone Limited) — membre:False — 8 préfixes — ROA:0%
+2026-06-24 06:26:06,108 [INFO] collector.main —   AS37164 (Orange (SL) Limited) — membre:False — 31 préfixes — ROA:100%
+2026-06-24 06:26:13,402 [INFO] collector.main —   AS37208 (Afcom (SL) Limited) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:26:17,074 [INFO] collector.main —   AS37418 (Guaranty Trust Bank Sierra Leone Limited) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:26:21,693 [INFO] collector.main —   AS37449 (ONLIME SL LIMITED) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 06:26:25,662 [INFO] collector.main —   AS37723 (Cajutel (SL) Sarl Limited) — membre:False — 2 préfixes — ROA:100%
+2026-06-24 06:26:42,281 [INFO] collector.main —   AS209049 (MICHCOM MICHCOM LIMITED) — membre:False — 17 préfixes — ROA:71%
+2026-06-24 06:26:48,122 [INFO] collector.main —   AS327990 (AI NETWORKS LIMITED) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:26:53,134 [INFO] collector.main —   AS328236 (PCS Holdings Limited) — membre:False — 3 préfixes — ROA:0%
+2026-06-24 06:26:59,791 [INFO] collector.main —   AS328258 (Zen Internet Company (SL) Limited) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 06:27:04,983 [INFO] collector.main —   AS328297 (QCell (SL) Limited) — membre:False — 3 préfixes — ROA:100%
+2026-06-24 06:27:10,937 [INFO] collector.main —   AS328581 (Fiber One (SL) LIMITED) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:27:19,487 [INFO] collector.main —   AS329109 (Zoodlabs(SL) Limited) — membre:False — 8 préfixes — ROA:0%
+2026-06-24 06:27:23,094 [INFO] collector.main —   AS329574 (Sierra Leone Research and Education Network) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:27:26,791 [INFO] collector.main —   AS329680 (Michcom-IX) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:27:26,795 [INFO] collector.main — Collecte SL terminée.
+2026-06-24 06:27:27,795 [INFO] collector.main — Collecte Togo (TG)…
+2026-06-24 06:27:29,352 [INFO] collector.main —   8 ASN trouvés pour TG
+2026-06-24 06:28:14,243 [INFO] collector.main —   AS24691 (TOGOTEL-AS) — membre:False — 57 préfixes — ROA:0%
+2026-06-24 06:28:40,412 [INFO] collector.main —   AS30982 (CAFE Informatique et telecommunications) — membre:False — 32 préfixes — ROA:0%
+2026-06-24 06:28:50,129 [INFO] collector.main —   AS37229 (ATLANTIQUE TELECOM TOGO) — membre:False — 10 préfixes — ROA:0%
+2026-06-24 06:28:55,883 [INFO] collector.main —   AS328282 (TEOLIS SAU) — membre:False — 4 préfixes — ROA:0%
+2026-06-24 06:28:59,571 [INFO] collector.main —   AS328293 (RESEAU D'EDUCATION ET DE RECHERCHE DU TOGO) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:29:03,385 [INFO] collector.main —   AS328859 (HOSTEUR AFRICA SAS) — membre:False — 1 préfixes — ROA:0%
+2026-06-24 06:29:11,447 [INFO] collector.main —   AS329010 (Société d'Infrastructures Numériques (SIN)) — membre:False — 5 préfixes — ROA:0%
+2026-06-24 06:29:19,028 [INFO] collector.main —   AS329683 (Autorité de Régulation des Communications Electroniques et des Postes (ARCEP)) — membre:False — 6 préfixes — ROA:100%
+2026-06-24 06:29:19,032 [INFO] collector.main — Collecte TG terminée.
+2026-06-24 06:29:20,034 [INFO] collector.main — === Collecte terminée en 111.4 minutes ===
