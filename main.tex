@@ -1,0 +1,803 @@
+\PassOptionsToPackage{table}{xcolor}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass{eneam}
+\usepackage{xurl}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\renewcommand{\thetable}{\thechapter.\arabic{table}}
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+
+\definecolor{passgreen}{RGB}{0,140,0}
+\definecolor{failred}{RGB}{200,0,0}
+\definecolor{warnorg}{RGB}{200,130,0}
+\definecolor{codegray}{RGB}{245,245,245}
+\definecolor{codeframe}{RGB}{200,200,200}
+
+\lstdefinelanguage{Python}{
+  keywords={def, class, return, import, from, if, else, elif, for, while, try, except, with, as, True, False, None, not, and, or, in, is, lambda, yield, async, await, pass, break, continue, raise},
+  morecomment=[l]{\#},
+  morecomment=[s]{"""}{"""},
+  morestring=[b]",
+  morestring=[b]',
+  sensitive=true,
+}
+
+\lstdefinelanguage{SQL}{
+  keywords={SELECT, FROM, WHERE, INSERT, INTO, VALUES, UPDATE, SET, DELETE, CREATE, TABLE, IF, NOT, EXISTS, PRIMARY, KEY, REFERENCES, DEFAULT, ON, CONFLICT, DO, SERIAL, INTEGER, VARCHAR, BOOLEAN, DECIMAL, TIMESTAMP, CHAR, TEXT, SMALLINT, CHECK, BETWEEN, AND, INDEX, JOIN, LEFT, LATERAL, COUNT, AVG, SUM, FILTER, COALESCE, NULLIF, ORDER, BY, GROUP, AS, UNIQUE, CASCADE, NOW},
+  morecomment=[l]{--},
+  morestring=[b]',
+  sensitive=false,
+}
+
+\lstset{
+  backgroundcolor=\color{codegray},
+  frame=single,
+  rulecolor=\color{codeframe},
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  showstringspaces=false,
+  tabsize=2,
+  language=Python,
+}
+
+% -- Métadonnées ---------------------------------------------------------------
+\title{Conception et déploiement d'un observatoire de la sécurité du routage Internet en Afrique de l'Ouest : mesure de la conformité MANRS par agrégation multi-sources}
+
+\maitrememoire{[NOM DU DIRECTEUR DE MÉMOIRE]}
+\titremaitrememoire{[Titre du directeur]}
+
+\maitrestage{[NOM DU MAÎTRE DE STAGE]}
+\titremaitrestage{[Titre du maître de stage]}
+
+\jury{\\
+  \textbf{Président:} {[Prénom NOM], Enseignant à l'ENEAM}\\
+  \textbf{Vice président:} {[Prénom NOM], Enseignant à l'ENEAM}}
+
+\logouniversite{logo_uac}
+\scalelogouniversite{0.35}
+\logoecole{logo_eneam}
+\scalelogoecole{0.35}
+
+\author{François Mawutô Aboudou ZINSOU}
+
+\datesoutenance{[Date de soutenance]}
+
+\cycle{Licence}
+\filiere{Informatique de Gestion (IG)}
+\option{Administration des réseaux informatiques}
+
+\makeatletter
+\@removefromreset{figure}{chapter}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\setcounter{figure}{0}
+
+\newpage
+\pagenumbering{roman}
+\shorttoc{Sommaire}{0}
+
+% =============================================================================
+\chapter*{Dédicace}
+\addcontentsline{toc}{chapter}{Dédicace}
+\chaptermark{Dédicace}
+
+[À compléter par l'auteur]
+
+% =============================================================================
+\chapter*{Remerciements}
+\addcontentsline{toc}{chapter}{Remerciements}
+\chaptermark{Remerciements}
+
+Je tiens à exprimer ma gratitude envers toutes les personnes qui ont contribué à la réalisation de ce mémoire, et notamment :
+
+\begin{itemize}
+    \item Professeur Albert N.\ HONLONKOU, directeur de l'ENEAM.
+    \item Docteur Jean Théophile AGADAME, directeur adjoint chargé des affaires académiques.
+    \item Monsieur Maurice COMLAN, docteur en Informatique, chef du département Informatique de Gestion.
+    \item L'ensemble du corps enseignant et administratif de l'ENEAM.
+    \item Mon directeur de mémoire, pour sa disponibilité et ses orientations tout au long de ce travail.
+    \item Mon maître de stage, pour son accueil et ses conseils sur le terrain.
+    \item Les membres du jury qui ont accepté d'évaluer ce travail.
+    \item L'Internet Society (ISOC) et l'équipe MANRS pour la mise à disposition des données.
+\end{itemize}
+
+% =============================================================================
+\chapter*{Sigles et abréviations}
+\addcontentsline{toc}{chapter}{Sigles et abréviations}
+\chaptermark{Sigles et abréviations}
+
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+AFRINIC  & Registre Internet Régional pour l'Afrique (African Network Information Centre) \\
+API      & Interface de Programmation d'Applications (Application Programming Interface) \\
+AS       & Système Autonome (Autonomous System) \\
+ASN      & Numéro de Système Autonome (Autonomous System Number) \\
+BCP      & Meilleure Pratique Actuelle (Best Current Practice) \\
+BGP      & Protocole de Passerelle Frontalière (Border Gateway Protocol) \\
+CAIDA    & Centre d'Analyse Appliquée des Données Internet (Center for Applied Internet Data Analysis) \\
+CSS      & Feuilles de Style en Cascade (Cascading Style Sheets) \\
+DDoS     & Déni de Service Distribué (Distributed Denial of Service) \\
+DNS      & Système de Noms de Domaine (Domain Name System) \\
+HTML     & Langage de Balisage Hypertexte (HyperText Markup Language) \\
+HTTP     & Protocole de Transfert Hypertexte (HyperText Transfer Protocol) \\
+ICMP     & Protocole de Messages de Contrôle Internet (Internet Control Message Protocol) \\
+IRR      & Registre de Routage Internet (Internet Routing Registry) \\
+ISOC     & Société Internet (Internet Society) \\
+IXP      & Point d'Échange Internet (Internet Exchange Point) \\
+JSON     & Notation d'Objets JavaScript (JavaScript Object Notation) \\
+MANRS    & Normes Mutuellement Convenues pour la Sécurité du Routage (Mutually Agreed Norms for Routing Security) \\
+MVP      & Produit Minimum Viable (Minimum Viable Product) \\
+REST     & Transfert d'État Représentationnel (Representational State Transfer) \\
+RFC      & Demande de Commentaires (Request for Comments) \\
+RIR      & Registre Internet Régional (Regional Internet Registry) \\
+RIPE NCC & Centre de Coordination des Réseaux IP Européens (Réseaux IP Européens Network Coordination Centre) \\
+ROA      & Autorisation d'Origine de Route (Route Origin Authorization) \\
+RPKI     & Infrastructure à Clé Publique de Ressources (Resource Public Key Infrastructure) \\
+SQL      & Langage de Requête Structuré (Structured Query Language) \\
+TLS      & Sécurité de la Couche de Transport (Transport Layer Security) \\
+\end{tabularx}
+
+\listoffigures
+\listoftables
+
+% =============================================================================
+\chapter*{Résumé}
+\addcontentsline{toc}{chapter}{Résumé}
+\chaptermark{Résumé}
+
+Ce mémoire présente la conception, l'implémentation et le déploiement d'un observatoire web mesurant la conformité des opérateurs réseau d'Afrique de l'Ouest aux normes MANRS (Mutually Agreed Norms for Routing Security) de sécurité du routage Internet. L'observatoire agrège cinq sources de données publiques --- MANRS Observatory, RIPE Stat, RIPE NCC RPKI Validator, PeeringDB et CAIDA Spoofer --- pour évaluer les quatre actions MANRS (filtrage, anti-usurpation, coordination et validation RPKI) sur 477~ASN répartis dans 16~pays.
+
+Les résultats révèlent un état préoccupant : seuls 2,3\,\% des opérateurs sont membres MANRS, 51,4\,\% des 6\,810 préfixes collectés disposent d'un ROA valide, et aucun ASN testé par CAIDA ne bloque l'usurpation d'adresses IP source. Des disparités importantes existent entre pays : le Mali atteint 60\,\% de couverture ROA contre 0\,\% pour la Mauritanie et la Guinée-Bissau. L'observatoire, construit sur une architecture Python/FastAPI/React/PostgreSQL, fournit un tableau de bord interactif avec carte, graphiques et fiches détaillées par ASN.
+
+\textbf{Mots-clés :} sécurité du routage, BGP, MANRS, RPKI, ROA, Afrique de l'Ouest, observatoire, AFRINIC.
+
+% =============================================================================
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\chaptermark{Abstract}
+
+This thesis presents the design, implementation and deployment of a web observatory measuring the compliance of West African network operators with MANRS (Mutually Agreed Norms for Routing Security) Internet routing security standards. The observatory aggregates five public data sources --- MANRS Observatory, RIPE Stat, RIPE NCC RPKI Validator, PeeringDB and CAIDA Spoofer --- to assess the four MANRS actions (filtering, anti-spoofing, coordination and RPKI validation) across 477~ASNs in 16~countries.
+
+Results reveal a concerning state: only 2.3\,\% of operators are MANRS members, 51.4\,\% of the 6,810 collected prefixes have a valid ROA, and no ASN tested by CAIDA blocks IP source address spoofing. Significant disparities exist between countries: Mali reaches 60\,\% ROA coverage versus 0\,\% for Mauritania and Guinea-Bissau. The observatory, built on a Python/FastAPI/React/PostgreSQL stack, provides an interactive dashboard with map, charts and detailed per-ASN profiles.
+
+\textbf{Keywords:} routing security, BGP, MANRS, RPKI, ROA, West Africa, observatory, AFRINIC.
+
+
+% =============================================================================
+\newpage
+\pagenumbering{arabic}
+\frontmatter
+
+% =============================================================================
+\chapter*{Introduction générale}
+\addcontentsline{toc}{chapter}{Introduction}
+\chaptermark{Introduction}
+
+\section{Contexte et justification}
+
+Internet repose sur un protocole de routage inter-domaines conçu dans les années 1990 sans mécanisme de sécurité intégré : le \textbf{Border Gateway Protocol (BGP)}. Chaque opérateur réseau, identifié par un numéro de Système Autonome (ASN), annonce à ses pairs les blocs d'adresses IP (préfixes) qu'il sait atteindre. Or, BGP n'offre aucune vérification cryptographique de la légitimité de ces annonces. Un opérateur peut annoncer un préfixe qui ne lui appartient pas --- intentionnellement ou par erreur --- provoquant un détournement de trafic (\textit{BGP hijacking}) aux conséquences potentiellement graves : interception de données, déni de service, ou indisponibilité de services critiques.
+
+L'Afrique de l'Ouest est particulièrement exposée à ces risques. La région connaît une croissance rapide de sa connectivité Internet --- avec une pénétration en hausse de plus de 20\,\% par an dans certains pays --- mais les investissements en sécurité du routage n'ont pas suivi le même rythme. Les incidents BGP y sont sous-documentés faute d'outils de monitoring régionaux, et la plupart des opérateurs n'ont pas encore déployé les mécanismes de protection disponibles.
+
+Pour répondre à cette lacune, l'Internet Society (ISOC) a lancé l'initiative \textbf{MANRS} (Mutually Agreed Norms for Routing Security), qui définit quatre actions concrètes que chaque opérateur devrait implémenter : le filtrage des annonces invalides, la prévention de l'usurpation d'adresses IP, la coordination des contacts d'urgence et la validation cryptographique des routes par RPKI. Cependant, aucun observatoire spécifique à l'Afrique de l'Ouest n'existait pour mesurer l'état de conformité des opérateurs de la sous-région à ces normes.
+
+\section{Problématique}
+
+\textbf{Comment concevoir et déployer un observatoire web permettant de mesurer, visualiser et améliorer la conformité des opérateurs réseau d'Afrique de l'Ouest aux normes de sécurité du routage Internet MANRS ?}
+
+Cette problématique se décline en quatre questions :
+\begin{enumerate}
+    \item Quel est l'état actuel de la sécurité du routage BGP dans les 16 pays d'Afrique de l'Ouest ?
+    \item Comment collecter et agréger automatiquement les données de conformité à partir de sources publiques hétérogènes ?
+    \item Comment évaluer les quatre actions MANRS pour des opérateurs tiers, sans leur coopération directe ?
+    \item Comment restituer ces données de manière exploitable pour les décideurs techniques et institutionnels ?
+\end{enumerate}
+
+\section{Objectifs}
+
+L'objectif principal est de concevoir, implémenter et déployer un observatoire web open source couvrant les 16 pays d'Afrique de l'Ouest. Les objectifs spécifiques sont :
+
+\begin{itemize}
+    \item Identifier et intégrer les sources de données publiques permettant d'évaluer chaque action MANRS ;
+    \item Développer un collecteur automatisé interrogeant cinq APIs/sources toutes les six heures ;
+    \item Implémenter une API REST exposant les données agrégées par pays, par ASN et par préfixe ;
+    \item Construire un tableau de bord interactif avec carte géographique, graphiques et fiches détaillées ;
+    \item Analyser les résultats obtenus sur les 477~ASN de la sous-région et formuler des recommandations.
+\end{itemize}
+
+\section{Plan du document}
+
+Ce mémoire s'articule en quatre chapitres. Le \textbf{premier chapitre} présente la structure d'accueil du stage, les travaux réalisés, les apports professionnels et les difficultés rencontrées. Le \textbf{deuxième chapitre} présente l'état de l'art : les fondamentaux du routage BGP, ses vulnérabilités, les mécanismes de protection (RPKI, MANRS) et les outils existants. Le \textbf{troisième chapitre} détaille l'architecture et l'implémentation de l'observatoire : schéma de données, collecteur multi-sources, API REST et interface web. Le \textbf{quatrième chapitre} présente les résultats obtenus sur les 16 pays, analyse les constats, propose des recommandations et discute les limites de l'approche.
+
+
+% =============================================================================
+\chapter{Déroulement du stage}
+% =============================================================================
+
+\section{Introduction}
+
+Ce chapitre présente la structure d'accueil du stage ainsi que les travaux auxquels j'ai participé au cours de cette période. Il met en lumière les compétences acquises, les apports professionnels et les difficultés rencontrées.
+
+\section{Présentation de la structure}
+
+\subsection{Identité et mission}
+
+[À compléter : nom de la structure d'accueil, mission, secteur d'activité, localisation.]
+
+\subsection{Organisation}
+
+[À compléter : organigramme, équipe technique, rôle au sein de l'équipe.]
+
+\section{Travaux effectués}
+
+[À compléter : description des travaux réalisés pendant le stage, contributions techniques, projets auxquels l'étudiant a participé.]
+
+\subsection{Participation aux projets techniques}
+
+[À compléter : détails des contributions --- développement, administration réseau, sécurité, etc.]
+
+\subsection{Lien avec le sujet du mémoire}
+
+C'est dans le cadre de ce stage que la problématique de la sécurité du routage Internet en Afrique de l'Ouest s'est imposée comme un enjeu pertinent. L'observation du manque d'outils de monitoring régionaux et de la faible adoption des bonnes pratiques MANRS par les opérateurs de la sous-région a motivé la conception de l'observatoire présenté dans les chapitres suivants.
+
+\section{Apports du stage sur le plan professionnel}
+
+[À compléter : compétences techniques acquises, compétences transversales, apprentissages.]
+
+\section{Difficultés rencontrées et suggestions}
+
+\subsection{Difficultés rencontrées}
+
+[À compléter : difficultés techniques, organisationnelles, logistiques.]
+
+\subsection{Suggestions}
+
+[À compléter : suggestions d'amélioration pour la structure d'accueil.]
+
+\section{Conclusion}
+
+Ce stage a constitué une immersion dans les problématiques concrètes de l'administration réseau et de la sécurité Internet. C'est précisément dans ce contexte que la question de la sécurité du routage BGP et de la conformité MANRS en Afrique de l'Ouest s'est imposée, et que le présent mémoire propose d'y répondre par la conception d'un observatoire dédié.
+
+
+% =============================================================================
+\chapter{État de l'art}
+% =============================================================================
+
+\section{Introduction}
+
+Ce chapitre présente les fondamentaux techniques nécessaires à la compréhension du projet : le protocole BGP et ses vulnérabilités, les mécanismes de sécurité RPKI/ROA, l'initiative MANRS et les outils existants de monitoring du routage.
+
+% -----------------------------------------------------------------------------
+\section{Le protocole BGP et ses vulnérabilités}
+
+\subsection{Fonctionnement de BGP}
+
+Le \textbf{Border Gateway Protocol (BGP)}, défini par le RFC~4271 \cite{RFC4271}, est le protocole de routage inter-domaines d'Internet. Il permet aux Systèmes Autonomes (AS) --- réseaux indépendants gérés par une seule organisation --- de s'annoncer mutuellement les routes (préfixes IP) qu'ils savent atteindre. Chaque AS est identifié par un numéro unique (ASN) attribué par un Registre Internet Régional (RIR) : AFRINIC pour l'Afrique.
+
+Le fonctionnement de BGP repose sur la confiance : lorsqu'un AS annonce un préfixe, ses voisins propagent cette annonce sans vérification cryptographique de la légitimité de l'annonce. Ce modèle de confiance implicite est à l'origine des principales vulnérabilités du protocole.
+
+\subsection{Principales attaques}
+
+\begin{table}[H]
+\caption{Principales attaques exploitant les vulnérabilités de BGP}
+\centering
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\textbf{Attaque} & \textbf{Description} & \textbf{Impact} \\
+\hline
+BGP Hijacking & Un AS annonce un préfixe qui ne lui appartient pas & Trafic détourné, interception de données \\
+\hline
+BGP Leak & Un AS repropage des routes qu'il ne devrait pas partager & Surcharge réseau, chemins sous-optimaux \\
+\hline
+IP Spoofing & Envoi de paquets avec une adresse source falsifiée & DDoS par amplification, usurpation d'identité \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Incidents notables}
+
+En 2008, Pakistan Telecom a annoncé le préfixe de YouTube pour le censurer localement, rendant YouTube inaccessible mondialement pendant deux heures. En 2018, un détournement BGP a permis le vol de cryptomonnaie via le DNS d'Amazon Route~53. En Afrique, les incidents sont réguliers mais sous-documentés, faute d'infrastructure de monitoring régionale \cite{BGPStream}.
+
+% -----------------------------------------------------------------------------
+\section{RPKI et ROA : la réponse cryptographique}
+
+\subsection{Principe de RPKI}
+
+La \textbf{Resource Public Key Infrastructure (RPKI)}, définie par le RFC~6480, est un système cryptographique qui permet de prouver qu'un AS est autorisé à annoncer un préfixe IP donné. Le RIR (AFRINIC pour l'Afrique) délivre un certificat à l'opérateur, qui crée un \textbf{ROA (Route Origin Authorization)} --- un objet signé liant un préfixe IP à un ASN autorisé \cite{RFC6811}.
+
+\subsection{Statuts de validation ROA}
+
+Trois statuts sont possibles lors de la validation d'une annonce BGP contre les ROA publiés :
+
+\begin{table}[H]
+\caption{Statuts de validation ROA}
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Statut} & \textbf{Signification} & \textbf{Interprétation} \\
+\hline
+\texttt{valid} & Un ROA existe et correspond à l'annonce & Annonce légitime \\
+\hline
+\texttt{invalid} & Un ROA existe mais ne correspond pas & Potentiel hijacking \\
+\hline
+\texttt{not-found} & Aucun ROA n'existe pour ce préfixe & Non protégé \\
+\hline
+\end{tabular}
+\end{table}
+
+La \textbf{couverture ROA} d'un AS est le pourcentage de ses préfixes disposant d'un ROA valide. C'est un indicateur clé de la maturité sécuritaire d'un opérateur.
+
+% -----------------------------------------------------------------------------
+\section{MANRS : les quatre actions}
+
+\textbf{MANRS} (Mutually Agreed Norms for Routing Security) est une initiative de l'Internet Society (ISOC) qui définit quatre actions minimales pour sécuriser le routage Internet \cite{MANRS2025} :
+
+\begin{table}[H]
+\caption{Les quatre actions MANRS pour les opérateurs réseau}
+\centering
+\begin{tabularx}{\textwidth}{|c|l|X|}
+\hline
+\textbf{\#} & \textbf{Action} & \textbf{Description} \\
+\hline
+1 & Filtering & Filtrer les annonces BGP invalides en sortie, ne propager que les routes légitimes \\
+\hline
+2 & Anti-spoofing & Empêcher l'envoi de paquets avec des adresses IP source falsifiées (BCP38 \cite{RFC2827}) \\
+\hline
+3 & Coordination & Maintenir des informations de contact à jour pour la gestion des incidents \\
+\hline
+4 & Validation & Publier ses routes dans l'IRR et signer ses préfixes avec RPKI/ROA \\
+\hline
+\end{tabularx}
+\end{table}
+
+En juin~2026, MANRS compte 1\,813 ASN membres dans le monde. L'adhésion est volontaire et les scores détaillés ne sont accessibles qu'aux opérateurs eux-mêmes via l'API MANRS Observatory v2.
+
+% -----------------------------------------------------------------------------
+\section{Outils et travaux existants}
+
+\subsection{MANRS Observatory}
+
+L'observatoire MANRS officiel (\texttt{observatory.manrs.org}) fournit des métriques mondiales sur l'adoption des actions MANRS. Son API v2 expose les listes d'ASN par pays et les participants, mais les scores détaillés par action sont réservés aux opérateurs eux-mêmes (authentification requise + restriction aux ASN que l'on gère).
+
+\subsection{RIPE Stat}
+
+RIPE Stat (\texttt{stat.ripe.net}) est une plateforme de mesure Internet maintenue par le RIPE NCC. Elle offre des API publiques pour interroger les préfixes annoncés par un ASN, les contacts abuse et les données de visibilité BGP.
+
+\subsection{CAIDA Spoofer}
+
+Le projet Spoofer du CAIDA (\texttt{spoofer.caida.org}) mesure la capacité des réseaux à bloquer l'usurpation d'adresses IP source. Il publie des statistiques par ASN et par pays, obtenues via des tests réels de spoofing effectués par des volontaires.
+
+\subsection{ROSE-T}
+
+ROSE-T (ROuting SEcurity Tool) est un outil open source développé pour vérifier la conformité MANRS automatiquement. Il nécessite la configuration du routeur de l'opérateur et utilise l'émulation réseau via Kathará et Batfish. Cette approche, complémentaire de la nôtre, n'est pas applicable à distance sans la coopération de l'opérateur.
+
+\subsection{Positionnement de notre approche}
+
+Aucun outil existant ne combine l'agrégation de sources publiques multiples pour évaluer les quatre actions MANRS de manière externe, sans coopération de l'opérateur, avec un focus régional sur l'Afrique de l'Ouest. Notre observatoire comble cette lacune.
+
+\section{Conclusion}
+
+Ce chapitre a posé les bases techniques du projet : les vulnérabilités de BGP, les mécanismes de protection RPKI/ROA, les quatre actions MANRS et les outils existants. Le chapitre suivant détaille l'architecture et l'implémentation de l'observatoire.
+
+
+% =============================================================================
+\chapter{Conception et Implémentation}
+% =============================================================================
+
+\section{Introduction}
+
+Ce chapitre présente l'architecture technique de l'observatoire, le choix des sources de données, le schéma de base de données, le collecteur automatisé, l'API REST et l'interface web.
+
+% -----------------------------------------------------------------------------
+\section{Architecture générale}
+
+L'observatoire est composé de quatre couches communicant entre elles :
+
+\begin{table}[H]
+\caption{Architecture en couches de l'observatoire}
+\centering
+\begin{tabularx}{\textwidth}{|l|X|l|}
+\hline
+\textbf{Couche} & \textbf{Rôle} & \textbf{Technologie} \\
+\hline
+Collecteur & Interroge les 5 sources de données toutes les 6h & Python 3.12 \\
+\hline
+API REST & Expose les données agrégées au frontend & FastAPI + Uvicorn \\
+\hline
+Base de données & Stocke les ASN, préfixes, scores et agrégats pays & PostgreSQL 15 \\
+\hline
+Frontend & Tableau de bord interactif & React 19 + Vite + shadcn/ui \\
+\hline
+\end{tabularx}
+\end{table}
+
+L'ensemble est conteneurisé via Docker Compose, permettant un déploiement en une seule commande.
+
+% -----------------------------------------------------------------------------
+\section{Sources de données et méthode d'évaluation}
+
+L'originalité de l'observatoire réside dans l'agrégation de cinq sources publiques pour approximer les quatre actions MANRS sans coopération des opérateurs :
+
+\begin{table}[H]
+\caption{Correspondance entre les actions MANRS et les sources de données}
+\label{tab:sources}
+\centering
+\begin{tabularx}{\textwidth}{|l|l|X|l|}
+\hline
+\textbf{Action} & \textbf{Source} & \textbf{Méthode d'évaluation} & \textbf{Fiabilité} \\
+\hline
+Filtering & PeeringDB & Présence d'un champ \texttt{irr\_as\_set} renseigné & Approximation \\
+\hline
+Anti-spoofing & CAIDA Spoofer & $>50\,\%$ des blocs IP testés bloquent le spoofing & Mesure réelle \\
+\hline
+Coordination & PeeringDB & Présence de l'ASN sur PeeringDB & Bonne proxy \\
+\hline
+Validation & RIPE NCC Validator & $>50\,\%$ des préfixes avec ROA valide & Mesure directe \\
+\hline
+\multicolumn{2}{|l|}{Membres MANRS} & Liste via API MANRS v2 \texttt{/participants} & Exacte \\
+\hline
+\multicolumn{2}{|l|}{ASN par pays} & API MANRS v2 \texttt{/ases?economies=XX} & Exacte \\
+\hline
+\multicolumn{2}{|l|}{Préfixes annoncés} & RIPE Stat \texttt{announced-prefixes} & Exacte \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Difficultés d'accès aux données}
+
+Plusieurs obstacles ont été rencontrés lors de l'intégration des sources :
+
+\begin{itemize}
+    \item \textbf{Migration de l'API MANRS} : le cahier des charges référençait l'API v1 (\texttt{/api/v1/participants/\{asn\}}), qui a été migrée vers la v2. L'ancienne URL retourne une redirection 302.
+    \item \textbf{API Cloudflare RPKI indisponible} : l'endpoint \texttt{rpki.cloudflare.com/api/v1/asn/\{asn\}/prefixes} retourne un 404. Le RIPE NCC RPKI Validator a été utilisé comme alternative.
+    \item \textbf{Scores MANRS restreints} : l'endpoint \texttt{/scores/details} retourne HTTP~403 pour les ASN dont on n'est pas l'opérateur. Les quatre actions ont donc été évaluées par des sources alternatives.
+    \item \textbf{Contacts abuse AFRINIC} : l'API RIPE Stat \texttt{abuse-contact-finder} ne retourne pas de données pour les ASN gérés par AFRINIC, limitant l'évaluation de la coordination aux seules données PeeringDB.
+\end{itemize}
+
+% -----------------------------------------------------------------------------
+\section{Schéma de base de données}
+
+Le schéma comprend quatre tables avec contraintes d'intégrité et index de performance :
+
+\begin{lstlisting}[language=SQL, caption={Schéma de base de données (extrait)}]
+CREATE TABLE asn (
+    id SERIAL PRIMARY KEY,
+    asn_number INTEGER UNIQUE NOT NULL,
+    name VARCHAR(255),
+    country_code CHAR(2) NOT NULL,
+    is_manrs_member BOOLEAN DEFAULT FALSE,
+    manrs_score SMALLINT DEFAULT 0
+        CHECK (manrs_score BETWEEN 0 AND 4),
+    action_filtering BOOLEAN DEFAULT FALSE,
+    action_antispoofing BOOLEAN DEFAULT FALSE,
+    action_coordination BOOLEAN DEFAULT FALSE,
+    action_validation BOOLEAN DEFAULT FALSE,
+    last_updated TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE prefixes (
+    id SERIAL PRIMARY KEY,
+    asn_id INTEGER REFERENCES asn(id) ON DELETE CASCADE,
+    prefix VARCHAR(50) NOT NULL,
+    roa_status VARCHAR(20)
+        CHECK (roa_status IN ('valid','invalid','not-found')),
+    roa_asn INTEGER,
+    last_checked TIMESTAMP DEFAULT NOW()
+);
+\end{lstlisting}
+
+La stratégie \texttt{UPSERT} (\texttt{INSERT ... ON CONFLICT DO UPDATE}) permet de relancer le collecteur sans créer de doublons. Les préfixes sont supprimés puis réinsérés à chaque collecte pour refléter l'état actuel du routage.
+
+% -----------------------------------------------------------------------------
+\section{Collecteur automatisé}
+
+Le collecteur est structuré en quatre modules Python :
+
+\begin{itemize}
+    \item \texttt{config.py} : constantes (16 pays, URLs des APIs, clé MANRS) ;
+    \item \texttt{apis.py} : fonctions d'appel aux cinq sources, avec gestion des erreurs et rate limiting (0,5s entre chaque appel) ;
+    \item \texttt{db.py} : fonctions de persistance PostgreSQL (upsert ASN, préfixes, agrégats pays) ;
+    \item \texttt{main.py} : orchestration de la collecte avec scheduling toutes les 6 heures.
+\end{itemize}
+
+La collecte complète des 477~ASN prend environ 111 minutes. Le temps est dominé par la validation ROA préfixe par préfixe via le RIPE NCC Validator (6\,810 appels API). Les données Spoofer sont chargées une seule fois au démarrage (scraping de la page \texttt{as\_stats.php}).
+
+% -----------------------------------------------------------------------------
+\section{API REST}
+
+L'API FastAPI expose cinq endpoints :
+
+\begin{table}[H]
+\caption{Endpoints de l'API REST}
+\centering
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Endpoint} & \textbf{Données retournées} \\
+\hline
+\texttt{GET /api/stats} & Statistiques globales (total ASN, \% MANRS, \% ROA) \\
+\hline
+\texttt{GET /api/countries} & Liste des 16 pays avec agrégats \\
+\hline
+\texttt{GET /api/countries/\{code\}} & Détail d'un pays + liste de ses ASN \\
+\hline
+\texttt{GET /api/asn/\{number\}} & Fiche complète d'un ASN (score, actions, préfixes) \\
+\hline
+\texttt{GET /api/search?q=\{query\}} & Recherche par numéro ou nom d'opérateur \\
+\hline
+\end{tabularx}
+\end{table}
+
+La couverture ROA est calculée à la volée via des \texttt{LATERAL JOIN} SQL, garantissant que les pourcentages reflètent toujours l'état actuel des données.
+
+% -----------------------------------------------------------------------------
+\section{Interface web}
+
+Le frontend est construit avec React~19, Vite, TypeScript et shadcn/ui, suivant une architecture \textbf{Atomic Design} (Brad Frost, 2013) :
+
+\begin{itemize}
+    \item \textbf{Atoms} : composants unitaires (StatValue, RoaBadge, ActionIcon, Loading) ;
+    \item \textbf{Molecules} : combinaisons d'atomes (StatsBanner, SearchBar, ManrsScoreCard, RoaGauge) ;
+    \item \textbf{Organisms} : composants complexes (CountriesTable, WestAfricaMap, PrefixesTable, CountriesChart) ;
+    \item \textbf{Pages} : cinq pages (Dashboard, Pays, Fiche ASN, Recherche, À propos).
+\end{itemize}
+
+La carte interactive utilise React-Leaflet avec des marqueurs circulaires colorés selon la couverture ROA (vert $>60\,\%$, orange $25$--$60\,\%$, rouge $<25\,\%$). Les graphiques sont produits par Recharts (barres, camemberts).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth,keepaspectratio]{figures/dashboard_home}
+  \caption{Page d'accueil du tableau de bord --- carte interactive, statistiques globales, graphique de couverture ROA par pays et classement des 16 pays}
+  \label{fig:dashboard-home}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth,keepaspectratio]{figures/dashboard_country_bj}
+  \caption{Page pays --- Bénin : 16 ASN, 0 membre MANRS, 12,5\,\% de couverture ROA. Seuls les deux ASN de la SBIN (opérateur historique) déploient RPKI.}
+  \label{fig:dashboard-country}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth,keepaspectratio]{figures/dashboard_asn}
+  \caption{Fiche ASN détaillée --- AS28683 (SBIN, Bénin) : scorecard MANRS (2/4), répartition ROA (92,59\,\% valid) et tableau des préfixes avec statut}
+  \label{fig:dashboard-asn}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth,keepaspectratio]{figures/dashboard_search}
+  \caption{Page de recherche --- résultats pour la requête ``MTN'', montrant les ASN correspondants dans plusieurs pays}
+  \label{fig:dashboard-search}
+\end{figure}
+
+\section{Conclusion}
+
+L'observatoire agrège cinq sources de données via un collecteur automatisé, les stocke dans PostgreSQL et les expose via une API REST consommée par un tableau de bord React interactif (figures~\ref{fig:dashboard-home} à~\ref{fig:dashboard-search}). Le chapitre suivant présente les résultats de la première collecte complète.
+
+
+% =============================================================================
+\chapter{Résultats et Discussion}
+% =============================================================================
+
+\section{Introduction}
+
+Ce chapitre présente les résultats de la collecte réalisée le 24~juin~2026 sur les 477~ASN des 16 pays d'Afrique de l'Ouest. Il analyse les constats par action MANRS et par pays, propose des recommandations et discute les limites de l'approche.
+
+% -----------------------------------------------------------------------------
+\section{Résultats globaux}
+
+\subsection{Vue d'ensemble}
+
+\begin{table}[H]
+\caption{Résultats globaux de la collecte du 24 juin 2026}
+\centering
+\begin{tabular}{|l|r|r|}
+\hline
+\textbf{Indicateur} & \textbf{Valeur} & \textbf{Pourcentage} \\
+\hline
+ASN surveillés & 477 & --- \\
+\hline
+Préfixes collectés & 6\,810 & --- \\
+\hline
+Préfixes avec ROA valide & 3\,499 & 51,4\,\% \\
+\hline
+Membres MANRS & 11 & 2,3\,\% \\
+\hline
+Filtering (IRR dans PeeringDB) & 78 & 16,4\,\% \\
+\hline
+Anti-spoofing (CAIDA Spoofer) & 0 & 0,0\,\% \\
+\hline
+Coordination (présence PeeringDB) & 212 & 44,4\,\% \\
+\hline
+Validation (ROA $>50\,\%$) & 125 & 26,2\,\% \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Résultats par pays}
+
+\begin{table}[H]
+\caption{Classement des 16 pays par couverture ROA}
+\label{tab:pays}
+\centering
+\begin{tabular}{|r|l|r|r|r|r|}
+\hline
+\textbf{\#} & \textbf{Pays} & \textbf{ASN} & \textbf{MANRS} & \textbf{Score moy.} & \textbf{ROA (\%)} \\
+\hline
+1  & Mali              & 5   & 1 & 1,80 & \textcolor{passgreen}{\textbf{60,0}} \\
+2  & Burkina Faso      & 26  & 3 & 1,04 & \textcolor{passgreen}{\textbf{57,7}} \\
+3  & Liberia           & 14  & 1 & 1,00 & 50,0 \\
+4  & Côte d'Ivoire     & 17  & 0 & 1,12 & 37,5 \\
+5  & Sénégal           & 14  & 1 & 0,93 & 35,7 \\
+6  & Gambie            & 9   & 0 & 1,11 & 33,3 \\
+7  & Cap-Vert          & 7   & 0 & 1,00 & 28,6 \\
+8  & Nigeria           & 224 & 5 & 0,91 & 28,6 \\
+9  & Sierra Leone      & 15  & 0 & 1,00 & 26,7 \\
+10 & Guinée            & 14  & 0 & 1,07 & \textcolor{warnorg}{21,4} \\
+11 & Ghana             & 92  & 0 & 0,62 & \textcolor{warnorg}{19,6} \\
+12 & Niger             & 7   & 0 & 0,71 & \textcolor{failred}{14,3} \\
+13 & Bénin             & 16  & 0 & 0,69 & \textcolor{failred}{12,5} \\
+14 & Togo              & 8   & 0 & 1,00 & \textcolor{failred}{12,5} \\
+15 & Mauritanie        & 7   & 0 & 0,29 & \textcolor{failred}{0,0} \\
+16 & Guinée-Bissau     & 2   & 0 & 0,00 & \textcolor{failred}{0,0} \\
+\hline
+\multicolumn{2}{|l|}{\textbf{Total}} & \textbf{477} & \textbf{11} & \textbf{---} & \textbf{51,4} \\
+\hline
+\end{tabular}
+\end{table}
+
+% -----------------------------------------------------------------------------
+\section{Analyse par action MANRS}
+
+\subsection{Action 1 --- Filtering (16,4\,\%)}
+
+Seuls 78~ASN sur 477 (16,4\,\%) ont un champ \texttt{irr\_as\_set} renseigné dans PeeringDB, indiquant qu'ils publient leurs politiques de routage dans l'Internet Routing Registry. Ce chiffre bas signifie que la majorité des opérateurs ne documentent pas formellement leurs routes autorisées, rendant impossible pour leurs pairs de vérifier la légitimité de leurs annonces.
+
+\textbf{Interprétation} : la publication IRR est un prérequis au filtrage effectif mais ne le garantit pas. Un opérateur peut avoir un \texttt{irr\_as\_set} sans appliquer de filtres, et inversement. Notre mesure constitue donc une borne inférieure de la pratique de filtrage.
+
+\subsection{Action 2 --- Anti-spoofing (0,0\,\%)}
+
+\textbf{Aucun} ASN ouest-africain testé par le projet CAIDA Spoofer ne bloque l'usurpation d'adresses IP source. Ce résultat est le plus préoccupant de l'étude. Il signifie que les réseaux de la sous-région peuvent être utilisés comme sources d'attaques DDoS par amplification, sans que l'adresse source réelle de l'attaquant ne soit vérifiable.
+
+\textbf{Nuance} : la couverture du projet Spoofer en Afrique de l'Ouest est limitée (tests volontaires). L'absence de donnée pour la plupart des ASN est traitée comme ``non évalué'' plutôt que ``non conforme''. Cependant, les rares ASN testés (dont Orange Côte d'Ivoire, AS29571) échouent au test.
+
+\subsection{Action 3 --- Coordination (44,4\,\%)}
+
+212~ASN sont présents sur PeeringDB, ce qui représente la meilleure action de la sous-région. PeeringDB est la base de données standard utilisée par les opérateurs pour publier leurs informations de peering : politiques, contacts, points de présence aux IXP. La présence sur PeeringDB indique une volonté de transparence et de coordination avec la communauté.
+
+\textbf{Interprétation} : 55,6\,\% des ASN restent absents de PeeringDB, ce qui complique la gestion des incidents de routage. En cas de hijacking, contacter l'opérateur fautif est difficile sans informations de contact publiques.
+
+\subsection{Action 4 --- Validation RPKI (26,2\,\%)}
+
+125~ASN ont plus de 50\,\% de leurs préfixes couverts par un ROA valide. Au niveau global, 51,4\,\% des 6\,810 préfixes ont un ROA valide. Ce chiffre est supérieur aux attentes mais masque de fortes disparités :
+
+\begin{itemize}
+    \item \textbf{Opérateurs historiques} : les anciens monopoles nationaux (SBIN au Bénin avec 93\,\%, ONATEL au Burkina Faso) ont généralement déployé RPKI, probablement en raison de leur relation directe avec AFRINIC.
+    \item \textbf{Grands groupes internationaux} : Orange Côte d'Ivoire (100\,\%), MTN Côte d'Ivoire (100\,\%) ont des taux élevés, bénéficiant des politiques RPKI de leurs groupes mères.
+    \item \textbf{Petits opérateurs privés} : la majorité des FAI locaux (ISOCEL, Moov, JENY SAS au Bénin) ont 0\,\% de couverture ROA.
+\end{itemize}
+
+% -----------------------------------------------------------------------------
+\section{Constats transversaux}
+
+\subsection{Le paradoxe de la taille}
+
+Le Nigeria, qui représente 47\,\% des ASN de la sous-région (224 sur 477), n'atteint que 28,6\,\% de couverture ROA. Le Ghana (92~ASN) est à 19,6\,\%. Les pays avec le plus d'opérateurs ne sont pas les mieux protégés --- la fragmentation du marché semble diluer les efforts de sécurité.
+
+À l'inverse, le Mali (5~ASN, 60\,\% ROA) et le Burkina Faso (26~ASN, 57,7\,\% ROA, 3 membres MANRS) présentent de meilleurs résultats. Le Burkina Faso est le pays le plus engagé dans MANRS en Afrique de l'Ouest.
+
+\subsection{Le fossé numérique de la sécurité}
+
+Deux groupes se distinguent :
+\begin{itemize}
+    \item \textbf{Opérateurs connectés} : présents sur PeeringDB, avec IRR, déployant RPKI --- ce sont les filiales de groupes internationaux et les opérateurs historiques.
+    \item \textbf{Opérateurs déconnectés} : absents de PeeringDB, sans IRR, sans RPKI --- ce sont les petits FAI locaux, qui constituent pourtant la majorité.
+\end{itemize}
+
+Ce fossé reflète un manque de sensibilisation et de ressources techniques plutôt qu'une résistance délibérée.
+
+% -----------------------------------------------------------------------------
+\section{Recommandations}
+
+\subsection{Pour les opérateurs}
+
+\begin{enumerate}
+    \item \textbf{Déployer RPKI immédiatement} : créer des ROA pour tous les préfixes annoncés via le portail AFRINIC. Le processus est gratuit et prend moins d'une heure.
+    \item \textbf{S'inscrire sur PeeringDB} : publier ses contacts, sa politique de peering et ses préfixes. C'est la base de la coordination inter-opérateurs.
+    \item \textbf{Implémenter BCP38/BCP84} : configurer des filtres anti-spoofing sur les interfaces clients (uRPF strict ou loose mode).
+    \item \textbf{Publier un \texttt{irr\_as\_set}} : enregistrer ses politiques de routage dans l'IRR pour permettre le filtrage par les pairs.
+    \item \textbf{Rejoindre MANRS} : l'adhésion est gratuite et fournit un cadre structuré d'amélioration continue.
+\end{enumerate}
+
+\subsection{Pour les institutions}
+
+\begin{enumerate}
+    \item \textbf{AFRINIC} devrait conditionner l'attribution de nouvelles ressources IP à un minimum de conformité RPKI.
+    \item \textbf{Les régulateurs nationaux} (ARCEP au Bénin, NCC au Nigeria) pourraient intégrer des exigences MANRS dans les conditions de licence des opérateurs.
+    \item \textbf{Les IXP régionaux} (BENIN-IX, GH-IX, IXPN) sont des vecteurs naturels de sensibilisation et de formation.
+    \item \textbf{L'Internet Society} pourrait financer des ateliers de formation RPKI dans les pays à 0\,\% de couverture.
+\end{enumerate}
+
+% -----------------------------------------------------------------------------
+\section{Limites de l'étude}
+
+\subsection{Limites méthodologiques}
+
+\begin{itemize}
+    \item \textbf{Filtering} : la présence d'un \texttt{irr\_as\_set} dans PeeringDB ne garantit pas que des filtres sont effectivement appliqués. C'est un indicateur de capacité, pas de pratique.
+    \item \textbf{Anti-spoofing} : la couverture du projet CAIDA Spoofer en Afrique de l'Ouest est très faible. La plupart des ASN n'ont jamais été testés, ce qui ne signifie pas qu'ils ne bloquent pas le spoofing.
+    \item \textbf{Coordination} : PeeringDB est une base de données volontaire. Un opérateur peut avoir des contacts à jour auprès de son RIR sans être inscrit sur PeeringDB.
+    \item \textbf{Validation} : le seuil de 50\,\% est arbitraire. Un opérateur avec 49\,\% de couverture ROA est marqué ``non conforme'' alors qu'il est en voie de déploiement.
+\end{itemize}
+
+\subsection{Limites techniques}
+
+\begin{itemize}
+    \item La collecte de 477~ASN prend 111~minutes, principalement à cause de la validation ROA préfixe par préfixe. Une optimisation par requêtes en lot réduirait ce temps.
+    \item Les données CAIDA Spoofer sont obtenues par scraping HTML, ce qui est fragile face à un changement de format de la page.
+    \item La clé API MANRS expire après 3 jours et doit être renouvelée manuellement.
+    \item L'observatoire ne couvre que les ASN visibles dans la base MANRS. Des ASN routés non enregistrés pourraient échapper à la surveillance.
+\end{itemize}
+
+\subsection{Limites d'interprétation}
+
+Les résultats représentent un instantané au 24~juin~2026. La situation évolue : de nouveaux ROA sont créés, des opérateurs rejoignent MANRS, des préfixes sont ajoutés ou retirés. La collecte toutes les 6~heures atténue ce biais mais ne l'élimine pas.
+
+
+\section{Conclusion}
+
+Les résultats de la première collecte complète dressent un portrait contrasté de la sécurité du routage en Afrique de l'Ouest. Si la couverture ROA globale (51,4\,\%) est encourageante, elle masque des disparités profondes : des pays entiers (Mauritanie, Guinée-Bissau) n'ont aucune protection RPKI, et 0\,\% des ASN testés bloquent le spoofing. La faible adhésion à MANRS (2,3\,\%) confirme que la sécurité du routage reste un sujet marginal dans la sous-région. L'observatoire fournit pour la première fois une visibilité régionale sur ces enjeux, condition nécessaire à toute amélioration.
+
+
+% =============================================================================
+\chapter*{Conclusion et perspectives}
+\addcontentsline{toc}{chapter}{Conclusion et perspectives}
+\chaptermark{Conclusion et perspectives}
+\setcounter{section}{0}
+
+\section{Conclusion}
+
+Ce mémoire a présenté la conception, l'implémentation et l'exploitation d'un observatoire de la sécurité du routage Internet en Afrique de l'Ouest. En agrégeant cinq sources de données publiques, nous avons pu évaluer les quatre actions MANRS sur 477~ASN de 16~pays, sans nécessiter la coopération des opérateurs.
+
+Les résultats révèlent trois constats majeurs. Premièrement, la sécurité du routage en Afrique de l'Ouest est insuffisante : seuls 2,3\,\% des opérateurs sont membres MANRS et 0\,\% bloquent le spoofing. Deuxièmement, de fortes disparités existent entre pays (Mali à 60\,\% de ROA contre Mauritanie à 0\,\%) et entre types d'opérateurs (groupes internationaux bien protégés vs FAI locaux non protégés). Troisièmement, la coordination reste la pratique la mieux adoptée (44,4\,\% via PeeringDB), ce qui constitue un levier pour l'amélioration des autres actions.
+
+L'observatoire constitue, à notre connaissance, le premier outil combinant l'agrégation multi-sources pour mesurer la conformité MANRS de manière externe et régionale. Il fournit une base factuelle pour les opérateurs, les régulateurs et les institutions souhaitant améliorer la sécurité du routage dans la sous-région.
+
+\section{Perspectives}
+
+Plusieurs axes d'extension se dégagent :
+
+\begin{itemize}
+    \item \textbf{Extension géographique} : couvrir l'ensemble de l'Afrique (54 pays, RIR AFRINIC complet) puis d'autres régions.
+    \item \textbf{Historique et tendances} : stocker les scores dans le temps pour mesurer l'évolution de la conformité et identifier les régressions.
+    \item \textbf{Alertes en temps réel} : détecter les changements brusques de couverture ROA (potentiel hijacking) et notifier les opérateurs concernés.
+    \item \textbf{Recommandations automatisées} : générer des recommandations personnalisées par ASN via un modèle de langage (LLM).
+    \item \textbf{Validation anti-spoofing active} : déployer des sondes Spoofer dans les IXP ouest-africains pour augmenter la couverture de test.
+    \item \textbf{Partenariat AFRINIC} : intégrer l'observatoire dans les outils de suivi d'AFRINIC pour encourager l'adoption RPKI lors de l'attribution de ressources.
+\end{itemize}
+
+
+% =============================================================================
+\backmatter
+
+\nocite{*}
+\printbibliography[heading=bibintoc,title={Bibliographie}]
+
+\tableofcontents
+
+\end{document}
