@@ -18,8 +18,11 @@ export interface AsnSummary {
   country_code: string
   is_manrs_member: boolean
   manrs_score: number
+  actions_evaluated: number
+  manrs_score_normalized: number
   action_filtering: boolean
-  action_antispoofing: boolean
+  /** true = testé et bloque, false = testé et ne bloque pas, null = non testé */
+  action_antispoofing: boolean | null
   action_coordination: boolean
   action_validation: boolean
   roa_coverage_pct: number
@@ -36,9 +39,13 @@ export interface AsnDetail {
   country_code: string
   is_manrs_member: boolean
   manrs_score: number
+  actions_evaluated: number
+  manrs_score_normalized: number
+  irr: { route_objects: number; sources: string[] }
   actions: {
     filtering: boolean
-    anti_spoofing: boolean
+    /** null = non testé (non évalué, ne pénalise pas le score) */
+    anti_spoofing: boolean | null
     coordination: boolean
     validation: boolean
   }

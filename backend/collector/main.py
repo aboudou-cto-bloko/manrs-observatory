@@ -11,9 +11,20 @@ from .apis import (
     validate_roa,
     fetch_peeringdb_info,
     fetch_abuse_contact,
+    fetch_irr_routes,
     check_antispoofing,
 )
-from .db import get_connection, upsert_asn, upsert_prefixes, update_country_stats
+from .db import (
+    get_connection,
+    upsert_asn,
+    upsert_prefixes,
+    update_country_stats,
+    ensure_schema,
+    start_collection,
+    finish_collection,
+    fail_collection,
+)
+from .scoring import compute_score
 
 logging.basicConfig(
     level=logging.INFO,
@@ -28,13 +39,14 @@ logger = logging.getLogger(__name__)
 
 def collect_asns_for_country(
     country_code: str, country_name: str, manrs_members: set[int]
-):
+) -> bool:
+    """Retourne False si la collecte du pays n'a pas pu avoir lieu."""
     logger.info("Collecte %s (%s)…", country_name, country_code)
 
     asn_list = fetch_manrs_asns_for_country(country_code)
     if not asn_list:
         logger.warning("Aucun ASN trouvé pour %s", country_code)
-        return
+        return False
 
     logger.info("  %d ASN trouvés pour %s", len(asn_list), country_code)
 
@@ -64,29 +76,31 @@ def collect_asns_for_country(
                 pdb = fetch_peeringdb_info(asn_number)
                 has_abuse = fetch_abuse_contact(asn_number)
 
-                has_filtering = pdb["has_irr"]
+                irr = fetch_irr_routes(asn_number)
+                has_filtering = pdb["has_irr"] or irr["route_objects"] > 0
                 has_coordination = pdb["on_peeringdb"]
-                spoofer_result = check_antispoofing(asn_number)
-                has_antispoofing = spoofer_result is True
+                # True = testé et bloque, False = testé et ne bloque pas, None = non testé
+                has_antispoofing = check_antispoofing(asn_number)
 
                 asn_data = {
                     "asn_number": asn_number,
                     "name": entry.get("name"),
                     "country_code": country_code,
                     "is_manrs_member": is_member,
-                    "manrs_score": 0,
                     "action_filtering": has_filtering,
                     "action_antispoofing": has_antispoofing,
                     "action_coordination": has_coordination,
                     "action_validation": has_validation,
+                    "irr_route_objects": irr["route_objects"],
+                    "irr_sources": ",".join(irr["sources"]) or None,
                 }
 
-                asn_data["manrs_score"] = sum([
-                    asn_data["action_filtering"],
-                    asn_data["action_antispoofing"],
-                    asn_data["action_coordination"],
-                    asn_data["action_validation"],
-                ])
+                asn_data.update(compute_score({
+                    "filtering": has_filtering,
+                    "antispoofing": has_antispoofing,
+                    "coordination": has_coordination,
+                    "validation": has_validation,
+                }))
 
                 asn_id = upsert_asn(conn, asn_data)
                 upsert_prefixes(conn, asn_id, prefix_results)
@@ -107,21 +121,38 @@ def collect_asns_for_country(
         update_country_stats(conn, country_code)
 
     logger.info("Collecte %s terminée.", country_code)
+    return True
 
 
 def run_full_collection():
     logger.info("=== Début de la collecte complète ===")
     start = time.time()
 
-    manrs_members = fetch_manrs_participants()
+    with get_connection() as conn:
+        collection_id = start_collection(conn)
+    logger.info("Collecte n°%d", collection_id)
 
-    for code, name in WEST_AFRICA_COUNTRIES.items():
-        try:
-            collect_asns_for_country(code, name, manrs_members)
-        except Exception:
-            logger.exception("Erreur collecte pays %s", code)
-            continue
-        time.sleep(1)
+    failed_countries: list[str] = []
+    try:
+        manrs_members = fetch_manrs_participants()
+
+        for code, name in WEST_AFRICA_COUNTRIES.items():
+            try:
+                if not collect_asns_for_country(code, name, manrs_members):
+                    failed_countries.append(code)
+            except Exception:
+                logger.exception("Erreur collecte pays %s", code)
+                failed_countries.append(code)
+                continue
+            time.sleep(1)
+
+        with get_connection() as conn:
+            finish_collection(conn, collection_id, failed_countries)
+    except Exception:
+        logger.exception("Collecte n°%d interrompue", collection_id)
+        with get_connection() as conn:
+            fail_collection(conn, collection_id)
+        raise
 
     elapsed = time.time() - start
     logger.info("=== Collecte terminée en %.1f minutes ===", elapsed / 60)
@@ -130,6 +161,8 @@ def run_full_collection():
 def main():
     logger.info("Démarrage du collecteur MANRS Observatory")
     logger.info("Intervalle de collecte : %dh", COLLECTION_INTERVAL_HOURS)
+
+    ensure_schema()
 
     run_full_collection()
 

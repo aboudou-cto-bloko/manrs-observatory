@@ -10,11 +10,22 @@ CREATE TABLE IF NOT EXISTS asn (
     is_manrs_member BOOLEAN DEFAULT FALSE,
     manrs_score SMALLINT DEFAULT 0 CHECK (manrs_score BETWEEN 0 AND 4),
     action_filtering BOOLEAN DEFAULT FALSE,
-    action_antispoofing BOOLEAN DEFAULT FALSE,
+    -- Ternaire : TRUE = testé et bloque, FALSE = testé et ne bloque pas, NULL = non testé
+    action_antispoofing BOOLEAN DEFAULT NULL,
     action_coordination BOOLEAN DEFAULT FALSE,
     action_validation BOOLEAN DEFAULT FALSE,
     last_updated TIMESTAMP DEFAULT NOW()
 );
+
+-- Migrations idempotentes (bases créées avant la version 1.1)
+ALTER TABLE asn ALTER COLUMN action_antispoofing DROP DEFAULT;
+ALTER TABLE asn ADD COLUMN IF NOT EXISTS actions_evaluated SMALLINT DEFAULT 4
+    CHECK (actions_evaluated BETWEEN 1 AND 4);
+-- Score ramené sur 4 : points obtenus / actions évaluées * 4
+ALTER TABLE asn ADD COLUMN IF NOT EXISTS manrs_score_normalized DECIMAL(3,2) DEFAULT 0;
+-- Objets IRR route/route6 trouvés (RIPE, RADB, AFRINIC)
+ALTER TABLE asn ADD COLUMN IF NOT EXISTS irr_route_objects INTEGER DEFAULT 0;
+ALTER TABLE asn ADD COLUMN IF NOT EXISTS irr_sources VARCHAR(100);
 
 CREATE INDEX IF NOT EXISTS idx_asn_country ON asn(country_code);
 CREATE INDEX IF NOT EXISTS idx_asn_number ON asn(asn_number);
@@ -62,3 +73,56 @@ INSERT INTO countries (country_code, country_name) VALUES
     ('SL', 'Sierra Leone'),
     ('TG', 'Togo')
 ON CONFLICT (country_code) DO NOTHING;
+
+
+-- ── Historique des collectes ──────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS collections (
+    id SERIAL PRIMARY KEY,
+    started_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    finished_at TIMESTAMP,
+    status VARCHAR(20) NOT NULL DEFAULT 'running'
+        CHECK (status IN ('running', 'completed', 'partial', 'failed')),
+    countries_failed TEXT,
+    total_asn INTEGER,
+    manrs_members INTEGER,
+    avg_manrs_score DECIMAL(3,2)
+);
+
+CREATE INDEX IF NOT EXISTS idx_collections_started ON collections(started_at DESC);
+
+-- Résultats agrégés par pays pour chaque collecte
+CREATE TABLE IF NOT EXISTS collection_country_stats (
+    collection_id INTEGER NOT NULL REFERENCES collections(id) ON DELETE CASCADE,
+    country_code CHAR(2) NOT NULL,
+    total_asn INTEGER NOT NULL,
+    manrs_members INTEGER NOT NULL,
+    avg_manrs_score DECIMAL(3,2) NOT NULL,   -- normalisé sur 4
+    roa_coverage_pct DECIMAL(5,2) NOT NULL,
+    filtering_count INTEGER NOT NULL,
+    antispoofing_pass INTEGER NOT NULL,
+    antispoofing_tested INTEGER NOT NULL,
+    coordination_count INTEGER NOT NULL,
+    validation_count INTEGER NOT NULL,
+    PRIMARY KEY (collection_id, country_code)
+);
+
+-- Résultats par ASN pour chaque collecte
+CREATE TABLE IF NOT EXISTS collection_asn_results (
+    collection_id INTEGER NOT NULL REFERENCES collections(id) ON DELETE CASCADE,
+    asn_number INTEGER NOT NULL,
+    country_code CHAR(2) NOT NULL,
+    is_manrs_member BOOLEAN NOT NULL,
+    action_filtering BOOLEAN,
+    action_antispoofing BOOLEAN,
+    action_coordination BOOLEAN,
+    action_validation BOOLEAN,
+    manrs_score SMALLINT NOT NULL,
+    actions_evaluated SMALLINT NOT NULL,
+    manrs_score_normalized DECIMAL(3,2) NOT NULL,
+    roa_coverage_pct DECIMAL(5,2) NOT NULL,
+    PRIMARY KEY (collection_id, asn_number)
+);
+
+CREATE INDEX IF NOT EXISTS idx_car_asn ON collection_asn_results(asn_number);
+CREATE INDEX IF NOT EXISTS idx_car_country ON collection_asn_results(country_code);

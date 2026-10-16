@@ -65,7 +65,7 @@ def get_stats():
         SELECT
             COUNT(*) AS total_asn,
             COUNT(*) FILTER (WHERE is_manrs_member) AS manrs_members,
-            ROUND(AVG(manrs_score)::numeric, 2) AS avg_manrs_score,
+            ROUND(AVG(manrs_score_normalized)::numeric, 2) AS avg_manrs_score,
             COALESCE(ROUND(
                 100.0 * SUM(p.valid) / NULLIF(SUM(p.total), 0), 2
             ), 0) AS roa_coverage_pct
@@ -107,6 +107,7 @@ def get_country(code: str):
 
     asns = _query("""
         SELECT a.asn_number, a.name, a.is_manrs_member, a.manrs_score,
+               a.actions_evaluated, a.manrs_score_normalized,
                a.action_filtering, a.action_antispoofing,
                a.action_coordination, a.action_validation,
                COALESCE(ROUND(
@@ -151,6 +152,13 @@ def get_asn(number: int):
         "country_code": asn["country_code"],
         "is_manrs_member": asn["is_manrs_member"],
         "manrs_score": asn["manrs_score"],
+        "actions_evaluated": asn["actions_evaluated"],
+        "manrs_score_normalized": asn["manrs_score_normalized"],
+        "irr": {
+            "route_objects": asn["irr_route_objects"],
+            "sources": asn["irr_sources"].split(",") if asn["irr_sources"] else [],
+        },
+        # Chaque action vaut true, false, ou null (non évaluée)
         "actions": {
             "filtering": asn["action_filtering"],
             "anti_spoofing": asn["action_antispoofing"],
@@ -182,3 +190,71 @@ def search_asn(q: str = Query(..., min_length=1)):
             (f"%{q.lower()}%",),
         )
     return results
+
+
+# ── Historique des collectes ──────────────────────────────────────────
+
+
+@app.get("/api/collections")
+def list_collections(limit: int = Query(50, ge=1, le=500)):
+    return _query("""
+        SELECT id, started_at, finished_at, status, countries_failed,
+               total_asn, manrs_members, avg_manrs_score
+        FROM collections
+        ORDER BY started_at DESC
+        LIMIT %s
+    """, (limit,))
+
+
+@app.get("/api/collections/{collection_id}")
+def get_collection(collection_id: int):
+    collection = _query_one(
+        "SELECT * FROM collections WHERE id = %s", (collection_id,)
+    )
+    if not collection:
+        raise HTTPException(404, f"Collecte {collection_id} introuvable")
+
+    countries = _query("""
+        SELECT * FROM collection_country_stats
+        WHERE collection_id = %s ORDER BY country_code
+    """, (collection_id,))
+    return {**collection, "countries": countries}
+
+
+@app.get("/api/collections/{collection_id}/asn")
+def get_collection_asns(collection_id: int, country: str | None = None):
+    sql = "SELECT * FROM collection_asn_results WHERE collection_id = %s"
+    params: tuple = (collection_id,)
+    if country:
+        sql += " AND country_code = %s"
+        params += (country.upper(),)
+    return _query(sql + " ORDER BY asn_number", params)
+
+
+@app.get("/api/countries/{code}/history")
+def get_country_history(code: str):
+    return _query("""
+        SELECT c.id AS collection_id, c.started_at, c.status, s.total_asn,
+               s.manrs_members, s.avg_manrs_score, s.roa_coverage_pct,
+               s.filtering_count, s.antispoofing_pass, s.antispoofing_tested,
+               s.coordination_count, s.validation_count
+        FROM collection_country_stats s
+        JOIN collections c ON c.id = s.collection_id
+        WHERE s.country_code = %s
+        ORDER BY c.started_at
+    """, (code.upper(),))
+
+
+@app.get("/api/asn/{number}/history")
+def get_asn_history(number: int):
+    return _query("""
+        SELECT c.id AS collection_id, c.started_at, r.is_manrs_member,
+               r.action_filtering, r.action_antispoofing,
+               r.action_coordination, r.action_validation,
+               r.manrs_score, r.actions_evaluated, r.manrs_score_normalized,
+               r.roa_coverage_pct
+        FROM collection_asn_results r
+        JOIN collections c ON c.id = r.collection_id
+        WHERE r.asn_number = %s
+        ORDER BY c.started_at
+    """, (number,))

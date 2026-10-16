@@ -260,3 +260,13 @@ L'article sur ROSE-T confirme que la vérification des 4 actions MANRS est un pr
 - [ ] Analyser les résultats et produire les constats
 - [ ] Dockeriser le frontend
 - [ ] Rédiger le mémoire
+
+---
+
+## Évolutions v1.1 — anti-spoofing ternaire, IRR, historique
+
+- **Anti-spoofing ternaire** : `action_antispoofing` vaut `TRUE` (testé, bloque), `FALSE` (testé, ne bloque pas) ou `NULL` (non testé par CAIDA Spoofer). Les actions `NULL` sont « non évaluées » : `manrs_score` = points obtenus, `actions_evaluated` = actions évaluées (1–4), `manrs_score_normalized` = points / évaluées × 4. Les moyennes (pays, global) utilisent le score normalisé. Logique dans `collector/scoring.py`.
+- **Filtering via IRR** : `fetch_irr_routes()` interroge en WHOIS (port 43) RIPE, RADB et AFRINIC (`-i origin AS<n>`) pour trouver des objets `route`/`route6`. Filtering = `irr_as_set` PeeringDB **ou** au moins un objet route trouvé. Un registre injoignable n'est pas compté comme « aucun objet ». Colonnes `irr_route_objects` et `irr_sources`.
+- **Historique** : tables `collections`, `collection_country_stats`, `collection_asn_results`, remplies en fin de collecte par un instantané de `asn`/`prefixes` (statut `completed`, `partial` si un pays a échoué, `failed`). Endpoints : `/api/collections`, `/api/collections/{id}`, `/api/collections/{id}/asn`, `/api/countries/{code}/history`, `/api/asn/{n}/history`.
+- **Migration** : `schema.sql` est idempotent et appliqué au démarrage du collecteur (`ensure_schema`). Les lignes `asn` antérieures gardent `action_antispoofing = FALSE` jusqu'à la prochaine collecte (impossible de savoir si elles étaient non testées).
+- **Tests** : `python -m unittest discover -s tests -t .` depuis `backend/`.

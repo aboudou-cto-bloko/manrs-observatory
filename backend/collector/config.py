@@ -32,3 +32,12 @@ RPKI_VALIDATOR_BASE = "https://rpki-validator.ripe.net/api/v1"
 
 API_DELAY_SECONDS = 0.5
 COLLECTION_INTERVAL_HOURS = 6
+
+# Registres IRR interrogés via WHOIS (port 43) pour les objets route/route6
+IRR_REGISTRIES = {
+    "RIPE": "whois.ripe.net",
+    "RADB": "whois.radb.net",
+    "AFRINIC": "whois.afrinic.net",
+}
+IRR_TIMEOUT_SECONDS = 15
+IRR_DELAY_SECONDS = 0.3

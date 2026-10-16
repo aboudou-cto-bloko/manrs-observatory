@@ -1,3 +1,5 @@
+import re
+import socket
 import time
 import logging
 
@@ -9,6 +11,9 @@ from .config import (
     RIPE_STAT_BASE,
     RPKI_VALIDATOR_BASE,
     API_DELAY_SECONDS,
+    IRR_REGISTRIES,
+    IRR_TIMEOUT_SECONDS,
+    IRR_DELAY_SECONDS,
 )
 
 logger = logging.getLogger(__name__)
@@ -110,7 +115,7 @@ def fetch_peeringdb_info(asn_number: int) -> dict:
 
     result = {
         "on_peeringdb": False,
-        "has_irr": False,
+        "has_irr": False,  # champ irr_as_set renseigné
         "has_policy": False,
     }
 
@@ -139,6 +144,62 @@ def fetch_abuse_contact(asn_number: int) -> bool:
     contacts = data.get("data", {}).get("abuse_contacts", [])
     rir_email = data.get("data", {}).get("authoritative_rir_abuse_contact_email", "")
     return bool(contacts) or bool(rir_email)
+
+
+# ── IRR (Filtering) ──────────────────────────────────────────────────
+
+_IRR_OBJECT_RE = re.compile(r"^(route6?):\s*(\S+)", re.IGNORECASE | re.MULTILINE)
+
+
+def _whois_query(host: str, query: str) -> str | None:
+    """Envoie une requête WHOIS brute. Retourne None en cas d'échec réseau."""
+    time.sleep(IRR_DELAY_SECONDS)
+    try:
+        with socket.create_connection((host, 43), timeout=IRR_TIMEOUT_SECONDS) as sock:
+            sock.settimeout(IRR_TIMEOUT_SECONDS)
+            sock.sendall(f"{query}\r\n".encode())
+            chunks = []
+            while True:
+                data = sock.recv(8192)
+                if not data:
+                    break
+                chunks.append(data)
+        return b"".join(chunks).decode("utf-8", errors="replace")
+    except OSError as e:
+        logger.warning("WHOIS %s échoué (%s) : %s", host, query, e)
+        return None
+
+
+def parse_irr_routes(text: str) -> set[str]:
+    """Extrait les préfixes des objets route/route6 d'une réponse WHOIS RPSL."""
+    return {m.group(2) for m in _IRR_OBJECT_RE.finditer(text)}
+
+
+def fetch_irr_routes(asn_number: int) -> dict:
+    """Cherche les objets route/route6 dont l'origine est l'ASN, dans chaque registre IRR.
+
+    Retourne le nombre d'objets, les registres où ils existent et ceux qui
+    n'ont pas répondu (`unreachable`). Un registre injoignable n'est pas
+    assimilé à une absence d'objets.
+    """
+    found: dict[str, int] = {}
+    unreachable: list[str] = []
+
+    for name, host in IRR_REGISTRIES.items():
+        text = _whois_query(host, f"-i origin AS{asn_number}")
+        if text is None:
+            unreachable.append(name)
+            continue
+        routes = parse_irr_routes(text)
+        if routes:
+            found[name] = len(routes)
+
+    return {
+        "route_objects": sum(found.values()),
+        "sources": sorted(found),
+        "unreachable": unreachable,
+        "queried": len(IRR_REGISTRIES) - len(unreachable),
+    }
 
 
 # ── CAIDA Spoofer (Anti-spoofing) ────────────────────────────────────
@@ -188,7 +249,8 @@ def _load_spoofer_data() -> dict[int, float]:
 
 def check_antispoofing(asn_number: int) -> bool | None:
     """Vérifie si l'ASN bloque le spoofing selon CAIDA Spoofer.
-    Retourne True si >50% blocking, False si testé mais pas blocking, None si pas de données."""
+    Retourne True si testé et bloque (>50%), False si testé et ne bloque pas,
+    None si non testé (ou si Spoofer est injoignable)."""
     data = _load_spoofer_data()
     if asn_number not in data:
         return None
