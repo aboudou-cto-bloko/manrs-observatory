@@ -129,3 +129,16 @@ CREATE TABLE IF NOT EXISTS collection_asn_results (
 
 CREATE INDEX IF NOT EXISTS idx_car_asn ON collection_asn_results(asn_number);
 CREATE INDEX IF NOT EXISTS idx_car_country ON collection_asn_results(country_code);
+
+-- Lien de l'historique vers l'ASN : un ASN qui a un historique ne peut pas être supprimé
+-- (RESTRICT, contrairement aux préfixes supprimés en cascade). Ajouté de façon idempotente.
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM pg_constraint WHERE conname = 'collection_asn_results_asn_fkey'
+    ) THEN
+        ALTER TABLE collection_asn_results
+            ADD CONSTRAINT collection_asn_results_asn_fkey
+            FOREIGN KEY (asn_number) REFERENCES asn(asn_number) ON DELETE RESTRICT;
+    END IF;
+END $$;
