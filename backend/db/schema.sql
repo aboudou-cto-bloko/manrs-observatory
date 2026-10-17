@@ -23,6 +23,9 @@ ALTER TABLE asn ADD COLUMN IF NOT EXISTS actions_evaluated SMALLINT DEFAULT 4
     CHECK (actions_evaluated BETWEEN 1 AND 4);
 -- Score ramené sur 4 : points obtenus / actions évaluées * 4
 ALTER TABLE asn ADD COLUMN IF NOT EXISTS manrs_score_normalized DECIMAL(3,2) DEFAULT 0;
+-- Reprise des lignes enregistrées par la version 1.0 : 4 actions évaluées, donc score normalisé = score
+UPDATE asn SET manrs_score_normalized = manrs_score
+WHERE manrs_score_normalized = 0 AND manrs_score > 0 AND actions_evaluated = 4;
 -- Objets IRR route/route6 trouvés (RIPE, RADB, AFRINIC)
 ALTER TABLE asn ADD COLUMN IF NOT EXISTS irr_route_objects INTEGER DEFAULT 0;
 ALTER TABLE asn ADD COLUMN IF NOT EXISTS irr_sources VARCHAR(100);
